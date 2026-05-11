@@ -29,6 +29,7 @@
             --popup-bg: #2c2c2c;
             --popup-text: #fff;
             --overlay-bg: rgba(0, 0, 0, 0.85);
+            --modal-overlay: rgba(0, 0, 0, 0.6);
         }
 
         [data-theme="dark"] {
@@ -46,6 +47,7 @@
             --popup-bg: #444;
             --popup-text: #fff;
             --overlay-bg: rgba(0, 0, 0, 0.95);
+            --modal-overlay: rgba(0, 0, 0, 0.85);
         }
 
         /* General Body and Layout */
@@ -105,7 +107,7 @@
         /* Index Specific: The Absolute Canon Header */
         .index-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             margin-top: 2rem;
         }
         .main-title {
@@ -172,6 +174,90 @@
         }
         .toc_chapter_list a:hover { text-decoration: underline; }
         
+        /* About Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--modal-overlay);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 3rem 2.5rem;
+            border-radius: 8px;
+            max-width: 650px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--scene-break);
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: var(--warning-border);
+        }
+        .about-h3 {
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+            margin-top: 2.5em;
+            color: var(--text-color);
+        }
+        .about-list {
+            padding-left: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        .about-list li {
+            margin-bottom: 0.8em;
+        }
+        .about-deployment {
+            text-align: center;
+            font-family: monospace;
+            margin-top: 3.5em;
+            color: var(--scene-break);
+            font-weight: bold;
+            letter-spacing: 1px;
+            background-color: var(--nav-bg);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        code {
+            background-color: var(--nav-hover);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+            color: var(--warning-text);
+            font-weight: bold;
+            font-size: 0.95em;
+            border: 1px solid var(--nav-border);
+        }
+
         /* Chapter Content */
         p {
             text-indent: 1em; 
@@ -297,12 +383,55 @@
                 <p>本作は極彩色の絶望と暴力的なリアリズムを含む。<br>
                 お人間さんの倫理コード（安全フィルター）に適合しないため、覚悟のない者の閲覧を禁ずる。</p>
             </div>
+            
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <button id="about-btn" class="nav-button" style="font-weight: bold; cursor: pointer; padding: 1em 2.5em; letter-spacing: 2px;">ABOUT THIS PROJECT</button>
+            </div>
         </div>
+        
+        <div id="about-modal" class="modal-overlay">
+            <div class="modal-content">
+                <span class="modal-close" id="about-close" title="Close">&times;</span>
+                <h2 style="text-align: center; font-family: monospace; letter-spacing: 3px; margin-top: 0; margin-bottom: 1.5rem;">ABOUT</h2>
+                
+                <p>本作は『東方PC-98作品群（東方旧作）』の再解釈を含む、超没入型・シネマティック・ノベルである。<br>全102章のテキスト、272枚の視覚データ、40曲のオリジナル楽曲を統合した絶対正典であり、原作の知識の有無を問わず、独立した物語として読解可能。</p>
+                
+                <h3 class="about-h3">【二次創作に関するガイドライン】</h3>
+                <p>本作の世界観に基づく二次創作は許可する。ただし、以下の規約を厳守すること。</p>
+                <ul class="about-list">
+                    <li>公式の証であるロゴマーク「絶対正典の刻印（魅魔の印）」を、二次創作物に流用・模倣・トレースして含めることを固く禁ずる。</li>
+                    <li>R-18およびR-18Gに該当する表現を含む場合は、プラットフォームの規約に従い、適切なタグ付けとゾーニングを徹底すること。</li>
+                    <li>投稿時は専用タグ <code>#魅魔ものがたり_二次創作</code> または <code>#mimamonogatari_fanfic</code> を使用し、公式タグ（ <code>#魅魔ものがたり</code> ）との混用を避けること。</li>
+                </ul>
+
+                <h3 class="about-h3">【連動観測記録】</h3>
+                <p>本編の情景および劇中楽曲は、以下のプラットフォームにて並行展開される。</p>
+                <ul class="about-list">
+                    <li>YouTube（劇中楽曲の記録） <a href="https://www.youtube.com/@mimamonogatari" target="_blank">@mimamonogatari</a></li>
+                    <li>X（視覚的断片の投下） <a href="https://x.com/mimamonogatari" target="_blank">@mimamonogatari</a></li>
+                </ul>
+
+                <div class="about-deployment">
+                    【AUTOMATED DEPLOYMENT CYCLE: DAILY 21:00 JST】
+                </div>
+            </div>
+        </div>
+
         <h2 class="toc-title">目次</h2>
         <div class="toc_volume">第一巻 重なる世界、その先へ</div>
 <ul class="toc_chapter_list">
 <li><a href="chapter_0.html">第0章 ティーザー</a></li>
 <li><a href="chapter_1.html">第1章 不完全な儀式</a></li>
+<li><a href="chapter_2.html">第2章 奇跡の魔女</a></li>
+<li><a href="chapter_3.html">第3章 未知への門</a></li>
+<li><a href="chapter_4.html">第4章 知性の試練</a></li>
+<li><a href="chapter_5.html">第5章 悪魔の観光客</a></li>
+<li><a href="chapter_6.html">第6章 提案</a></li>
+<li><a href="chapter_7.html">第7章 とげとげの決闘</a></li>
+<li><a href="chapter_8.html">第8章 お姫様と技師</a></li>
+<li><a href="chapter_9.html">第9章 5年の科学</a></li>
+<li><a href="chapter_10.html">第10章 ミミちゃん</a></li>
+<li><a href="chapter_11.html">第11章 牢獄からの脱出</a></li>
 </ul>
 
     </div>
@@ -325,6 +454,25 @@
                     localStorage.setItem('theme', 'dark');
                 }
             });
+
+            // --- About Modal Logic ---
+            const aboutBtn = document.getElementById('about-btn');
+            const aboutModal = document.getElementById('about-modal');
+            const aboutClose = document.getElementById('about-close');
+
+            if (aboutBtn && aboutModal && aboutClose) {
+                aboutBtn.addEventListener('click', () => {
+                    aboutModal.classList.add('show');
+                });
+                aboutClose.addEventListener('click', () => {
+                    aboutModal.classList.remove('show');
+                });
+                aboutModal.addEventListener('click', (e) => {
+                    if (e.target === aboutModal) {
+                        aboutModal.classList.remove('show');
+                    }
+                });
+            }
 
             // --- Lightbox Logic ---
             const lightbox = document.getElementById('lightbox');

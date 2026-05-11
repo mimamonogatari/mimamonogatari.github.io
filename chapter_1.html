@@ -29,6 +29,7 @@
             --popup-bg: #2c2c2c;
             --popup-text: #fff;
             --overlay-bg: rgba(0, 0, 0, 0.85);
+            --modal-overlay: rgba(0, 0, 0, 0.6);
         }
 
         [data-theme="dark"] {
@@ -46,6 +47,7 @@
             --popup-bg: #444;
             --popup-text: #fff;
             --overlay-bg: rgba(0, 0, 0, 0.95);
+            --modal-overlay: rgba(0, 0, 0, 0.85);
         }
 
         /* General Body and Layout */
@@ -105,7 +107,7 @@
         /* Index Specific: The Absolute Canon Header */
         .index-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             margin-top: 2rem;
         }
         .main-title {
@@ -172,6 +174,90 @@
         }
         .toc_chapter_list a:hover { text-decoration: underline; }
         
+        /* About Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--modal-overlay);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 3rem 2.5rem;
+            border-radius: 8px;
+            max-width: 650px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--scene-break);
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: var(--warning-border);
+        }
+        .about-h3 {
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+            margin-top: 2.5em;
+            color: var(--text-color);
+        }
+        .about-list {
+            padding-left: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        .about-list li {
+            margin-bottom: 0.8em;
+        }
+        .about-deployment {
+            text-align: center;
+            font-family: monospace;
+            margin-top: 3.5em;
+            color: var(--scene-break);
+            font-weight: bold;
+            letter-spacing: 1px;
+            background-color: var(--nav-bg);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        code {
+            background-color: var(--nav-hover);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+            color: var(--warning-text);
+            font-weight: bold;
+            font-size: 0.95em;
+            border: 1px solid var(--nav-border);
+        }
+
         /* Chapter Content */
         p {
             text-indent: 1em; 
@@ -286,7 +372,7 @@
     <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
     
     <div class="container">
-        <div class="navigation-buttons navigation-top"><a href="chapter_0.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a></div><h1>第1章 不完全な儀式</h1>
+        <div class="navigation-buttons navigation-top"><a href="chapter_0.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_2.html" class="nav-button">次の章へ</a></div><h1>第1章 不完全な儀式</h1>
 <img src="images/1-1.jpg" alt="Image 1-1" class="novel-image">
 <p>波が緩やかに岩肌を撫でる。雄大な岩壁は、過ぎ去った栄光の残骸のようにそびえ立っていた。狭苦しい路地では老朽化した車が轟音を立てて走り回り、排気ガスの不快な熱気が満ちている。交差点を行き交う人々は皆、せわしない。かつて世界を席巻したアレクサンドロス大王<span class="annotation-ref">[1]<span class="annotation-popup">アレクサンドロス大王：古代ギリシャのマケドニア王国の王</span></span>が歩いたであろうこの石畳も、今や誰も気に留めることはなく、ただすり減った道の上を慌ただしい足音が通り過ぎていくだけだ。</p>
 <p>（溜め息。世界はこんなはずじゃなかった。夏の終わりが近いというのに、太陽の照り返しは容赦なく肌を刺す）</p>
@@ -336,7 +422,7 @@
 <p>魔法陣が輝きを失い、かろうじて残っていたろうそくの炎も完全に消え去る。闇に支配されていた部屋に、朝の淡い光がゆっくりと差し込んできた。フレデリカはカーテンに近づいて静かにそれを開け放ち、空いている椅子に優雅に腰を下ろした。</p>
 <p>「さあ、白状なさい。なぜあなたに、これほど強力な後援者が必要だったの？ 何を欲しがっているのかしら？」</p>
 <p>「私が欲しいもの？ ずっと求めていたもの……？ ええ、単純なことです。私はずっと……」</p>
-<div class="navigation-buttons navigation-bottom"><a href="chapter_0.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a></div>
+<div class="navigation-buttons navigation-bottom"><a href="chapter_0.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_2.html" class="nav-button">次の章へ</a></div>
     </div>
     
     <div id="lightbox" class="lightbox-overlay" style="display: none;">
@@ -357,6 +443,25 @@
                     localStorage.setItem('theme', 'dark');
                 }
             });
+
+            // --- About Modal Logic ---
+            const aboutBtn = document.getElementById('about-btn');
+            const aboutModal = document.getElementById('about-modal');
+            const aboutClose = document.getElementById('about-close');
+
+            if (aboutBtn && aboutModal && aboutClose) {
+                aboutBtn.addEventListener('click', () => {
+                    aboutModal.classList.add('show');
+                });
+                aboutClose.addEventListener('click', () => {
+                    aboutModal.classList.remove('show');
+                });
+                aboutModal.addEventListener('click', (e) => {
+                    if (e.target === aboutModal) {
+                        aboutModal.classList.remove('show');
+                    }
+                });
+            }
 
             // --- Lightbox Logic ---
             const lightbox = document.getElementById('lightbox');

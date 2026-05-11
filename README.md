@@ -12,6 +12,4 @@
 本編の情景および劇中楽曲は、以下のプラットフォームにて並行展開される。 
 ■ YouTube（劇中楽曲の記録） https://www.youtube.com/@mimamonogatari
 ■ X（視覚的断片の投下） https://x.com/mimamonogatari
-■ Google Drive（視覚データの全解像度アーカイブ / 4K-8K） https://drive.google.com/drive/folders/1Bh2I7IPdoaqh4ipvcmx1mKwjKB1XpgjW?usp=sharing
-
 【AUTOMATED DEPLOYMENT CYCLE: DAILY 21:00 JST】

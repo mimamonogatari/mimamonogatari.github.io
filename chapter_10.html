@@ -282,6 +282,27 @@
             color: var(--scene-break);
             text-indent: 0;
         }
+
+        /* Responsive YouTube Player */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 2em auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background-color: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
         
         /* Annotation Popups */
         .annotation-ref {
@@ -432,6 +453,7 @@
 <p>深呼吸をすると、幻想郷の空気に満ちた濃密な魔力が、肺腑を満たしていくのを感じた。故郷では微弱だった力が、ここでは明確な脈動として応えてくれる。<br>（これなら、十分に行使できるわ）</p>
 <p>「ええ、一応は使えます。あの三人目の囚人はどうしますか？」</p>
 <p>「私は里香を取り戻せればそれでいいわ。三人目をどうするかは、メデアさんに任せる。ただ、本当に凶悪な犯罪者かもしれないことだけは覚えておいて。小兎姫のデタラメな逮捕劇でも、稀に本物を引き当てることがあるから。……さあ、どうする？」</p>
+<p>[SYSTEM ALERT: 音響兵器デプロイ完了]<br>▼ 本章の絶望を1000%味わうための専用聴覚データ ▼<br>■ YouTube：『Logic inside the Ruin』</p><div class="video-container"><iframe src="https://www.youtube.com/embed/eHwiy6HjvPM" allow="autoplay; encrypted-media" allowfullscreen></iframe></div><div class="video-container"><iframe src="https://www.youtube.com/embed/LepqB1WMCm0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
 <div class="navigation-buttons navigation-bottom"><a href="chapter_9.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_11.html" class="nav-button">次の章へ</a></div>
     </div>
     

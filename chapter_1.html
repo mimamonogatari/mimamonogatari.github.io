@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第1章 不完全な儀式</title>
+    <style>
+        /* General Body and Layout */
+        body {
+            font-family: 'Helvetica Neue', 'Arial', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            background-color: #fdfdfd;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 40em;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        h1 { 
+            text-align: center; 
+            line-height: 1.3;
+            margin: 1.5em 0; 
+        }
+        .toc_volume {
+            margin-top: 2.5em;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.5em;
+        }
+        .toc_chapter_list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc_chapter_list li { margin: 0.75em 0; }
+        .toc_chapter_list a {
+            text-decoration: none;
+            color: #0056b3;
+            font-size: 1.1em;
+        }
+        .toc_chapter_list a:hover { text-decoration: underline; }
+        p {
+            text-indent: 1em; 
+            margin-top: 0;
+            margin-bottom: 1em;
+            font-size: 1.1em;
+        }
+        img.novel-image {
+            display: block;
+            max-width: 100%;
+            margin: 2.5rem auto;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        img.novel-image:hover { transform: scale(1.02); }
+        .scene-break {
+            text-align: center;
+            margin: 3em auto;
+            letter-spacing: 0.5em;
+            color: #777;
+            text-indent: 0;
+        }
+        .annotation-ref {
+            position: relative;
+            cursor: pointer;
+            color: #007bff;
+            text-decoration: none;
+            vertical-align: super;
+            font-size: 0.8em;
+            line-height: 0;
+        }
+        .annotation-ref .annotation-popup {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s;
+            position: absolute;
+            bottom: 1.6em;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            background-color: #2c2c2c;
+            color: #fff;
+            border-radius: 5px;
+            padding: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 100;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-indent: 0;
+        }
+        .annotation-ref:hover .annotation-popup {
+            visibility: visible;
+            opacity: 1;
+        }
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            overflow: hidden;
+        }
+        .lightbox-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: 90vw;
+            max-height: 90vh;
+            cursor: grab;
+            transform-origin: 0 0;
+        }
+        .navigation-buttons {
+            text-align: center;
+            padding: 0;
+        }
+        .navigation-bottom {
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid #eee;
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 0.8em 1.5em;
+            margin: 0.2em 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+            color: #333;
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .nav-button:hover {
+            background-color: #e9e9e9;
+            border-color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation-buttons navigation-top"><a href="chapter_0.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a></div><h1>第1章 不完全な儀式</h1>
+<img src="images/1-1.jpg" alt="Image 1-1" class="novel-image">
+<p>波が緩やかに岩肌を撫でる。雄大な岩壁は、過ぎ去った栄光の残骸のようにそびえ立っていた。狭苦しい路地では老朽化した車が轟音を立てて走り回り、排気ガスの不快な熱気が満ちている。交差点を行き交う人々は皆、せわしない。かつて世界を席巻したアレクサンドロス大王<span class="annotation-ref">[1]<span class="annotation-popup">アレクサンドロス大王：古代ギリシャのマケドニア王国の王</span></span>が歩いたであろうこの石畳も、今や誰も気に留めることはなく、ただすり減った道の上を慌ただしい足音が通り過ぎていくだけだ。</p>
+<p>（溜め息。世界はこんなはずじゃなかった。夏の終わりが近いというのに、太陽の照り返しは容赦なく肌を刺す）</p>
+<p>（土産物屋か……。すっかり俗化してしまった。昔ながらの店は姿を消し、ろうそく一本手に入れるのにも、こんなくだらない店に入るしかないなんて）</p>
+<p>同時に店に足を踏み入れたのは、休暇中のカップルだ。心からの安らぎなど、この場所にはもうない。あるのは騒がしい観光客を乗せたバスと、表面的なガイドツアーだけだ。</p>
+<p>「いらっしゃいませー！ 観光客の方、何かお探しですか？」</p>
+<p>（マニュアル通りの薄っぺらい対応。地元民にまで同じセリフを吐くとはね）</p>
+<p>カップルはすぐさま棚に吸い寄せられ、貝殻や船の模型、安っぽいお守りなど、ありとあらゆる土産物に目を輝かせている。</p>
+<p>「ろうそくはありますか？ 黒いろうそく」</p>
+<p>「ああ、どこかにあったはずです……」</p>
+<p>（よかった。もう時間がない。早く始めないと）</p>
+<p>愛想のいい店主が持ってきたのは、奇妙なほど細長い黒いろうそくだった。表面には見慣れない文字がプリントされている。</p>
+<p>「もっと普通の……文字が書いてないろうそくはありませんか？」</p>
+<p>「何を仰いますか、お客様！ これはただのろうそくじゃありませんよ！ 最高級品！ 日本製です！」</p>
+<p>（胡散臭い店主だ……。いや、今は手段を選んでいる余裕はない）</p>
+<p>「じゃあ、10本ください」</p>
+<p>（本当は7本で十分だが、正確な数を口にして無用な勘繰りをされるのは御免だ）</p>
+<p>家は、神に見捨てられたような町外れにある。近くの古代遺跡が、かつての栄光を嘲笑うかのように佇んでいる。</p>
+<p>だが、感傷に浸る暇はない。星々の配列は告げている。今日こそが、その日だと。</p>
+<img src="images/1-2.jpg" alt="Image 1-2" class="novel-image">
+<p>閉め切った暗い部屋。厚手のカーテンの隙間からわずかに漏れる陽光が、埃の舞う軌跡だけを空中に描いている。棚にはフラスコや古びた本がぎっしりと詰め込まれ、雑然としている。</p>
+<p>（このカーペット、もう捨てようかしら。どうせ床しか使わないし）</p>
+<p>チョークで床に円を描き、その内側に幾つもの記号を書き連ねていく。黒いろうそくを円周に沿って配置する。悪くない出来だ。</p>
+<p>祖父母から受け継いだローブを羽織る。</p>
+<p>（召喚相手の前では、それなりに見える姿でなくては。こちらの言葉を理解する存在ならいいけれど。最悪、あの拙いアラム語<span class="annotation-ref">[2]<span class="annotation-popup">アラム語：紀元前1000年ごろから話されていた、セム語派に属する古代の言語</span></span>を引っ張り出すしかないわね……。まあ、やるだけやってみるか）</p>
+<p>マッチを擦り、最初のろうそくに火を灯す。微かな硫黄の匂いが部屋に立ち込めた。</p>
+<p>（むしろ、いい兆候かもしれない。さあ、始めよう）</p>
+<p>すべてのろうそくに均一な炎が灯ったことを確認し、静寂の部屋に声を響かせる。</p>
+<p>「おお、我らが最後の主よ！<br>我は汝に従わず。<br>されど汝の恐るべき力に敬意を表し、<br>頭を垂れん！」</p>
+<p>ろうそくの炎が突如として轟々と燃え上がり、部屋が深い闇に沈み込む。</p>
+<p>「我を守護したまえ、主よ。<br>天と地と冥府の力を以て」</p>
+<p>突然、ろうそくの炎の一つが萎縮し、ほとんど消えかかる。側面にプリントされた漢字らしき模様が、不気味な光を放ち始めた。</p>
+<p>（しまった……。あの土産物屋のろうそくなんて、買うべきじゃなかった……）</p>
+<p>最初の灯りが落ちたのを皮切りに、残りの炎も次々と闇に呑まれていく。完全な暗闇が部屋を支配した瞬間、焼け付くような息苦しさが喉元を締め上げた。空気が重くのしかかり、呼吸ができない。</p>
+<p>しかし、魔法陣の中心から青白い光が脈動し始め、奇妙な影を空間に投げかけた。光は弱々しいものの、粘り気のある闇を切り裂き、不気味な輪郭を浮かび上がらせる。影はどす黒くうねる波間を漂う小舟のように、こちらへ向かってゆっくりと這い寄ってくる。心臓が早鐘を打ち、息が詰まる。</p>
+<p>だが、その影はチョークで描かれた円の境界でピタリと停止した。魔法陣が一段と強い青白い光を放つ。不完全な儀式でありながら、回路は繋がったのだ。円の真上に、白っぽい人影が朧げに浮かび上がる。</p>
+<p>「やれやれ、誰がこんなやり方をするの？」</p>
+<p>底抜けに退屈そうな、冷ややかな声が響いた。</p>
+<p>「……？」</p>
+<p>「粗末な道具に、陳腐な詩……。あなたには才能が欠けているみたいね。私の知っているある詩人を思い出すわ」</p>
+<p>冷ややかな声とともに、薄紫色の瞳がこちらを射抜いた。見下ろしてくるその存在が身を揺らすたび、深い紫色の長い髪が揺れ、首元の青いリボンが微かに影を落とす。およそ伝承に聞く古代の悪魔とは結びつかない、仕立ての良さそうな白と黒のドレスの衣擦れの音が、静寂の部屋に響いた。</p>
+<img src="images/1-3.jpg" alt="Image 1-3" class="novel-image">
+<p>「ようこそ、闇の女主人。私はアレクサンドロスだ。君の名は？」</p>
+<p>（いつものことだ。悪魔相手には、どれだけ異常な事態でも毅然とした態度を崩してはならない）</p>
+<p>「まず、あなたはアレクサンドロスじゃないわね。私を騙そうなんて思わないこと」。酷薄な声が、安い虚勢をあっさりと切り捨てる。「でも、認めるところは認めましょう。あなたはこの強力な回路を開くことができた。そうでなければ、私はここに来られなかったのだから。私の名前はフレデリカ・ベルンカステル。奇跡の魔女よ」</p>
+<p>「私のつまらない嘘、お許しください。悪魔というものは召喚者をあまり理解しないものですが……あなたは例外のようですね」</p>
+<p>魔法陣が輝きを失い、かろうじて残っていたろうそくの炎も完全に消え去る。闇に支配されていた部屋に、朝の淡い光がゆっくりと差し込んできた。フレデリカはカーテンに近づいて静かにそれを開け放ち、空いている椅子に優雅に腰を下ろした。</p>
+<p>「さあ、白状なさい。なぜあなたに、これほど強力な後援者が必要だったの？ 何を欲しがっているのかしら？」</p>
+<p>「私が欲しいもの？ ずっと求めていたもの……？ ええ、単純なことです。私はずっと……」</p>
+<div class="navigation-buttons navigation-bottom"><a href="chapter_0.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a></div>
+    </div>
+    
+    <div id="lightbox" class="lightbox-overlay" style="display: none;">
+        <img id="lightbox-img" class="lightbox-image">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox) return;
+            
+            const lightboxImg = document.getElementById('lightbox-img');
+            let isDragging = false, startX, startY;
+            let translateX = 0, translateY = 0, currentScale = 1;
+
+            function updateImageTransform() {
+                lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+            }
+            
+            function resetImageTransform(x = 0, y = 0) {
+                currentScale = 1;
+                translateX = x;
+                translateY = y;
+                updateImageTransform();
+            }
+
+            lightboxImg.onload = () => {
+                const imgWidth = lightboxImg.offsetWidth;
+                const imgHeight = lightboxImg.offsetHeight;
+                const initialX = (window.innerWidth - imgWidth) / 2;
+                const initialY = (window.innerHeight - imgHeight) / 2;
+                resetImageTransform(initialX, initialY);
+            };
+
+            document.querySelectorAll('.novel-image').forEach(image => {
+                image.addEventListener('click', e => {
+                    e.stopPropagation();
+                    lightboxImg.src = image.src;
+                    lightbox.style.display = 'block';
+                });
+            });
+
+            lightbox.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+            });
+
+            lightboxImg.addEventListener('click', e => e.stopPropagation());
+
+            lightboxImg.addEventListener('wheel', e => {
+                e.preventDefault();
+                const scaleAmount = 0.1;
+                const scaleDirection = e.deltaY > 0 ? -1 : 1;
+                const newScale = Math.max(0.5, currentScale + scaleAmount * scaleDirection);
+                translateX = e.clientX - (e.clientX - translateX) * (newScale / currentScale);
+                translateY = e.clientY - (e.clientY - translateY) * (newScale / currentScale);
+                currentScale = newScale;
+                updateImageTransform();
+            });
+            
+            lightboxImg.addEventListener('mousedown', e => {
+                e.preventDefault();
+                isDragging = true;
+                startX = e.pageX - translateX;
+                startY = e.pageY - translateY;
+                lightboxImg.style.cursor = 'grabbing';
+            });
+
+            window.addEventListener('mousemove', e => {
+                if (isDragging) {
+                    translateX = e.pageX - startX;
+                    translateY = e.pageY - startY;
+                    updateImageTransform();
+                }
+            });
+
+            window.addEventListener('mouseup', () => {
+                if(isDragging) {
+                    isDragging = false;
+                    lightboxImg.style.cursor = 'grab';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

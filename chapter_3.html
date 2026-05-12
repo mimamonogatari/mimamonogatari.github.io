@@ -397,13 +397,62 @@
             background-color: var(--nav-hover);
             border-color: var(--scene-break);
         }
+
+        /* --- LOCK SCREEN SPECIFIC STYLES --- */
+        .lock-screen {
+            text-align: center;
+            margin: 5rem auto;
+            padding: 4rem 2rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .lock-warning {
+            color: var(--warning-border);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+        }
+        .lock-message {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--warning-text);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        .countdown {
+            font-size: 2.8rem;
+            font-family: monospace;
+            color: var(--warning-border);
+            letter-spacing: 4px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(204,0,0,0.3);
+        }
+        .locked-chapter {
+            color: var(--scene-break) !important;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        .locked-chapter:hover {
+            color: var(--warning-border) !important;
+            text-decoration: none !important;
+        }
     </style>
 </head>
 <body>
     <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
     
     <div class="container">
-        <div class="navigation-buttons navigation-top"><a href="chapter_2.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_4.html" class="nav-button">次の章へ</a></div><h1>第3章 未知への門</h1>
+        <div class="navigation-buttons navigation-top"><a href="chapter_2.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_4.html" class="nav-button">次の章へ</a></div>
+                <div id="lock-screen" class="lock-screen" style="display: none;">
+                    <div class="lock-warning">【SYSTEM ALERT: ACCESS DENIED】</div>
+                    <div class="lock-message">指定された認知データは現在封印されています。<br>物理次元の解禁時刻まで待機してください。</div>
+                    <div class="countdown" id="countdown-timer">T-MINUS --:--:--</div>
+                </div>
+                <div id="chapter-content"><h1>第3章 未知への門</h1>
 <p>「門を選びます。そして、この魔導書だけは手放せません。一族が代々受け継いできた、知識の結晶ですから」</p>
 <p>アメジストの瞳が細められ、フレデリカは面白そうに口角を上げた。<br>「無鉄砲なのかしら。それとも、覚悟の上で茨の道を選ぼうとしているの？」</p>
 <p>空になったマグカップをソーサーに置き、首を傾げる。<br>「どういう意味でしょうか」</p>
@@ -455,7 +504,7 @@
 <p>シンギョクの背後で、青い光が一層強く輝きを増した。記号で覆われた暗い輪郭の奥、鏡のように滑らかなポータルの表面が波打っている。</p>
 <p>（膨大な魔力の源は、間違いなくあの門の向こう側だわ。周囲の空間にも魔力が渦巻いているけれど、この不安定な洞窟の中で儀式を行うのはリスクが高すぎる。……だとすれば、あの門を通るしかない）</p>
 <p>覚悟を決め、真っ直ぐに男を見据える。<br>「では、私は……」</p>
-<div class="navigation-buttons navigation-bottom"><a href="chapter_2.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_4.html" class="nav-button">次の章へ</a></div>
+</div><div class="navigation-buttons navigation-bottom"><a href="chapter_2.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_4.html" class="nav-button">次の章へ</a></div>
     </div>
     
     <div id="lightbox" class="lightbox-overlay" style="display: none;">
@@ -572,5 +621,51 @@
             });
         });
     </script>
+    
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const isPublishEnabled = true;
+        const pubTime = 1777809600000;
+
+        if (isPublishEnabled && pubTime > Date.now()) {
+            const contentDiv = document.getElementById('chapter-content');
+            const lockScreen = document.getElementById('lock-screen');
+            const timerEl = document.getElementById('countdown-timer');
+            
+            contentDiv.style.display = 'none';
+            lockScreen.style.display = 'block';
+            
+            const updateTimer = () => {
+                const diff = pubTime - Date.now();
+                if (diff <= 0) {
+                    contentDiv.style.display = 'block';
+                    lockScreen.style.display = 'none';
+                    return true; 
+                }
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                let timeStr = 'T-MINUS ';
+                if (d > 0) timeStr += d + 'D ';
+                timeStr += h.toString().padStart(2, '0') + ':' + 
+                           m.toString().padStart(2, '0') + ':' + 
+                           s.toString().padStart(2, '0');
+                timerEl.innerText = timeStr;
+                return false;
+            };
+            
+            if (!updateTimer()) {
+                const interval = setInterval(() => {
+                    if(updateTimer()) clearInterval(interval);
+                }, 1000);
+            }
+        }
+    });
+</script>
+
+    
 </body>
 </html>

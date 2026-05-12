@@ -397,6 +397,49 @@
             background-color: var(--nav-hover);
             border-color: var(--scene-break);
         }
+
+        /* --- LOCK SCREEN SPECIFIC STYLES --- */
+        .lock-screen {
+            text-align: center;
+            margin: 5rem auto;
+            padding: 4rem 2rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .lock-warning {
+            color: var(--warning-border);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+        }
+        .lock-message {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--warning-text);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        .countdown {
+            font-size: 2.8rem;
+            font-family: monospace;
+            color: var(--warning-border);
+            letter-spacing: 4px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(204,0,0,0.3);
+        }
+        .locked-chapter {
+            color: var(--scene-break) !important;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        .locked-chapter:hover {
+            color: var(--warning-border) !important;
+            text-decoration: none !important;
+        }
     </style>
 </head>
 <body>
@@ -451,18 +494,19 @@
         <h2 class="toc-title">目次</h2>
         <div class="toc_volume">第一巻 重なる世界、その先へ</div>
 <ul class="toc_chapter_list">
-<li><a href="chapter_0.html">第0章 ティーザー</a></li>
-<li><a href="chapter_1.html">第1章 不完全な儀式</a></li>
-<li><a href="chapter_2.html">第2章 奇跡の魔女</a></li>
-<li><a href="chapter_3.html">第3章 未知への門</a></li>
-<li><a href="chapter_4.html">第4章 知性の試練</a></li>
-<li><a href="chapter_5.html">第5章 悪魔の観光客</a></li>
-<li><a href="chapter_6.html">第6章 提案</a></li>
-<li><a href="chapter_7.html">第7章 とげとげの決闘</a></li>
-<li><a href="chapter_8.html">第8章 お姫様と技師</a></li>
-<li><a href="chapter_9.html">第9章 5年の科学</a></li>
-<li><a href="chapter_10.html">第10章 ミミちゃん</a></li>
-<li><a href="chapter_11.html">第11章 牢獄からの脱出</a></li>
+<li data-publish="1777550400000"><a href="chapter_0.html">第0章 ティーザー</a></li>
+<li data-publish="1777636800000"><a href="chapter_1.html">第1章 不完全な儀式</a></li>
+<li data-publish="1777723200000"><a href="chapter_2.html">第2章 奇跡の魔女</a></li>
+<li data-publish="1777809600000"><a href="chapter_3.html">第3章 未知への門</a></li>
+<li data-publish="1777896000000"><a href="chapter_4.html">第4章 知性の試練</a></li>
+<li data-publish="1777982400000"><a href="chapter_5.html">第5章 悪魔の観光客</a></li>
+<li data-publish="1778068800000"><a href="chapter_6.html">第6章 提案</a></li>
+<li data-publish="1778155200000"><a href="chapter_7.html">第7章 とげとげの決闘</a></li>
+<li data-publish="1778241600000"><a href="chapter_8.html">第8章 お姫様と技師</a></li>
+<li data-publish="1778328000000"><a href="chapter_9.html">第9章 5年の科学</a></li>
+<li data-publish="1778414400000"><a href="chapter_10.html">第10章 ミミちゃん</a></li>
+<li data-publish="1778500800000"><a href="chapter_11.html">第11章 牢獄からの脱出</a></li>
+<li data-publish="1778587200000"><a href="chapter_12.html">第12章 新たな試練</a></li>
 </ul>
 
     </div>
@@ -581,5 +625,24 @@
             });
         });
     </script>
+    
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const isPublishEnabled = true;
+        if (isPublishEnabled) {
+            document.querySelectorAll('.toc_chapter_list li').forEach(item => {
+                const pubTime = parseInt(item.getAttribute('data-publish'));
+                if (pubTime > Date.now()) {
+                    const link = item.querySelector('a');
+                    link.innerText = '【封印領域：未解禁データ】';
+                    link.classList.add('locked-chapter');
+                }
+            });
+        }
+    });
+</script>
+
+    
 </body>
 </html>

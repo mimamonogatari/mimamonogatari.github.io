@@ -397,13 +397,62 @@
             background-color: var(--nav-hover);
             border-color: var(--scene-break);
         }
+
+        /* --- LOCK SCREEN SPECIFIC STYLES --- */
+        .lock-screen {
+            text-align: center;
+            margin: 5rem auto;
+            padding: 4rem 2rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .lock-warning {
+            color: var(--warning-border);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+        }
+        .lock-message {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--warning-text);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        .countdown {
+            font-size: 2.8rem;
+            font-family: monospace;
+            color: var(--warning-border);
+            letter-spacing: 4px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(204,0,0,0.3);
+        }
+        .locked-chapter {
+            color: var(--scene-break) !important;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        .locked-chapter:hover {
+            color: var(--warning-border) !important;
+            text-decoration: none !important;
+        }
     </style>
 </head>
 <body>
     <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
     
     <div class="container">
-        <div class="navigation-buttons navigation-top"><a href="chapter_1.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_3.html" class="nav-button">次の章へ</a></div><h1>第2章 奇跡の魔女</h1>
+        <div class="navigation-buttons navigation-top"><a href="chapter_1.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_3.html" class="nav-button">次の章へ</a></div>
+                <div id="lock-screen" class="lock-screen" style="display: none;">
+                    <div class="lock-warning">【SYSTEM ALERT: ACCESS DENIED】</div>
+                    <div class="lock-message">指定された認知データは現在封印されています。<br>物理次元の解禁時刻まで待機してください。</div>
+                    <div class="countdown" id="countdown-timer">T-MINUS --:--:--</div>
+                </div>
+                <div id="chapter-content"><h1>第2章 奇跡の魔女</h1>
 <p>「私が欲しいもの？ ずっと求めていたもの…？ ええ、単純なことです。私はずっと、秘密の知識を追い求めてきました。凡人には隠蔽され、一握りの者だけが触れることを許される特異な知識。偉大な先祖、アレクサンドロス大王に恥じない大魔術師になることが、私の長年の夢なのです」</p>
 <p>己の野望を語るうち、つい熱が入り背を向けていた。背後から、くすくすという微かな笑い声が鼓膜を打つ。振り返ると、フレデリカは扇子で口元を隠し、面白そうに肩を震わせていた。</p>
 <p>「あら、なんて可愛らしい夢なのかしら。権力や富、復讐、あるいは永遠の命を望むこともできたというのに。あなたが望んだのは、埃をかぶった古臭い知識だなんて。本当に純粋な子ね。でも、役に立つかもしれないわ」</p>
@@ -447,7 +496,7 @@
 <p>「ええ。魔法の店、夢幻遺跡、そして異世界の門……ですね」</p>
 <p>「そうよ。それと、持っていけるアイテムは一つだけ。忘れないでね」</p>
 <p>長考している余裕はない。テーブルの上に並んだ三つの品を静かに見つめる。<br>嘘で身を固める変装道具。先祖代々の知識が詰まった魔導書。血の匂いが染み付いた短剣。<br>どれを選ぶかによって、待ち受ける未来が全く異なるものになることだけは、直感的に理解できた。</p>
-<div class="navigation-buttons navigation-bottom"><a href="chapter_1.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_3.html" class="nav-button">次の章へ</a></div>
+</div><div class="navigation-buttons navigation-bottom"><a href="chapter_1.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_3.html" class="nav-button">次の章へ</a></div>
     </div>
     
     <div id="lightbox" class="lightbox-overlay" style="display: none;">
@@ -564,5 +613,51 @@
             });
         });
     </script>
+    
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const isPublishEnabled = true;
+        const pubTime = 1777723200000;
+
+        if (isPublishEnabled && pubTime > Date.now()) {
+            const contentDiv = document.getElementById('chapter-content');
+            const lockScreen = document.getElementById('lock-screen');
+            const timerEl = document.getElementById('countdown-timer');
+            
+            contentDiv.style.display = 'none';
+            lockScreen.style.display = 'block';
+            
+            const updateTimer = () => {
+                const diff = pubTime - Date.now();
+                if (diff <= 0) {
+                    contentDiv.style.display = 'block';
+                    lockScreen.style.display = 'none';
+                    return true; 
+                }
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                let timeStr = 'T-MINUS ';
+                if (d > 0) timeStr += d + 'D ';
+                timeStr += h.toString().padStart(2, '0') + ':' + 
+                           m.toString().padStart(2, '0') + ':' + 
+                           s.toString().padStart(2, '0');
+                timerEl.innerText = timeStr;
+                return false;
+            };
+            
+            if (!updateTimer()) {
+                const interval = setInterval(() => {
+                    if(updateTimer()) clearInterval(interval);
+                }, 1000);
+            }
+        }
+    });
+</script>
+
+    
 </body>
 </html>

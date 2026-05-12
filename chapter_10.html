@@ -397,13 +397,62 @@
             background-color: var(--nav-hover);
             border-color: var(--scene-break);
         }
+
+        /* --- LOCK SCREEN SPECIFIC STYLES --- */
+        .lock-screen {
+            text-align: center;
+            margin: 5rem auto;
+            padding: 4rem 2rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .lock-warning {
+            color: var(--warning-border);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+        }
+        .lock-message {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--warning-text);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        .countdown {
+            font-size: 2.8rem;
+            font-family: monospace;
+            color: var(--warning-border);
+            letter-spacing: 4px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(204,0,0,0.3);
+        }
+        .locked-chapter {
+            color: var(--scene-break) !important;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        .locked-chapter:hover {
+            color: var(--warning-border) !important;
+            text-decoration: none !important;
+        }
     </style>
 </head>
 <body>
     <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
     
     <div class="container">
-        <div class="navigation-buttons navigation-top"><a href="chapter_9.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_11.html" class="nav-button">次の章へ</a></div><h1>第10章 ミミちゃん</h1>
+        <div class="navigation-buttons navigation-top"><a href="chapter_9.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_11.html" class="nav-button">次の章へ</a></div>
+                <div id="lock-screen" class="lock-screen" style="display: none;">
+                    <div class="lock-warning">【SYSTEM ALERT: ACCESS DENIED】</div>
+                    <div class="lock-message">指定された認知データは現在封印されています。<br>物理次元の解禁時刻まで待機してください。</div>
+                    <div class="countdown" id="countdown-timer">T-MINUS --:--:--</div>
+                </div>
+                <div id="chapter-content"><h1>第10章 ミミちゃん</h1>
 <p>（先ほどの里香の逮捕、何もできず見過ごしたことが、少し心に引っかかっているわね。儀式の場所を借りるためにも、恩を売っておいて損はないはずだわ）魔法の力を秘めたこの古代遺跡には、一刻も早く儀式を行えるだけの強力な魔力の源があると感じていた。しかし、住人の一人である里香を助け出さない限り、理香子から儀式の許可を得ることはできない。ルイズに向き直り、計算を隠した丁寧な声音で告げた。</p>
 <p>「申し訳ありませんが、ルイズさん。私はここに残って、里香の脱出を手伝います。やっと儀式ができそうな場所を見つけたので、自分の目的を優先させてもらいますわ」</p>
 <p>「あら、そう。あなたがそう決めたのなら構わないわ。頑張ってね。またどこかで縁があったらお会いしましょう」ルイズは少しも執着を見せることなく、大人の余裕を感じさせる涼しげな笑みを浮かべた。キッチンへ戻ると、冷めた魚をつついていた理香子へ速やかに別れを告げる。</p>
@@ -464,7 +513,7 @@
 <p>「ええ、一応は使えます。あの三人目の囚人はどうしますか？」</p>
 <p>「私は里香を取り戻せればそれでいいわ。三人目をどうするかは、メデアさんに任せる。ただ、本当に凶悪な犯罪者かもしれないことだけは覚えておいて。小兎姫のデタラメな逮捕劇でも、稀に本物を引き当てることがあるから。……さあ、どうする？」</p>
 <p>[SYSTEM ALERT: 音響兵器デプロイ完了]<br>▼ 本章の絶望を1000%味わうための専用聴覚データ ▼<br>■ YouTube：『Logic inside the Ruin』</p><div class="video-container"><iframe src="https://www.youtube.com/embed/eHwiy6HjvPM" allow="autoplay; encrypted-media" allowfullscreen></iframe></div><div class="video-container"><iframe src="https://www.youtube.com/embed/LepqB1WMCm0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-<div class="navigation-buttons navigation-bottom"><a href="chapter_9.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_11.html" class="nav-button">次の章へ</a></div>
+</div><div class="navigation-buttons navigation-bottom"><a href="chapter_9.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_11.html" class="nav-button">次の章へ</a></div>
     </div>
     
     <div id="lightbox" class="lightbox-overlay" style="display: none;">
@@ -581,5 +630,51 @@
             });
         });
     </script>
+    
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const isPublishEnabled = true;
+        const pubTime = 1778414400000;
+
+        if (isPublishEnabled && pubTime > Date.now()) {
+            const contentDiv = document.getElementById('chapter-content');
+            const lockScreen = document.getElementById('lock-screen');
+            const timerEl = document.getElementById('countdown-timer');
+            
+            contentDiv.style.display = 'none';
+            lockScreen.style.display = 'block';
+            
+            const updateTimer = () => {
+                const diff = pubTime - Date.now();
+                if (diff <= 0) {
+                    contentDiv.style.display = 'block';
+                    lockScreen.style.display = 'none';
+                    return true; 
+                }
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                let timeStr = 'T-MINUS ';
+                if (d > 0) timeStr += d + 'D ';
+                timeStr += h.toString().padStart(2, '0') + ':' + 
+                           m.toString().padStart(2, '0') + ':' + 
+                           s.toString().padStart(2, '0');
+                timerEl.innerText = timeStr;
+                return false;
+            };
+            
+            if (!updateTimer()) {
+                const interval = setInterval(() => {
+                    if(updateTimer()) clearInterval(interval);
+                }, 1000);
+            }
+        }
+    });
+</script>
+
+    
 </body>
 </html>

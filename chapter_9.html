@@ -397,13 +397,62 @@
             background-color: var(--nav-hover);
             border-color: var(--scene-break);
         }
+
+        /* --- LOCK SCREEN SPECIFIC STYLES --- */
+        .lock-screen {
+            text-align: center;
+            margin: 5rem auto;
+            padding: 4rem 2rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .lock-warning {
+            color: var(--warning-border);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+        }
+        .lock-message {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--warning-text);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        .countdown {
+            font-size: 2.8rem;
+            font-family: monospace;
+            color: var(--warning-border);
+            letter-spacing: 4px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(204,0,0,0.3);
+        }
+        .locked-chapter {
+            color: var(--scene-break) !important;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        .locked-chapter:hover {
+            color: var(--warning-border) !important;
+            text-decoration: none !important;
+        }
     </style>
 </head>
 <body>
     <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
     
     <div class="container">
-        <div class="navigation-buttons navigation-top"><a href="chapter_8.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_10.html" class="nav-button">次の章へ</a></div><h1>第9章 5年の科学</h1>
+        <div class="navigation-buttons navigation-top"><a href="chapter_8.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_10.html" class="nav-button">次の章へ</a></div>
+                <div id="lock-screen" class="lock-screen" style="display: none;">
+                    <div class="lock-warning">【SYSTEM ALERT: ACCESS DENIED】</div>
+                    <div class="lock-message">指定された認知データは現在封印されています。<br>物理次元の解禁時刻まで待機してください。</div>
+                    <div class="countdown" id="countdown-timer">T-MINUS --:--:--</div>
+                </div>
+                <div id="chapter-content"><h1>第9章 5年の科学</h1>
 <p>「そういえば、お二人は里香を見かけなかったかしら？ 『すぐ戻る』と言って出て行ったきり、もうずいぶん経つから、少し心配で……」<br>不意に足を止めた理香子が、不安げな視線を向けてきた。</p>
 <p>「申し訳ありません、朝倉さん。実はつい先ほど、表で里香が逮捕されるのを目撃したんです」<br>（無力だったのは事実だわ。けれど、ここは正直に伝えておいたほうがいいわね）</p>
 <p>「逮捕？ 誰に？ 幻想郷に警察なんているはずないのに……」<br>驚愕に目を見開き、理香子は完全に立ちすくんだ。</p>
@@ -458,7 +507,7 @@
 <p>小声になったルイズが、探るような視線を向けてきた。<br>「あのね。正直に言うと、あの研究者と手を組むのは気が進まないわ。メデアさんが探しているのはただの観光地じゃなくて、儀式のための強力な魔力源でしょう？ 私、これからちょうどいい別の場所に向かうつもりなの。だから、一緒に来ないかしら？」</p>
 <p>「ですが……」<br>冷めた魚を静かにつつき始めた理香子の背中を見る。<br>（先ほど、里香が連行されるのを黙って見ていたことが、少し心に引っかかっているわね。儀式の場所を借りるためにも、恩を売っておいて損はないはずだわ）<br>「先ほどの里香の逮捕、何もできず見過ごしたことが、少し心残りでして」</p>
 <p>「あら、何を仰っているの？ 私はあの『里香ちゃん』の保護者じゃないのよ。赤ずきんちゃんだろうが、空飛ぶ不良少女だろうが、助ける義理なんてこれっぽっちもないわ。そんなにお節介を焼きたいのなら、残念だけれど私は一人で行かせてもらうわね。メデアさんも、あんな厄介事からは手を引いたほうが賢明だと思うけれど……どうなさる？」</p>
-<div class="navigation-buttons navigation-bottom"><a href="chapter_8.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_10.html" class="nav-button">次の章へ</a></div>
+</div><div class="navigation-buttons navigation-bottom"><a href="chapter_8.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_10.html" class="nav-button">次の章へ</a></div>
     </div>
     
     <div id="lightbox" class="lightbox-overlay" style="display: none;">
@@ -575,5 +624,51 @@
             });
         });
     </script>
+    
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const isPublishEnabled = true;
+        const pubTime = 1778328000000;
+
+        if (isPublishEnabled && pubTime > Date.now()) {
+            const contentDiv = document.getElementById('chapter-content');
+            const lockScreen = document.getElementById('lock-screen');
+            const timerEl = document.getElementById('countdown-timer');
+            
+            contentDiv.style.display = 'none';
+            lockScreen.style.display = 'block';
+            
+            const updateTimer = () => {
+                const diff = pubTime - Date.now();
+                if (diff <= 0) {
+                    contentDiv.style.display = 'block';
+                    lockScreen.style.display = 'none';
+                    return true; 
+                }
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                let timeStr = 'T-MINUS ';
+                if (d > 0) timeStr += d + 'D ';
+                timeStr += h.toString().padStart(2, '0') + ':' + 
+                           m.toString().padStart(2, '0') + ':' + 
+                           s.toString().padStart(2, '0');
+                timerEl.innerText = timeStr;
+                return false;
+            };
+            
+            if (!updateTimer()) {
+                const interval = setInterval(() => {
+                    if(updateTimer()) clearInterval(interval);
+                }, 1000);
+            }
+        }
+    });
+</script>
+
+    
 </body>
 </html>

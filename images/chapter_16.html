@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第16章 お嬢様のお持て成し</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1J0REZFCV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B1J0REZFCV');
+    </script>
+    
+    <script>
+        // Check local storage for theme BEFORE the page renders to prevent flashing
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #333;
+            --link-color: #0056b3;
+            --nav-bg: #f7f7f7;
+            --nav-border: #ccc;
+            --nav-hover: #e9e9e9;
+            --border-color: #ddd;
+            --scene-break: #777;
+            --warning-bg: #fff5f5;
+            --warning-border: #cc0000;
+            --warning-text: #990000;
+            --popup-bg: #2c2c2c;
+            --popup-text: #fff;
+            --overlay-bg: rgba(0, 0, 0, 0.85);
+            --modal-overlay: rgba(0, 0, 0, 0.6);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --link-color: #66b3ff;
+            --nav-bg: #1e1e1e;
+            --nav-border: #333;
+            --nav-hover: #2c2c2c;
+            --border-color: #333;
+            --scene-break: #888;
+            --warning-bg: #2b0000;
+            --warning-border: #ff3333;
+            --warning-text: #ff9999;
+            --popup-bg: #444;
+            --popup-text: #fff;
+            --overlay-bg: rgba(0, 0, 0, 0.95);
+            --modal-overlay: rgba(0, 0, 0, 0.85);
+        }
+
+        /* General Body and Layout */
+        body {
+            font-family: 'Helvetica Neue', 'Arial', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .container {
+            max-width: 40em;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Light/Dark Mode Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background-color: var(--nav-bg);
+            border: 1px solid var(--nav-border);
+            color: var(--text-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover {
+            background-color: var(--nav-hover);
+            transform: scale(1.05);
+        }
+
+        /* Typography & Headers */
+        h1 { 
+            text-align: center; 
+            line-height: 1.3;
+            margin: 1.5em 0; 
+        }
+        h2.toc-title {
+            text-align: center;
+            margin-top: 3em;
+            border-top: 2px solid var(--border-color);
+            padding-top: 1em;
+        }
+        
+        /* Index Specific: The Absolute Canon Header */
+        .index-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+        .main-title {
+            font-size: 2.2rem;
+            margin-bottom: 0.1em;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: var(--scene-break);
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+        }
+        .stats {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        .warning-box {
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .warning-title {
+            color: var(--warning-border);
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+        .warning-box p {
+            color: var(--warning-text);
+            margin: 0;
+            text-indent: 0;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        /* Table of Contents Specific Styles */
+        .toc_volume {
+            margin-top: 2.5em;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5em;
+        }
+        .toc_chapter_list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc_chapter_list li { margin: 0.75em 0; }
+        .toc_chapter_list a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+        .toc_chapter_list a:hover { text-decoration: underline; }
+        
+        /* About Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--modal-overlay);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 3rem 2.5rem;
+            border-radius: 8px;
+            max-width: 650px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--scene-break);
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: var(--warning-border);
+        }
+        .about-h3 {
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+            margin-top: 2.5em;
+            color: var(--text-color);
+        }
+        .about-list {
+            padding-left: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        .about-list li {
+            margin-bottom: 0.8em;
+        }
+        .about-deployment {
+            text-align: center;
+            font-family: monospace;
+            margin-top: 3.5em;
+            color: var(--scene-break);
+            font-weight: bold;
+            letter-spacing: 1px;
+            background-color: var(--nav-bg);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        code {
+            background-color: var(--nav-hover);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+            color: var(--warning-text);
+            font-weight: bold;
+            font-size: 0.95em;
+            border: 1px solid var(--nav-border);
+        }
+
+        /* Chapter Content */
+        p {
+            text-indent: 1em; 
+            margin-top: 0;
+            margin-bottom: 1em;
+            font-size: 1.1em;
+        }
+        img.novel-image {
+            display: block;
+            max-width: 100%;
+            margin: 2.5rem auto;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        img.novel-image:hover { transform: scale(1.02); }
+        .scene-break {
+            text-align: center;
+            margin: 3em auto;
+            letter-spacing: 0.5em;
+            color: var(--scene-break);
+            text-indent: 0;
+        }
+
+        /* Responsive YouTube Player */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 2em auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background-color: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* Annotation Popups */
+        .annotation-ref {
+            position: relative;
+            cursor: pointer;
+            color: var(--link-color);
+            text-decoration: none;
+            vertical-align: super;
+            font-size: 0.8em;
+            line-height: 0;
+        }
+        .annotation-ref .annotation-popup {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s;
+            position: absolute;
+            bottom: 1.6em;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            background-color: var(--popup-bg);
+            color: var(--popup-text);
+            border-radius: 5px;
+            padding: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 100;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-indent: 0;
+        }
+        .annotation-ref:hover .annotation-popup {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Image Lightbox Styles */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-bg);
+            z-index: 1000;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            overflow: hidden;
+        }
+        .lightbox-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: 90vw;
+            max-height: 90vh;
+            cursor: grab;
+            transform-origin: 0 0;
+        }
+        
+        /* Chapter Navigation */
+        .navigation-buttons {
+            text-align: center;
+            padding: 0;
+        }
+        .navigation-bottom {
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid var(--border-color);
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 0.8em 1.5em;
+            margin: 0.2em 0.5em;
+            border: 1px solid var(--nav-border);
+            border-radius: 5px;
+            background-color: var(--nav-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .nav-button:hover {
+            background-color: var(--nav-hover);
+            border-color: var(--scene-break);
+        }
+
+        /* --- LOCK SCREEN SPECIFIC STYLES --- */
+        .lock-screen {
+            text-align: center;
+            margin: 5rem auto;
+            padding: 4rem 2rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .lock-warning {
+            color: var(--warning-border);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+        }
+        .lock-message {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--warning-text);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        .countdown {
+            font-size: 2.8rem;
+            font-family: monospace;
+            color: var(--warning-border);
+            letter-spacing: 4px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(204,0,0,0.3);
+        }
+        .locked-chapter {
+            color: var(--scene-break) !important;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        .locked-chapter:hover {
+            color: var(--warning-border) !important;
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
+    
+    <div class="container">
+        <div class="navigation-buttons navigation-top"><a href="chapter_15.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a></div>
+                <div id="lock-screen" class="lock-screen" style="display: none;">
+                    <div class="lock-warning">【SYSTEM ALERT: ACCESS DENIED】</div>
+                    <div class="lock-message">指定された認知データは現在封印されています。<br>物理次元の解禁時刻まで待機してください。</div>
+                    <div class="countdown" id="countdown-timer">T-MINUS --:--:--</div>
+                </div>
+                <div id="chapter-content"><h1>第16章 お嬢様のお持て成し</h1>
+<p>「屋敷の主なら、私なんかよりずっと治せる力を持っているんじゃないかしら。呼んでみたら？」静寂が落ちた。くるみとエリーは顔を見合わせ、傍らでは血まみれの少年が微かに呻き声を上げている。</p>
+<p>「幽香様を？ うーん、それはどうかしらね……」くるみは露骨に顔をしかめた。</p>
+<p>対照的に、エリーは二つ目のリンゴをかじりながらクスクスと喉を鳴らす。「まあ、この子はどうでもいいけど、呼ぶだけ呼んでみれば？」</p>
+<p>「幽香様！ 幽香様ぁぁぁ！ 助けてください！ 早くー！」オレンジは躊躇うことなく屋敷へ向き直り、杖を空高く掲げて叫んだ。眩い閃光が弾ける。</p>
+<p>エリーは鼻で笑い、皮肉げに肩をすくめた。「ったく、今日はナマズのエサやり免除かな。久々に戦ったら腰痛いわ」</p>
+<p>「見て！ 聞こえたみたい！」オレンジが弾んだ声でバルコニーを指さした。見上げると、重厚な手すりの向こうに二つの気配がある。一人は、地下施設で別れたはずのルイズだ。そしてもう一人——。</p>
+<img src="images/16-1.jpg" alt="Image 16-1" class="novel-image">
+<p>圧倒的なまでの「上位者」の気配が、肌を粟立たせた。片や、眼下の惨劇を無邪気に楽しむような、嗜虐的な笑み。もう片方は、侵入者を路傍の石か肥料程度にしか認識していないような、絶対零度の静けさ。バルコニーの暗がりから見下ろす冷徹な視線が、そのままこの館のパワーバランスを物語っていた。</p>
+<p>「幽香さま、降りてきてくださーい！！！」オレンジの必死の叫びに、エリーが控えめに吹き出した。</p>
+<p>「降りるですって？ ここからでもよ〜く見えているわよ。よりにもよってうちの門の前で、ねぇ。まったく、かわいそうな旅人ね……」上空から降る声は、ひどく甘く、そして退屈しのぎの玩具を見つけたかのように楽しげだった。</p>
+<p>「でも、この人、死にそうなの！ それに、幽香様のためにエレンの薬を持ってきたらしいの！ お願い、助けて！」</p>
+<p>「あら、そうなの？ それなら仕方ないわね。せっかく来てくれた使いを放っておくわけにはいかないわ。私が必ず、助けてあげる♡」ふわりと傘が開く音がしたかと思うと、主は優雅な身のこなしで宙を舞い、石畳に降り立った。上ではルイズが袋菓子を取り出し、バリバリと下品な音を立てて高みの見物を決め込んでいる。</p>
+<p>「どうしたの、坊や？ 顔色が悪いわよ」主が近づくにつれ、くるみとオレンジは怯えたように後ずさった。（私も本能的な警鐘に従い、静かに距離を取る）</p>
+<p>「僕……エリーたんを……守ろうと……うう……彼女が……襲われてたから……エリーたん、かわゆいっす……」血の泡を吹きながら、太郎はなおも妄言を垂れ流す。</p>
+<p>幽香と呼ばれた主はかがみ込み、少年のポケットから薄緑色の液体が入った小瓶を二つ取り出した。躊躇いなく一つを飲み干し、もう一つを懐へと仕舞う。「坊や、薬をありがと！ す〜ごく助かったわ。あら、傷を治してほしいのね？」</p>
+<p>「はいっす！ お願いします、幽香様！」なぜか太郎の声に生気が戻る。</p>
+<p>「あらあら、私の名前まで知っているの？ そんな人のお願いを断るわけにはいかないわ。もちろん、傷は治してあげる。それどころか、新しい服も、帽子もあげるわ」底知れぬ慈愛を孕んだ微笑み。</p>
+<p>「僕も、幻想郷のみんなが持ってるような帽子をもらえるんすか！？ ずっと夢見てたんす！ あざっす！ 幽香様、マジ大好きっす！」</p>
+<p>「こちらこそ、太郎くん。私もあなたの本当の名前を知っているわ……。ただ、太郎くんを復活させる前に、一つ小さな約束をしてほしいの」</p>
+<p>「幽香様のためなら何でもするっす！ どんなフラグっすか！？」</p>
+<p>「それはね、簡単なことよ。太郎くんにはこの屋敷にず〜っと一緒にいてほしいの。どう、いいかしら？」</p>
+<p>数秒の沈黙。太郎は虚空を仰ぎ、ブツブツと呟き始めた。「一番。幽香の提案を受け入れる。二番。丁寧に断る。三番。代案を提案する。これが俺の選択……」（この男、死にかけているのに選択肢を口に出しているの……！？）</p>
+<p>「一番を選ぶっす！ 幽香様の屋敷にずっといるっす！ 約束っす！」</p>
+<p>満足そうに頷くと、幽香は太郎の血塗れの衣服を無造作に引き裂いた。そして、手にした小瓶の液体を、ぱっくりと開いた傷口へ容赦なく注ぎ込む。</p>
+<p>耳を塞ぐ間もなかった。エリーはすでに耳を塞いでいる。鼓膜を破らんばかりの絶叫と痙攣。だが、傷口は肉芽を泡立たせながら、みるみるうちに塞がっていった。立ち上がった太郎は、尻尾を振る犬のように幽香へ抱きつこうと腕を伸ばした。</p>
+<p>「シーッ！ 待って、まだよ」甘く妖艶な囁きが、その動きを縫い止める。「まずは、約束の帽子をプレゼントするわ」</p>
+<p>「はいっす！ 仰せのままに！ ずっとそんなアイテムを夢見てたんすよ！」</p>
+<p>「でもね、それは、と〜っても特別な帽子なの」耳まで裂けるような歪んだ笑顔と共に、滑らかな絹の小袋が取り出される。「じっとしててちょうだい、タ・ロウ・くん」</p>
+<p>優しい声音に促され、太郎は期待に身を震わせて目を閉じた。次の瞬間、幽香はその頭からすっぽりと袋を被せ、首元の紐をギリリと容赦なく締め上げた。くぐもった、息苦しそうな喘ぎ声が漏れる。</p>
+<p>「さあ、豚みたいに鳴くのよぉぉぉぉ！！」甘い声は突如として狂気を帯びた哄笑へと変わり、幽香は少年の顎を掴んで冷たい石畳へと力任せに叩きつけた。</p>
+<p>「いやだ……幽香様……」微かな抵抗の声は、瞬時に伸びた無数の蔦によってきつく縛り上げられ、完全に封じられた。</p>
+<img src="images/16-2.jpg" alt="Image 16-2" class="novel-image">
+<p>生々しい真新しい傷痕が残る剥き出しの肌と、穢れを一切知らない豪奢な布地との対比が、圧倒的な主従関係を物語っていた。顔という個性を奪われ、墨で禍々しい文字が刻まれた袋を被らされたことで、彼はもはや「太郎」という人間ではなく、名もなき無個性の奴隷へと変質させられてしまったのだ。「死」から救済する対価が、「永遠の服従」という名の搾取。それを愛情深く撫でる主の穏やかな微笑みが、この絶対的な契約から二度と逃れられないことを静かに証明していた。</p>
+<p>「皆さん、私のティーパーティーへようこそ！ メデアさんもね！」幽香は事も無げにそう言い放つと、蔦で縛り上げた肉塊を引きずりながら、館の奥へと消えていった。</p>
+<p class="scene-break">＊＊＊</p>
+<p>「太郎くん……かわいそうに……」オレンジがぽつりと呟いた。</p>
+<p>「ねえ、オレンジ。私もあんな風に……されちゃうのかしら？」引きずり込まれた暗がりを見つめたまま、思わず声が漏れる。</p>
+<p>「大丈夫だよ、メデたんは！ ねえ、心配しないでご飯にしよう！」オレンジはあっけらかんと笑い、私の手を引いて入り口へ歩き出す。</p>
+<p>「でも、ご飯って……まさか、さっきの彼のことじゃないわよね？」</p>
+<p>「えーっ、何言ってるの？ 幽香様はベジタリアンなんだよ！」無邪気な足取りで館へ踏み込む背中を、半ば呆れながら追う。</p>
+<p>背後から、エリーがのんびりとした足取りで歩み寄ってきた。「あのガキは自業自得さ。あいつの運命が気になるなら教えてあげるよ。ああいうゴミは地下室に放り込まれて、そこで忘れられる方が身のためってことさ」シニカルに言い捨て、彼女もまた館へと姿を消す。</p>
+<p>顔を上げると、いつの間にかバルコニーから降りてきていたルイズと目が合った。彼女は人懐っこい笑顔で手を振ってくる。（ええ、抗っても無駄ね）溜息を一つ吐き、私もその陰鬱な入り口へと足を踏み入れた。</p>
+<p>外観の禍々しさとは裏腹に、館の内部は不思議なほどの居心地の良さに満ちていた。壁のキャンドルが淡い光を落とし、足元には毛足の長い絨毯が広がっている。</p>
+<p>「さあ、食卓へどうぞ。今日はお嬢様もご機嫌のようね」エリーに促され、応接室へと足を踏み入れる。</p>
+<p>そこは温かみのある魔法の光に包まれた、ひどく可愛らしい空間だった。巨大なテーブルには、色鮮やかな野菜のスープ、湯気を立てるグラタン、瑞々しい果物やゼリーといった豪勢な料理が所狭しと並べられ、中央にはヒマワリの種を使った見事なハルヴァ<span class="annotation-ref">[1]<span class="annotation-popup">ハルヴァ：ヒマワリ等の種に油脂と砂糖を加えて作られる菓子</span></span>が鎮座している。（食事をしに来たわけではないのだけれど……）地下研究室から碌に口にしていなかった胃の腑が、甘い匂いに刺激されて微かに鳴った。</p>
+<p>テーブルの奥に幽香が腰を下ろし、その脇をエリーとルイズ、くるみが固めている。メデアとオレンジも末席に着いた。</p>
+<p>「遠慮しないで、メデア。外の世界から、しかもそんな珍しい国から素敵な女の子が来てくれたのは久しぶりだわ」幽香は優雅な所作でサラダを口へ運ぶ。</p>
+<p>「ありがとうございます。ということは、ルイズが私のことをすべて話したのですね」表面上の礼節を保ちながら、探るように視線を向ける。</p>
+<p>「ええ、すべて話したわ。新しい魔女が来てくれたのだもの、隠す必要なんてないでしょう？」ルイズは悪びれもせず、片目を閉じたままスープをすする。「お友達は多い方がいいに決まっているわ。あら、そういえば……あのジェットパックの不良少女は無事だったのかしら？」</p>
+<p>「メデたんはね、里香だけじゃなくてわたしも助けてくれたの！ 牢屋から！ すごいでしょ！」オレンジが我が事のように胸を張った。</p>
+<img src="images/16-3.jpg" alt="Image 16-3" class="novel-image">
+<p>満たされた食欲と共に、部屋には和やかな弛緩が広がっていた。揺らめく暖色の灯りが、豪奢な家具の木目を柔らかく照らし出している。ソファに深々と腰掛けた幽香の膝には、すっかり満腹になったのか、無防備な寝息を立てるくるみが頭を預けていた。その髪を撫でる幽香の手つきは、先ほど人間を躊躇なく奴隷に貶めた者とは到底思えないほど、底知れぬ母性と慈愛に満ちている。エリーもまた、その光景を傍らで静かに見守っていた。</p>
+<p>外の血生臭い狂気とは完全に隔絶された、童話の結末のような幸福な空間。だが、それが「侵入者の徹底的な排除と隷属」の上に成り立っている仮初めの安らぎであることを知っているメデアにとっては、かえって背筋が冷たくなるほどの不気味さを孕んでいた。</p>
+<p>「メデア、こちらのコーヒーもいかが？ 絶品よ」ルイズが、トルコ式のコーヒーポットを差し出してくる。「魔界のコーヒーは最高なの。わざわざ持ってきて正解だったわね」</p>
+<p>（さて、これからどう動くべきか……差し出されたカップから立ち昇る濃密な香りを嗅ぎながら、私は静かに思考を巡らせる。もう一度ルイズに取り引きを持ちかけ、姿を変えてもらう？いや、それでは異世界の門番の試練を抜けられない。ならば、オレンジにルイズの姿になってもらい、私が彼女を「護送」するという名目で……いや、あの子の性格ではすぐにボロが出るわ。</p>
+<p>フレデリカは、この夢幻館にも別の次元が存在すると言っていた。ここで召喚を行うことは可能なはずだ。だが、この底知れないサディストである幽香が、見ず知らずの私の儀式をやすやすと許可するだろうか？オレンジから頼み込んでもらう？いや、下手に交渉材料を与えれば、どんな残酷な対価を要求されるか分かったものではない。）</p>
+<p>手の中のカップは、決断を下せないメデアの迷いを映すように、微かに波打っていた。</p>
+<p>[SYSTEM ALERT: 音響兵器デプロイ完了]<br>▼ 本章の絶望を1000%味わうための専用聴覚データ ▼<br>■ YouTube：『Lattice of Blood（鮮血のラティス）』</p><div class="video-container"><iframe src="https://www.youtube.com/embed/WM53eoE_KlI" allow="autoplay; encrypted-media" allowfullscreen></iframe></div><div class="video-container"><iframe src="https://www.youtube.com/embed/6UstDzYRjlY" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+</div><div class="navigation-buttons navigation-bottom"><a href="chapter_15.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a></div>
+    </div>
+    
+    <div id="lightbox" class="lightbox-overlay" style="display: none;">
+        <img id="lightbox-img" class="lightbox-image">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Theme Toggle Logic ---
+            const toggleBtn = document.getElementById('theme-toggle');
+            toggleBtn.addEventListener('click', () => {
+                let theme = document.documentElement.getAttribute('data-theme');
+                if (theme === 'dark') {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+
+            // --- About Modal Logic ---
+            const aboutBtn = document.getElementById('about-btn');
+            const aboutModal = document.getElementById('about-modal');
+            const aboutClose = document.getElementById('about-close');
+
+            if (aboutBtn && aboutModal && aboutClose) {
+                aboutBtn.addEventListener('click', () => {
+                    aboutModal.classList.add('show');
+                });
+                aboutClose.addEventListener('click', () => {
+                    aboutModal.classList.remove('show');
+                });
+                aboutModal.addEventListener('click', (e) => {
+                    if (e.target === aboutModal) {
+                        aboutModal.classList.remove('show');
+                    }
+                });
+            }
+
+            // --- Lightbox Logic ---
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox) return;
+            
+            const lightboxImg = document.getElementById('lightbox-img');
+            let isDragging = false, startX, startY;
+            let translateX = 0, translateY = 0, currentScale = 1;
+
+            function updateImageTransform() {
+                lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+            }
+            
+            function resetImageTransform(x = 0, y = 0) {
+                currentScale = 1;
+                translateX = x;
+                translateY = y;
+                updateImageTransform();
+            }
+
+            lightboxImg.onload = () => {
+                const imgWidth = lightboxImg.offsetWidth;
+                const imgHeight = lightboxImg.offsetHeight;
+                const initialX = (window.innerWidth - imgWidth) / 2;
+                const initialY = (window.innerHeight - imgHeight) / 2;
+                resetImageTransform(initialX, initialY);
+            };
+
+            document.querySelectorAll('.novel-image').forEach(image => {
+                image.addEventListener('click', e => {
+                    e.stopPropagation();
+                    lightboxImg.src = image.src;
+                    lightbox.style.display = 'block';
+                });
+            });
+
+            lightbox.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+            });
+
+            lightboxImg.addEventListener('click', e => e.stopPropagation());
+
+            lightboxImg.addEventListener('wheel', e => {
+                e.preventDefault();
+                const scaleAmount = 0.1;
+                const scaleDirection = e.deltaY > 0 ? -1 : 1;
+                const newScale = Math.max(0.5, currentScale + scaleAmount * scaleDirection);
+                translateX = e.clientX - (e.clientX - translateX) * (newScale / currentScale);
+                translateY = e.clientY - (e.clientY - translateY) * (newScale / currentScale);
+                currentScale = newScale;
+                updateImageTransform();
+            });
+            
+            lightboxImg.addEventListener('mousedown', e => {
+                e.preventDefault();
+                isDragging = true;
+                startX = e.pageX - translateX;
+                startY = e.pageY - translateY;
+                lightboxImg.style.cursor = 'grabbing';
+            });
+
+            window.addEventListener('mousemove', e => {
+                if (isDragging) {
+                    translateX = e.pageX - startX;
+                    translateY = e.pageY - startY;
+                    updateImageTransform();
+                }
+            });
+
+            window.addEventListener('mouseup', () => {
+                if(isDragging) {
+                    isDragging = false;
+                    lightboxImg.style.cursor = 'grab';
+                }
+            });
+        });
+    </script>
+    
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const isPublishEnabled = true;
+        const pubTime = 1778932800000;
+
+        if (isPublishEnabled && pubTime > Date.now()) {
+            const contentDiv = document.getElementById('chapter-content');
+            const lockScreen = document.getElementById('lock-screen');
+            const timerEl = document.getElementById('countdown-timer');
+            
+            contentDiv.style.display = 'none';
+            lockScreen.style.display = 'block';
+            
+            const updateTimer = () => {
+                const diff = pubTime - Date.now();
+                if (diff <= 0) {
+                    contentDiv.style.display = 'block';
+                    lockScreen.style.display = 'none';
+                    return true; 
+                }
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                let timeStr = 'T-MINUS ';
+                if (d > 0) timeStr += d + 'D ';
+                timeStr += h.toString().padStart(2, '0') + ':' + 
+                           m.toString().padStart(2, '0') + ':' + 
+                           s.toString().padStart(2, '0');
+                timerEl.innerText = timeStr;
+                return false;
+            };
+            
+            if (!updateTimer()) {
+                const interval = setInterval(() => {
+                    if(updateTimer()) clearInterval(interval);
+                }, 1000);
+            }
+        }
+    });
+</script>
+
+    
+</body>
+</html>

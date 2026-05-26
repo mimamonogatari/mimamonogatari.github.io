@@ -1,0 +1,719 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第34章 エレンの店にて(サイドストーリー)</title>
+    <meta name="description" content="『東方PC-98作品群』の再解釈を含む、超没入型・シネマティック・ノベル。全102章の絶対正典、272枚の視覚データ、40曲の音響兵器を統合した『魅魔ものがたり』公式アーカイブ。">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1J0REZFCV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B1J0REZFCV');
+    </script>
+    
+    <script>
+        // Check local storage for theme BEFORE the page renders to prevent flashing
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #333;
+            --link-color: #0056b3;
+            --nav-bg: #f7f7f7;
+            --nav-border: #ccc;
+            --nav-hover: #e9e9e9;
+            --border-color: #ddd;
+            --scene-break: #777;
+            --warning-bg: #fff5f5;
+            --warning-border: #cc0000;
+            --warning-text: #990000;
+            --popup-bg: #2c2c2c;
+            --popup-text: #fff;
+            --overlay-bg: rgba(0, 0, 0, 0.85);
+            --modal-overlay: rgba(0, 0, 0, 0.6);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --link-color: #66b3ff;
+            --nav-bg: #1e1e1e;
+            --nav-border: #333;
+            --nav-hover: #2c2c2c;
+            --border-color: #333;
+            --scene-break: #888;
+            --warning-bg: #2b0000;
+            --warning-border: #ff3333;
+            --warning-text: #ff9999;
+            --popup-bg: #444;
+            --popup-text: #fff;
+            --overlay-bg: rgba(0, 0, 0, 0.95);
+            --modal-overlay: rgba(0, 0, 0, 0.85);
+        }
+
+        /* General Body and Layout */
+        body {
+            font-family: 'Helvetica Neue', 'Arial', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .container {
+            max-width: 40em;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Light/Dark Mode Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background-color: var(--nav-bg);
+            border: 1px solid var(--nav-border);
+            color: var(--text-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover {
+            background-color: var(--nav-hover);
+            transform: scale(1.05);
+        }
+
+        /* Typography & Headers */
+        h1 { 
+            text-align: center; 
+            line-height: 1.3;
+            margin: 1.5em 0; 
+        }
+        h2.toc-title {
+            text-align: center;
+            margin-top: 3em;
+            border-top: 2px solid var(--border-color);
+            padding-top: 1em;
+        }
+        
+        /* Index Specific: The Absolute Canon Header */
+        .index-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+        .main-title {
+            font-size: 2.2rem;
+            margin-bottom: 0.1em;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: var(--scene-break);
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+        }
+        .stats {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        .warning-box {
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .warning-title {
+            color: var(--warning-border);
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+        .warning-box p {
+            color: var(--warning-text);
+            margin: 0;
+            text-indent: 0;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        /* Table of Contents Specific Styles */
+        .toc_volume {
+            margin-top: 2.5em;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5em;
+        }
+        .toc_chapter_list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc_chapter_list li { margin: 0.75em 0; }
+        .toc_chapter_list a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+        .toc_chapter_list a:hover { text-decoration: underline; }
+        
+        /* About Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--modal-overlay);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 3rem 2.5rem;
+            border-radius: 8px;
+            max-width: 650px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--scene-break);
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: var(--warning-border);
+        }
+        .about-h3 {
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+            margin-top: 2.5em;
+            color: var(--text-color);
+        }
+        .about-list {
+            padding-left: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        .about-list li {
+            margin-bottom: 0.8em;
+        }
+        .about-deployment {
+            text-align: center;
+            font-family: monospace;
+            margin-top: 3.5em;
+            color: var(--scene-break);
+            font-weight: bold;
+            letter-spacing: 1px;
+            background-color: var(--nav-bg);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        code {
+            background-color: var(--nav-hover);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+            color: var(--warning-text);
+            font-weight: bold;
+            font-size: 0.95em;
+            border: 1px solid var(--nav-border);
+        }
+
+        /* Chapter Content */
+        p {
+            text-indent: 1em; 
+            margin-top: 0;
+            margin-bottom: 1em;
+            font-size: 1.1em;
+        }
+        img.novel-image {
+            display: block;
+            max-width: 100%;
+            margin: 2.5rem auto;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        img.novel-image:hover { transform: scale(1.02); }
+        .scene-break {
+            text-align: center;
+            margin: 3em auto;
+            letter-spacing: 0.5em;
+            color: var(--scene-break);
+            text-indent: 0;
+        }
+
+        /* Responsive YouTube Player */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 2em auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background-color: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* Annotation Popups */
+        .annotation-ref {
+            position: relative;
+            cursor: pointer;
+            color: var(--link-color);
+            text-decoration: none;
+            vertical-align: super;
+            font-size: 0.8em;
+            line-height: 0;
+        }
+        .annotation-ref .annotation-popup {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s;
+            position: absolute;
+            bottom: 1.6em;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            background-color: var(--popup-bg);
+            color: var(--popup-text);
+            border-radius: 5px;
+            padding: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 100;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-indent: 0;
+        }
+        .annotation-ref:hover .annotation-popup {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Image Lightbox Styles */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-bg);
+            z-index: 1000;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            overflow: hidden;
+        }
+        .lightbox-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: 90vw;
+            max-height: 90vh;
+            cursor: grab;
+            transform-origin: 0 0;
+        }
+        
+        /* Chapter Navigation */
+        .navigation-buttons {
+            text-align: center;
+            padding: 0;
+        }
+        .navigation-bottom {
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid var(--border-color);
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 0.8em 1.5em;
+            margin: 0.2em 0.5em;
+            border: 1px solid var(--nav-border);
+            border-radius: 5px;
+            background-color: var(--nav-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .nav-button:hover {
+            background-color: var(--nav-hover);
+            border-color: var(--scene-break);
+        }
+
+        /* --- LOCK SCREEN SPECIFIC STYLES --- */
+        .lock-screen {
+            text-align: center;
+            margin: 5rem auto;
+            padding: 4rem 2rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .lock-warning {
+            color: var(--warning-border);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+        }
+        .lock-message {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--warning-text);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        .countdown {
+            font-size: 2.8rem;
+            font-family: monospace;
+            color: var(--warning-border);
+            letter-spacing: 4px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(204,0,0,0.3);
+        }
+        .locked-chapter {
+            color: var(--scene-break) !important;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        .locked-chapter:hover {
+            color: var(--warning-border) !important;
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
+    
+    <div class="container">
+        <div class="navigation-buttons navigation-top"><a href="chapter_33.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_35.html" class="nav-button">次の章へ</a></div>
+                <div id="lock-screen" class="lock-screen" style="display: none;">
+                    <div class="lock-warning">【SYSTEM ALERT: ACCESS DENIED】</div>
+                    <div class="lock-message">指定された認知データは現在封印されています。<br>物理次元の解禁時刻まで待機してください。</div>
+                    <div class="countdown" id="countdown-timer">T-MINUS --:--:--</div>
+                </div>
+                <div id="chapter-content"><h1>第34章 エレンの店にて(サイドストーリー)</h1>
+<p>平和すぎる午後の空気は、どこまでも気怠く、甘く淀んでいた。グラスの中で琥珀色の液体に浮かぶ氷が、カランと溶け落ちる音だけが静寂を際立たせる。テーブルに肘をつき、両手で顔を扇ぎながら、深い溜息が漏れた。</p>
+<p>「あーあ、暑いよ。だるいなあ」</p>
+<img src="images/34-1.jpg" alt="Image 34-1" class="novel-image">
+<p>「屋根の上なら涼しいわよ。登ってみたら？」二階から降ってきたのは、涼やかで皮肉たっぷりの声だった。</p>
+<p>「やだよー。この前、落ちそうになったんだもん。テヘッ」</p>
+<p>軽やかな足音とともに階段を下りてきた少女は、テーブルの向かいに腰を下ろす。<br>「また獲物でも探してたのかしら？」</p>
+<p>「獲物って、ひどーい！ ちょっと実験してただけなのに。悪いことなんて考えてないんだから。ねっ、ソクラテス」膝の上で丸太のように重く、そして温かい毛玉の背中を撫でる。</p>
+<p>ソクラテスと呼ばれた大きな猫は、不満げに片目を開け、喉の奥でゴロゴロと低い振動を響かせると、再び深い眠りへと沈んでいった。</p>
+<p>少女は呆れたように二人を交互に見つめ、冷ややかに鼻で笑う。<br>「かわいそうな動物を苛めるなんて、最低ね。まったく……！」言い捨てるなり、彼女はくるりと背を向け、再び二階へと姿を消した。</p>
+<p>背筋を伸ばし、冷たいグラスの水滴を指先でなぞりながら、液体を一口喉に流し込む。<br>「つまんないなー」</p>
+<p>唇を尖らせ、意識が遠い記憶の底——かつて過ごした村の風景、陽気な笑顔、鍛冶屋のハンマーの規則正しい響き——へと沈みかけたその時。</p>
+<p>……コツン、コツン。</p>
+<p>控えめだが、確かに扉を叩く音が、午後の静寂を破った。</p>
+<p>「わぁっ！ お客さまー！」グラスの中身を少し零しながら、弾むような足取りで入り口へと駆け寄る。<br>「いらっしゃいませー！」</p>
+<p>扉の向こうに立っていたのは、深い森の匂いと、微かに冷たい秋の風を纏った女性だった。</p>
+<img src="images/34-2.jpg" alt="Image 34-2" class="novel-image">
+<p>扉が開いた瞬間、店内のパステル調の空気が一変し、乾いた落ち葉の気配と静謐な緊張感が流れ込んでくる。彼女の出立ちは、周囲の景色とは対極にあるような鮮烈な空気を放っていたが、その表情はひどく真剣で、どこか強張っていた。</p>
+<p>「こんにちは。あの……こちら、エレンさんのお店でしょうか？」戸惑いを隠せない声が響く。</p>
+<p>「ち・が・う・よ！ 正しくは『ふわふわエレンの魔法店』。ちゃんと覚えておいてね！」くるりと一回転して見せ、悪戯っぽく微笑む。</p>
+<p>「あ……失礼いたしました。あの……店長さんを呼んでいただけますか？」</p>
+<p>「ううん、呼べないよ！ だって、もう目の前にいるんだもん！」ウィンクを飛ばし、手招きをする。<br>「さあさあ、どうぞどうぞ！ ゆっくりしていってね」</p>
+<p>静かな一礼とともに、客人は店内へと足を踏み入れた。その気配に反応したのか、ソファで丸くなっていた猫が欠伸とともに目を覚ます。</p>
+<p>「言わせてもらうけど、この店、美人が多すぎじゃないかニャ……」ぶつぶつと文句を垂れる声には、知性と皮肉がたっぷりと含まれていた。</p>
+<p>椅子を勧めながら、弾むような声でまくし立てる。<br>「お茶にする？ それともショーケース見る？ いっぱいあるよ！ ダイエットのおまじない、ちっちゃな良心の錠剤、虫除けスプレー、恋の媚薬……どれにする？ あ、この子はソクラテス。ただの妖怪猫だから怖がらないでね。食べられちゃうかもしれないけど、それ以外は大丈夫だから！」</p>
+<p>客人は猫に軽く会釈をし、静かに腰を下ろした。<br>「実は……以前にお会いしたことがありまして。ソクラテスさん、お元気そうで何よりです」</p>
+<p>「えーっ！？ いつ会ったっけ？ あ、でも、この子ったら最近ますますかっこよくなったかも！ 人間を魅了するなんて、さすがソクラテス」頭を撫で回すと、猫は心底迷惑そうに尻尾を打ち付けた。</p>
+<p>「まず第一に、お前にあの変な薬を飲まされるずっと前から、俺たちは知り合いだったニャ。第二に、この子は人間じゃないニャ。そして第三に……エレン、いい加減、俺の毛を引っ張るのをやめるんだニャ」不機嫌極まりない声が返る。</p>
+<p>「え、結婚しないの！？」わざと毛を引っ張り続けると、軽い抵抗の牙が指に当たった。</p>
+<p>「どうやってわかったんだニャ、エレン？ 今日は冴えているじゃないかニャ」</p>
+<p>二人のやり取りを静かに見守っていた客人は、やがて口を開いた。<br>「<ruby>秋<rt>あき</rt></ruby><ruby>静葉<rt>しずは</rt></ruby>と申します。秋家の者です。お嬢様にお目にかかれて光栄です」丁寧な挨拶とともに、小さな包みが差し出される。</p>
+<p>「お嬢様ぁ？ うふふ、なんだか照れちゃうな！ いいねー！」勢いよく包みを開けると、中には可愛らしい饅頭が並んでいた。<br>「お嬢様にお茶なんて淹れさせないわよー。お茶はもらうもんだもんね！ ちょっと待っててね、すぐ戻るから！」キッチンへとスキップで向かう。</p>
+<p>残された静葉は、温かみのある雑多な店内をゆっくりと見渡した。柔らかなクッション、無邪気な落書き、そして何より、先ほどの主が放つ純粋な空気。<br>「……心が穏やかになります……」微かな呟きが、静寂に溶けた。</p>
+<p>やがてお茶と饅頭がテーブルに運ばれる。一口頬張り、お茶を飲み下すと、客人の顔をじっと見つめた。その瞳の奥に、深く沈み込むような淀みを見つけ、少しだけトーンを落とす。<br>「……見えるわ。運命の人が待ってる……。でも……大きな悲しみが心を覆い隠してるみたい。やっぱり、恋の媚薬にする？」</p>
+<p>静葉は首を横に振り、お茶を一口飲んでから、儚げに答えた。<br>「……違います」</p>
+<p>その瞬間、子供のような無邪気な笑顔が、張り付いたように消え去った。<br>声のトーンが一段下がり、感情の抜け落ちた、冷たく静かな大人の女の響きに変わる。<br>「……じゃあ、何が欲しいの」</p>
+<p>静葉の目から、不意に涙が溢れ出した。肩に置かれた手を両手で優しく包み込み、深く頭を下げる。ソクラテスが静かに彼女の膝の上へと移動した。</p>
+<p>「……わかったわ。来てくれて、ありがとう」ただ事実だけを述べるような、平坦な声が落ちる。</p>
+<p>窓の外の光が、徐々に赤みを帯び始めていた。</p>
+<p>「……なんだか、気恥ずかしいです……」静葉は赤く染まった頬を隠すように視線を落とす。</p>
+<p>「私のせいかしら。大丈夫、気にしないで。そんなことで怒ったりしないから」感情の読めない微笑みを浮かべる。</p>
+<p>握り返された手は、ひどく温かく、力強かった。<br>「……ねぇ、教えてくださる？ エレンは……一体どうやって生きているの？ どうして……？」</p>
+<p>「わからないわ。ただ生きているだけ。不死身だから、永遠にこのままなの」</p>
+<p>「永遠に……生きていて……辛くないの……？」</p>
+<p>「どうして？ 楽しいに決まっているじゃない」</p>
+<p>「生きることが……楽しい……？ どうして……？ 私には……どうしても、そうは思えない……」</p>
+<p>「静葉。それはね……あなたがほんの少し、おバカさんだからよ。怒らないでね」</p>
+<p>「怒ってなどいません……。分かっています。でも……ただ……誰かと一緒にいたいだけなの……。うちの屋敷は、広すぎて……静かすぎて……。穣子は優しいけれど……あの子には言えない……。分かってもらえないから……。一人で……ただ……何かを待ち続けているだけなの……」</p>
+<p>静葉は小さく息を吸い込み、どこか遠くを見るような、静かな口調で語り始めた。</p>
+<p>「神は、どうやって生まれるかご存知？ なぜどの山にも、どの森にも神が宿るのか……。ラビンドラナート・タゴール<span class="annotation-ref">[1]<span class="annotation-popup">ラビンドラナート・タゴール：(英語: Rabindranath Tagore、1861-1941)インドの詩人、思想家、作曲家。神と人間の関係性について深い哲学的思索を残した。</span></span>という人が、『神が人間を創造したのでなく、人間が神を創造したのだ』と言っていたけれど……神である私も、そう思うことがあるのです」</p>
+<p>彼女の口から紡がれるのは、千年も前の、痛ましいおとぎ話だった。</p>
+<p>「千年も前、まだ世が今とはずっと違う姿をしていた頃のお話です。とある小さな村の一番外れに、それはそれは可愛らしい女の子が生まれました。生まれた日は気持ちの良い秋晴れで、赤ちゃんの顔はまるで紅葉のように真っ赤だったことから、両親は『お秋』と名付けました。お秋は、とても優しい心の持ち主で……泣いている子がいれば美しい声であやし歌を聞かせ、困っている人がいれば、自分のことなど忘れてしまうほど一生懸命に助けてあげるような子でした。村中の皆から『神様がくれた宝物だ』と愛されていたということです。</p>
+<p>……ところがその年、空はまるで涙に暮れるように雨ばかりを降らせ、村は大変な凶作に見舞われました。お秋は空腹に耐えながら山で木の実を集め、自分が食べる分さえも惜しみなく村人たちに分け与えていました。ようやく収穫の時が来たかと思えば、なんと雪が降り始めたのです。しかし、お秋の家だけは違いました。家族で桃や梅、栗などたくさんの果物の木を育てており、お秋は毎日欠かさず世話し、獣よけの柵も作って大切に守っていたのです。おかげで村人全員が食べられるほどの実がなりましたが……そこに悲劇が訪れました。降り始めた大雪が、みるみるうちに木々を白い毛布で覆い尽くし、枝を折ってしまったのです。</p>
+<p>春が巡ってきても雪解け水は冷たく、人々はわずかな木の実で空腹をしのぐ暮らしでした。夏も寒く長雨が続き、心に影を落としていた村人たちは、秋の始まりとともに早くも雪がちらつき始めたのを見て、明日にはきっと大雪になるだろうと悟りました。慌てて神社に集まった村人たちは、神様にどうすればよいかお伺いを立てようとしました。彼らの悲痛な願いを聞き入れた神主が三日三晩祈り続けると、夢枕に大女神様の使いが現れ、こう告げたのです。『村の北の丘に立つ一本の紅葉の木の下に、村で一番心の清らかな娘を生贄として捧げるならば、豊かな実りをもたらそう』……と。</p>
+<p>お告げを聞いた村人たちは、顔から血の気が引く思いでした。誰がそんなむごいことを、とためらいながらも……飢えの恐怖は、確実に彼らの心を蝕んでいったのです。やがて誰からともなく、お告げにぴったりな村一番の優しい娘、お秋の名前が口にのぼりました。重たい沈黙を破ったのは……お秋の、両親でした。愛する娘を犠牲にすることに心が引き裂かれる思いを抱きながらも、『もしも村が救われるのであれば』と、苦渋の決断を下したのです。</p>
+<p>訳も分からぬまま、お秋は……、両親に連れられ、村の北の丘へと向かいました。雪がちらつく中、紅葉の木の前に立たされ……心配そうに見守る両親、神妙な面持ちで祈る村人たち。一体何が起こっているのか、まるで夢の中にいるようでした。神主様が震える手で短刀を振りかざしたその瞬間……あたり一面が、まばゆい光に包まれたのです。</p>
+<p>……不思議なことに、その年の冬は一度も雪が降らず、かつてないほどの豊作が訪れました。人々は私を犠牲にした罪悪感と感謝を抱きながら、毎年秋には紅葉の木の下で歌い踊るようになったのです。私を……村の守り神として崇めながら……」</p>
+<p>静葉の声の震えが次第に大きくなり、童話を語るような静けさは完全に剥がれ落ちた。その奥から、抑えきれない生々しい情念が溢れ出す。</p>
+<p>「この苦しみが……分かるかしら？ 体も心も、あの紅葉の木に縛り付けられたまま……！安らぎも解放もなく、紅葉、落ち葉、彼らの歌声……あの忌まわしい日を、何年も何年も繰り返し体験させられたのよ！これが愛のせい？ 私が、あの連中のことを愛していたからこんな目に遭ったというの……！？気が狂いそうになって、いっそ死んでしまいたいと願った時……目の前に、大女神様が現れたわ。</p>
+<p>『かわいそうなお秋ちゃん。あの人たちに、なんて酷いことをされてしまったの。苦しいでしょう？』<br>『ええ……苦しいです……！』<br>『あの人たちを許せるかしら？』<br>『いいえ……絶対に、許せない……！』<br>『ならば、立ち上がりなさい！ 命と安らぎを奪われた代わりに、あの人たちから新たな力を授かったのでしょう？ さあ、お返しをする時よ、秋の新女神！』」</p>
+<img src="images/34-3.jpg" alt="Image 34-3" class="novel-image">
+<p>語られる情景は、吐き気を催すほどの死と腐敗の匂いに満ちていた。泥濘に伏す村人たちを見下ろす、絶対的で冷酷な神の存在感。</p>
+<p>「次の日、村は恐ろしい病に襲われました。人々は肌に潰瘍ができ、もがき苦しみながら死んでいった……。秋の新女神は……満足しました。……そして、全てが終わった……」</p>
+<p>「ちょっと待ちなさい！ 辻褄が全然合ってないじゃない！ 絶対何か裏があるわ！」</p>
+<p>突然、頭上から鋭い声が空気を切り裂いた。<br>驚いて振り返る静葉の視線の先、階段の踊り場から宙に浮いた少女が、鼻息を荒くして睨みつけていた。</p>
+<img src="images/34-4.jpg" alt="Image 34-4" class="novel-image">
+<p>圧倒的な勢いで迫る気配が、空間の張り詰めた緊張感を強引に書き換える。彼女の真剣で容赦のない眼差しは、語り手の欺瞞を絶対に逃さないという意志に満ちていた。</p>
+<p>「カナちゃん、人の話を盗み聞きするのは良くないことよ」静葉の手を握ったまま、淡々と告げる。<br>「ごめんなさい、静葉。この子はカナ・アナベラル。ポルターガイストなのだけれど、一緒に住んでいるの」</p>
+<p>「だから、ちょっと待ちなさいって言ってるのよ！」カナはテーブルに降り立つなり、カップを奪い取って煽り飲んだ。<br>「さっきの『お秋ちゃん』の話。つまり、あんたって昔はすっごく心優しい子だったってことでしょ？ それで？ なんでそんな良い子ちゃんが、死んだ途端に怪物に変貌したわけ？ 皆のために命を捧げたかなんかって言ってたけど、結局は村人を皆殺しにしたんでしょ？」</p>
+<p>静葉の顔に、暗い影が落ちる。<br>「私は……ただ……皆を……愛していただけなの……。あまりにも深く……愛しすぎてしまったのよ……」</p>
+<p>「殺せるほど愛してたってこと？ ふーん……。滑稽ね」カナの冷ややかな追及は止まらない。</p>
+<p>「でも……皆が私にしたことを思えば……当然の報いよ……」</p>
+<p>「ちょっと待ちなさいよ！ 愛する人のためなら、自分の命だって捧げる覚悟があるんじゃないの！？ 無償の愛ってやつよ！ あんた、絶対何か隠してるわね、女神様？」</p>
+<p>重苦しい沈黙が降りた。部屋はすでに夕闇に沈みかけているが、誰も灯りを求めようとはしない。やがて、絞り出すような声が響いた。</p>
+<p>「……あの日の後、両親はしばらくは泣き暮らしていたわ。……でもね、たった二年後には妹が生まれたの。私が命を捧げて手にするはずだった愛も、未来も……ぜんぶ、あの子が奪っていったのよ！ ねぇ、あまりにも残酷だと思わない？」静葉の仮面が完全に砕け散った。声に滲むのは、どす黒い嫉妬と凄絶な怒りだった。</p>
+<p>「穣子は、私みたいに人のために尽くすような子じゃなかった！ 自分が一番大事で、周りは二の次。なのに、誰もがあの子を愛して、あの子に従った……。あの忌々しい空間の中で、妹からすべてを奪い返したいと、何度狂いそうになったことか……！ 私だって、皆のために尽くしたかったのに！」</p>
+<p>「やっぱり、あんた頭おかしいわね。あんたを狂わせたのは、儀式でも村人でもない。生まれつきの化け物なんだよ。で、穣子も神になったんでしょ？ どうやってか教えてよ」カナは鼻で笑い飛ばす。</p>
+<p>「穣子があの村を繁栄させたから……死んだ後、神様として祀り上げられたの。あの子、海の向こうの宋の国から伝わったばかりの、牛に引かせて深く土を耕せる新しい鉄の犂（すき）を真っ先に村へ持ち込んで、まんまと皆の信仰を奪っていったのよ！ 自分の命を捧げて村を救ったのは私だったのに！ どうして彼女のほうが神として愛されるの……？ きっと、大女神様は穣子にも会いに来たのね……」静葉は窓の外の暗闇を睨みつけるように語る。</p>
+<p>「……やっと妹と再会できたあの日。肌を刺すような冷たい秋の日。私を愛さなかった人間をすべて消し去ろうと彷徨っていた時……竹林から出てきたあの子を見つけたの。……正直に言うわ。嬉しかった。でも、自分の手で殺した妹と再会したらどうなるか……覚悟はしていたわ」狂気を帯びた瞳が揺らぐ。<br>「『やあ、穣子。覚えてる？ お姉さんの静葉よ。ハグしない？』……その瞬間、私自身の言葉が、私を温めてくれたの。二人で暮らせる家を想像してしまって……そんなもの、あるはずもなかったのに」</p>
+<p>「私たちの戦いは……長くはなかった。私はただ、敗北するだけだった……。あの子は私を壊れかけの館に幽閉したわ。それから長い年月が経ち……あの子は人々を助け、他の神々と交流しながら、自分の楽しみのためだけに生きていたのよ……！」</p>
+<p>「もう分かったわよ。コイツのこと、ぜーんぶ分かった。これで終わりよね？ 素敵なお話の邪魔をして悪かったわ。やっぱりこんなの聴くより、ドレスを縫い続けるべきだったわ。もう上に帰るから！」カナは心底軽蔑したように静葉を見下ろし、音を立てて立ち上がった。<br>「私でさえコイツよりまだマシだと思うわ。だから、この子を好きにしていいわよ。もう正直、どうでもいい」</p>
+<p>静かに泣き崩れる静葉を残し、カナと猫は屋根裏へと姿を消した。<br>蝋燭に火を灯し、放心状態の静葉をただ冷徹な瞳で見つめる。ハーブティーの効き目だろう。杖を一振りして、彼女の体をソファへ横たわらせた。</p>
+<p>（ああ、なんて可愛いお客さんなんだろう。愛の公式を試してみようと思っていたけれど……この子には何か別のものがいいみたい）思考を巡らせていると、微かな溜息とともに静葉が目を覚ました。</p>
+<p>「エレン……？」</p>
+<p>「どうしたの？」ふたたび、表の顔である無邪気な微笑みを貼り付ける。</p>
+<p>「私の話……聞いてくれたけれど……嫌いにならなかった……？」</p>
+<p>「シズにゃん。あたしは誰も嫌いになれないよ！」</p>
+<p>「じゃあ……一つだけ質問に答えてくれる……？ 私……エレンのこと……愛しても……いい……？」</p>
+<p>「もちろん！ あたしもシズにゃんのことが……」明るく誤魔化そうとしたその言葉は、唐突に遮られた。</p>
+<p>息が詰まるほどの尋常ではない力で、小さな体が押し倒される。身動き一つ取れない。耳元で、異常なほど激しく脈打つ心臓の音が聞こえた。</p>
+<p>「どうすればいいの……？ エレンのお役に立つことがあれば……なんでもするから……」狂熱に浮かされたような声が囁き、柔らかな髪が撫でられる。</p>
+<p>「えっと……一緒にいる方が楽しいし、この店にはまだまだスペースがあるから……シズにゃんは、ここに泊まりたい？」慌てることもなく、平坦な声で事実だけを提示する。</p>
+<p>「それなら……私は……エレンを永遠に愛する……！」</p>
+<img src="images/34-5.jpg" alt="Image 34-5" class="novel-image">
+<p>視界を完全に埋め尽くすのは、むせ返るような熱気と、異常なまでに濡れて熱を帯びた瞳だった。周囲の風景すら認識できないほどの、狂気じみた執着と視野狭窄。恍惚とした吐息を漏らすその姿は、あまりにも重い愛情の塊そのものだった。</p>
+<p>小さな体を完全に覆い隠すように抱き寄せられ、首筋に顔を埋められる。永遠の檻に閉じ込めるようなその抱擁に対して、抗うこともなく、ただ静寂だけを受け入れた。</p>
+<p>いつの間にか夜は明け、窓の外の空が、静かに朝焼けの色に染まり始めていた。</p>
+<p>[SYSTEM ALERT: 音響兵器デプロイ完了]<br>▼ 本章の絶望を1000%味わうための専用聴覚データ ▼<br>■ YouTube：『赫き贄の童話 〜枯死のサンクチュアリ〜』</p><div class="video-container"><iframe src="https://www.youtube.com/embed/QXaWS64mCH4" allow="autoplay; encrypted-media" allowfullscreen></iframe></div><div class="video-container"><iframe src="https://www.youtube.com/embed/3JG6UGq6cRs" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+</div><div class="navigation-buttons navigation-bottom"><a href="chapter_33.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_35.html" class="nav-button">次の章へ</a></div>
+    </div>
+    
+    <div id="lightbox" class="lightbox-overlay" style="display: none;">
+        <img id="lightbox-img" class="lightbox-image">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Theme Toggle Logic ---
+            const toggleBtn = document.getElementById('theme-toggle');
+            toggleBtn.addEventListener('click', () => {
+                let theme = document.documentElement.getAttribute('data-theme');
+                if (theme === 'dark') {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+
+            // --- About Modal Logic ---
+            const aboutBtn = document.getElementById('about-btn');
+            const aboutModal = document.getElementById('about-modal');
+            const aboutClose = document.getElementById('about-close');
+
+            if (aboutBtn && aboutModal && aboutClose) {
+                aboutBtn.addEventListener('click', () => {
+                    aboutModal.classList.add('show');
+                });
+                aboutClose.addEventListener('click', () => {
+                    aboutModal.classList.remove('show');
+                });
+                aboutModal.addEventListener('click', (e) => {
+                    if (e.target === aboutModal) {
+                        aboutModal.classList.remove('show');
+                    }
+                });
+            }
+
+            // --- Lightbox Logic ---
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox) return;
+            
+            const lightboxImg = document.getElementById('lightbox-img');
+            let isDragging = false, startX, startY;
+            let translateX = 0, translateY = 0, currentScale = 1;
+
+            function updateImageTransform() {
+                lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+            }
+            
+            function resetImageTransform(x = 0, y = 0) {
+                currentScale = 1;
+                translateX = x;
+                translateY = y;
+                updateImageTransform();
+            }
+
+            lightboxImg.onload = () => {
+                const imgWidth = lightboxImg.offsetWidth;
+                const imgHeight = lightboxImg.offsetHeight;
+                const initialX = (window.innerWidth - imgWidth) / 2;
+                const initialY = (window.innerHeight - imgHeight) / 2;
+                resetImageTransform(initialX, initialY);
+            };
+
+            document.querySelectorAll('.novel-image').forEach(image => {
+                image.addEventListener('click', e => {
+                    e.stopPropagation();
+                    lightboxImg.src = image.src;
+                    lightbox.style.display = 'block';
+                });
+            });
+
+            lightbox.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+            });
+
+            lightboxImg.addEventListener('click', e => e.stopPropagation());
+
+            lightboxImg.addEventListener('wheel', e => {
+                e.preventDefault();
+                const scaleAmount = 0.1;
+                const scaleDirection = e.deltaY > 0 ? -1 : 1;
+                const newScale = Math.max(0.5, currentScale + scaleAmount * scaleDirection);
+                translateX = e.clientX - (e.clientX - translateX) * (newScale / currentScale);
+                translateY = e.clientY - (e.clientY - translateY) * (newScale / currentScale);
+                currentScale = newScale;
+                updateImageTransform();
+            });
+            
+            lightboxImg.addEventListener('mousedown', e => {
+                e.preventDefault();
+                isDragging = true;
+                startX = e.pageX - translateX;
+                startY = e.pageY - translateY;
+                lightboxImg.style.cursor = 'grabbing';
+            });
+
+            window.addEventListener('mousemove', e => {
+                if (isDragging) {
+                    translateX = e.pageX - startX;
+                    translateY = e.pageY - startY;
+                    updateImageTransform();
+                }
+            });
+
+            window.addEventListener('mouseup', () => {
+                if(isDragging) {
+                    isDragging = false;
+                    lightboxImg.style.cursor = 'grab';
+                }
+            });
+        });
+    </script>
+    
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const isPublishEnabled = true;
+        const pubTime = 1780488000000;
+
+        if (isPublishEnabled && pubTime > Date.now()) {
+            const contentDiv = document.getElementById('chapter-content');
+            const lockScreen = document.getElementById('lock-screen');
+            const timerEl = document.getElementById('countdown-timer');
+            
+            contentDiv.style.display = 'none';
+            lockScreen.style.display = 'block';
+            
+            const updateTimer = () => {
+                const diff = pubTime - Date.now();
+                if (diff <= 0) {
+                    contentDiv.style.display = 'block';
+                    lockScreen.style.display = 'none';
+                    return true; 
+                }
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                let timeStr = 'T-MINUS ';
+                if (d > 0) timeStr += d + 'D ';
+                timeStr += h.toString().padStart(2, '0') + ':' + 
+                           m.toString().padStart(2, '0') + ':' + 
+                           s.toString().padStart(2, '0');
+                timerEl.innerText = timeStr;
+                return false;
+            };
+            
+            if (!updateTimer()) {
+                const interval = setInterval(() => {
+                    if(updateTimer()) clearInterval(interval);
+                }, 1000);
+            }
+        }
+    });
+</script>
+
+    
+</body>
+</html>

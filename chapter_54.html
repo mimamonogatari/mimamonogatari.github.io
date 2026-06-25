@@ -272,10 +272,29 @@
 
         /* Chapter Content */
         p {
-            text-indent: 1em; 
+            text-indent: 1em;
             margin-top: 0;
-            margin-bottom: 1em;
+            margin-bottom: 0;
             font-size: 1.1em;
+        }
+        /* セリフ・内心の声の行は字下げなし */
+        p.no-indent {
+            text-indent: 0;
+        }
+        /* 空行（段落の区切り）の後の最初の行に上マージンを追加 */
+        p.new-block {
+            margin-top: 1em;
+        }
+        /* Markdown 記法のスタイル */
+        strong {
+            font-weight: bold;
+        }
+        em {
+            font-style: italic;
+        }
+        del {
+            text-decoration: line-through;
+            opacity: 0.7;
         }
         img.novel-image {
             display: block;
@@ -448,7 +467,7 @@
     <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
     
     <div class="container">
-        <div class="navigation-buttons navigation-top"><a href="chapter_53.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a></div>
+        <div class="navigation-buttons navigation-top"><a href="chapter_53.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_55.html" class="nav-button">次の章へ</a></div>
                 <div id="lock-screen" class="lock-screen" style="display: none;">
                     <div class="lock-warning">【SYSTEM ALERT: ACCESS DENIED】</div>
                     <div class="lock-message">指定された認知データは現在封印されています。<br>物理次元の解禁時刻まで待機してください。</div>
@@ -456,63 +475,101 @@
                 </div>
                 <div id="chapter-content"><h1>第54章 Condensed Milk(サイドストーリー)</h1>
 <img src="images/54-1.jpg" alt="Image 54-1" class="novel-image">
-<p>肺の奥まで凍てつくような極寒の空気の中、暖色の炎が揺らめき、硬質な氷の壁に柔らかな影を落としている。空間を支配するのは、心地よい静寂と、決闘の余熱を完全に冷ましきった弛緩した空気だ。分厚い氷のテーブルを挟み、魔女たちの極めて私的な時間が流れていた。</p>
-<p>「見たでしょ？ 完璧な絶対零度。あの程度の熱量じゃ、私の氷は溶かせないわ」<br>ソファに深く身を沈めたマイは、口の中で溶けかけた果物の種を器用に舌で選り分け、氷の小皿へと吐き出した。その響きには、勝利の余韻というよりは、計算通りの解を導き出しただけの冷めた響きがある。</p>
-<p>「マイだって、結構ギリギリのセッションだったじゃない。あの異邦人さん、意外といいビート刻んでたわよ」<br>対照的に、背筋を伸ばして本を開くユキは、手元にある奇妙なチューブをくるくると指先で弄んでいた。冷たい表面の奥に、粘り気のある甘い匂いが封じられているのを感じ取る。<br>「何かしら、これ。メデア、なんて言ってたっけ？」</p>
-<p>「……確か、何かを解き放つキーだとか言ってたわね。まあ、あの程度の魔力しか持たない小娘の言うことなんて、たかが知れてるけれど」<br>マイは面倒くさそうに吐き捨てる。</p>
-<p>「そんなに冷たく切り捨てないの。ほら、こうして手の中で転がしていると、ふつふつと面白い熱を帯びてくるわ」<br>ユキが指先で摩擦を与えると、チューブ内の物質が微かな反応を返す。<br>「ええと……なんて言ってたっけ？ テトラヒドロ……あ、そう！ テトラヒドロカンナビノール！」</p>
-<p>「よくそんな無駄な単語を記憶領域に留めておけるわね。……で、その解（アンサー）は出てるわけ？」</p>
-<p>「どこかのジャムセッションで聞いたような、懐かしい響きなのよね……」</p>
-<p>「……あそこの氷棚の右側。一番分厚い精神作用物質のインデックスがあるでしょ。ページをめくって、さっさと沈黙させてちょうだい」<br>マイの突き放すような指示に従い、ユキは手元の分厚い書物に視線を落とした。</p>
-<p>「えーと……テバコン、テノシクリジン……。あ、ビンゴ！ テトラヒドロカンナビノール！ カンナビス・サティバっていう植物に多く含まれてる成分らしいわ。ねえ、マイ、これって最高のスパイスにならない？」</p>
-<p>返事はなかった。規則正しい静かな寝息だけが、冷気に溶けていく。マイはすでに、深い意識の底へと沈降していた。<br>残されたユキの胸の内で、一人静かに好奇心の熱が発火する。</p>
-<p>（……そういえば、この植物のビート、どこかで味わったことがあるわ……）</p>
-<p>脳裏に、あの狡猾な悪魔の顔がフラッシュバックする。ルイズがかつて人間の世界へ「出張」に出向いた際、ひどく得意げな顔で持ち帰ってきた土産の記憶。<br>（……確か、『オランダ』とかいう場所。あの時のハーブが、まだ残ってるはず……！）</p>
-<p>居ても立っても居られず、ユキは分厚い氷の板をどかし、地下室へと続く階段を弾むような足取りで駆け下りた。冷え切った暗闇の中、オイルランプの火を灯す。そこは、年代物の素材が眠る狂気のアーカイブだ。足元の箱を蹴飛ばしそうになりながら、目当ての熱源を探し回る。</p>
-<p>（……えーと、アムステルダム……アムス、テ、ル、ダム……。リズムに乗りにくい名前ね。あ、見っけ！）</p>
-<p>手に取った小袋の中には、ひからびた緑茶のような乾燥ハーブが眠っていた。</p>
-<p>静寂に包まれた居住空間とは打って変わり、奥の実験室は常に熱とエネルギーが飽和している。透明な釜の中で、湯が苛立ちをぶつけるように沸騰のビートを刻んでいた。<br>ユキは迷うことなくチューブの封を切り、粘り気のあるペーストを沸騰した湯の中へ絞り出す。立ち昇る強烈な甘い匂いに、小袋の中の乾燥ハーブを一気に放り込んだ。</p>
+<p class="new-block">肺の奥まで凍てつくような極寒の空気の中、暖色の炎が揺らめき、硬質な氷の壁に柔らかな影を落としている。空間を支配するのは、心地よい静寂と、決闘の余熱を完全に冷ましきった弛緩した空気だ。分厚い氷のテーブルを挟み、魔女たちの極めて私的な時間が流れていた。</p>
+<p class="no-indent new-block">「見たでしょ？ 完璧な絶対零度。あの程度の熱量じゃ、私の氷は溶かせないわ」</p>
+<p>ソファに深く身を沈めたマイは、口の中で溶けかけた果物の種を器用に舌で選り分け、氷の小皿へと吐き出した。その響きには、勝利の余韻というよりは、計算通りの解を導き出しただけの冷めた響きがある。</p>
+<p class="no-indent new-block">「マイだって、結構ギリギリのセッションだったじゃない。あの異邦人さん、意外といいビート刻んでたわよ」</p>
+<p>対照的に、背筋を伸ばして本を開くユキは、手元にある奇妙なチューブをくるくると指先で弄んでいた。冷たい表面の奥に、粘り気のある甘い匂いが封じられているのを感じ取る。</p>
+<p class="no-indent">「何かしら、これ。メデア、なんて言ってたっけ？」</p>
+<p class="no-indent new-block">「……確か、何かを解き放つキーだとか言ってたわね。まあ、あの程度の魔力しか持たない小娘の言うことなんて、たかが知れてるけれど」</p>
+<p>マイは面倒くさそうに吐き捨てる。</p>
+<p class="no-indent new-block">「そんなに冷たく切り捨てないの。ほら、こうして手の中で転がしていると、ふつふつと面白い熱を帯びてくるわ」</p>
+<p>ユキが指先で摩擦を与えると、チューブ内の物質が微かな反応を返す。</p>
+<p class="no-indent">「ええと……なんて言ってたっけ？ テトラヒドロ……あ、そう！ テトラヒドロカンナビノール！」</p>
+<p class="no-indent new-block">「よくそんな無駄な単語を記憶領域に留めておけるわね。……で、その解（アンサー）は出てるわけ？」</p>
+<p class="no-indent new-block">「どこかのジャムセッションで聞いたような、懐かしい響きなのよね……」</p>
+<p class="no-indent new-block">「……あそこの氷棚の右側。一番分厚い精神作用物質のインデックスがあるでしょ。ページをめくって、さっさと沈黙させてちょうだい」</p>
+<p>マイの突き放すような指示に従い、ユキは手元の分厚い書物に視線を落とした。</p>
+<p class="no-indent new-block">「えーと……テバコン、テノシクリジン……。あ、ビンゴ！ テトラヒドロカンナビノール！ カンナビス・サティバっていう植物に多く含まれてる成分らしいわ。ねえ、マイ、これって最高のスパイスにならない？」</p>
+<p class="new-block">返事はなかった。規則正しい静かな寝息だけが、冷気に溶けていく。マイはすでに、深い意識の底へと沈降していた。</p>
+<p>残されたユキの胸の内で、一人静かに好奇心の熱が発火する。</p>
+<p class="no-indent new-block">（……そういえば、この植物のビート、どこかで味わったことがあるわ……）</p>
+<p class="new-block">脳裏に、あの狡猾な悪魔の顔がフラッシュバックする。ルイズがかつて人間の世界へ「出張」に出向いた際、ひどく得意げな顔で持ち帰ってきた土産の記憶。</p>
+<p class="no-indent">（……確か、『オランダ』とかいう場所。あの時のハーブが、まだ残ってるはず……！）</p>
+<p class="new-block">居ても立っても居られず、ユキは分厚い氷の板をどかし、地下室へと続く階段を弾むような足取りで駆け下りた。冷え切った暗闇の中、オイルランプの火を灯す。そこは、年代物の素材が眠る狂気のアーカイブだ。足元の箱を蹴飛ばしそうになりながら、目当ての熱源を探し回る。</p>
+<p class="no-indent new-block">（……えーと、アムステルダム……アムス、テ、ル、ダム……。リズムに乗りにくい名前ね。あ、見っけ！）</p>
+<p class="new-block">手に取った小袋の中には、ひからびた緑茶のような乾燥ハーブが眠っていた。</p>
+<p class="new-block">静寂に包まれた居住空間とは打って変わり、奥の実験室は常に熱とエネルギーが飽和している。透明な釜の中で、湯が苛立ちをぶつけるように沸騰のビートを刻んでいた。</p>
+<p>ユキは迷うことなくチューブの封を切り、粘り気のあるペーストを沸騰した湯の中へ絞り出す。立ち昇る強烈な甘い匂いに、小袋の中の乾燥ハーブを一気に放り込んだ。</p>
 <p class="scene-break">＊＊＊</p>
 <img src="images/54-2.jpg" alt="Image 54-2" class="novel-image">
-<p>`SYSTEM ERROR: SENSORY OVERLOAD`</p>
-<p>ばりばり極彩色のネオンが明滅しとるんじゃけど、だーれもおらんで、赤や紫のガスがごーとごーと言うとるんよ。</p>
-<p>`> WALK FORWARD`</p>
-<p>次の瞬間、金属光沢の釜ん中に足ば突っ込んでしもて、<br>「あだ！」<br>と思ったっちゃ。痛覚パラメータが完全にバグっとるばい。</p>
-<p>`> LOOK AROUND`</p>
-<p>ほんで、目が虹色の煙に慣れてくると、手前の木目の床に錬金術の机が見えるんやわ。強烈な明暗のコントラストで視界がチカチカするっしょ。</p>
-<p>`> OPEN DRAWER`</p>
-<p>引き出し開けたら、黒いラベル帯に牛の顔が描かれとる不気味なTUBEが入っとるんよ。蛍光色の記号が浮かび上がっとるべ。</p>
-<p>（夢ちゃうんや！ マジもんのクエストやき！）</p>
-<p>恐る恐る手に取って、`> EXAMINE TUBE` ってやってん。</p>
-<p>`--- OBJECT: 「異世界の練乳 (Condensed Milk)」---`<br>`STATUS: OPENED`<br>`CONTENTS: 虹色に発光する粘性ペースト`<br>`VOLUME: 50%`</p>
-<p>とりあえず、インベントリに突っ込んだんよ。</p>
-<p>`> TAKE CONDENSED MILK`<br>`--- 持ち物LISTに追加：「Condensed Milk」(残り50%) ---`</p>
-<p>残りの半分を探さんといかんのんじゃけど、あたりは人工的で強烈な甘い匂いと化学薬品の悪臭がチャンポンになっとるさかい。</p>
-<p>`> SEARCH "残りのCondensed Milk"`<br>`--- ERROR: OBJECT NOT FOUND ---`</p>
-<p>ほんで、くんくん嗅ぎ回ったら、激しく煙を吹く釜と、赤やピンクに発光する液体の入った割れたGlassを見つけたばい。</p>
-<p>`> TAKE 悪臭を放つ煮汁の入った釜`</p>
-<p>取ろうとしたんやけど、割れたGlassにザクッと当たってしもたんよ。手から血がDARA-DARA流れよるし、HPゲージがマッハで減りよるっちゃんね。拭こうとしたら、なおさら手を傷つけるべさ。</p>
-<p>`> USE 薬草`<br>`--- INVENTORY ERROR: ITEM NOT EQUIPPED ---`</p>
-<p>要るべさ：治療用の薬草だっちゃ！！<br>「ちぇっ！ わやだべ！」</p>
-<p>「この極彩色のラボ、絶対友達ちゃうわ」<br>と思って、荒い石積みの壁にあるDOORに近づくんやけど。</p>
-<p>`> OPEN DOOR`<br>`--- ACCESS DENIED ---`</p>
-<p>つまり「アクセス拒否」だべ。フラグが立っとらんのよ。<br>DOORに対して「攻撃」をするんばってん、</p>
-<p>`> ATTACK DOOR WITH コブシ`<br>`--- ROLL: 2 ... FAILED. DAMAGE 0. ---`<br>`--- ACCESS DENIED ---`</p>
-<p>やっぱりあかんか。出口がねーことに気付くんよ。絶望のデバフがかかったばい。<br>（このDOOR、ぶち破ったろか！）<br>と思うんばい。</p>
-<p>「急がんでいいさ！」</p>
-<p>突如、壁の隙間の濃いキャストシャドウが返事をしてるみたいだど。サン値がゴリゴリ削れるっしょ。<br>考えるっしょ。短くて永遠みてぇなバグった時間が経つんだけど、悪臭を放つ煮汁の入った釜の「ごー」っつー音が、だんだん<br>（こいつぁ、この世界で唯一の友達かもしんねぇ… ）<br>って思うばい。釜の丸い窓<br>（ポートホール）<br>に顔を近づけてみたら、なんか落ち着くさかい。</p>
-<p>`> CHECK STATUS`<br>`--- 持ち物リスト：「Condensed Milk」<br>50% ---`<br>`--- MENTAL STATUS: CRITICAL ---`</p>
-<p>はぁ～…、とため息ついて、床に散乱する白い粉の上に座り込んで待つしかねぇなぁ。極彩色の光の乱反射の中で、気が遠くなるようなロード時間が過ぎていく。</p>
-<p>`> EVENT TRIGGERED`</p>
-<p>ゆっくりとDOORが開くがね。<br>目の前には、もう、なんちゅうか、恐ろしい怪物がポップしたわけさー。</p>
-<p>恐ろしい怪物はムチをGETするなり、いきなりわいにATTACKしてきたとたい！</p>
-<p>`> ENEMY ATTACKS!`<br>「うぎゃー！」</p>
-<p>`--- ALARM: HEALTH CRITICAL ---`</p>
-<p>健康チェックやばい。怪物に「失せろ！」と言いたいけど、舌が口の中でバグって動かんばい。`COMMAND ERROR`。ほぼゲームオーバーだっちゃ。</p>
-<p>恐ろしい怪物が言うとった。</p>
-<p>「……ユキ、またラリってるの？」</p>
-<p>[SYSTEM ALERT: 音響兵器デプロイ完了]<br>▼ 本章の絶望を1000%味わうための専用聴覚データ ▼<br>■ YouTube：『Pandemonium SKA （パンデモニウム・スカ）』</p><div class="video-container"><iframe src="https://www.youtube.com/embed/Rgfmjh8HBlU" allow="autoplay; encrypted-media" allowfullscreen></iframe></div><div class="video-container"><iframe src="https://www.youtube.com/embed/Q-TFhetTEZQ" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-</div><div class="navigation-buttons navigation-bottom"><a href="chapter_53.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a></div>
+<p class="new-block"><code>SYSTEM ERROR: SENSORY OVERLOAD</code></p>
+<p class="new-block">ばりばり極彩色のネオンが明滅しとるんじゃけど、だーれもおらんで、赤や紫のガスがごーとごーと言うとるんよ。</p>
+<p class="new-block"><code>> WALK FORWARD</code></p>
+<p class="new-block">次の瞬間、金属光沢の釜ん中に足ば突っ込んでしもて、</p>
+<p class="no-indent">「あだ！」</p>
+<p>と思ったっちゃ。痛覚パラメータが完全にバグっとるばい。</p>
+<p class="new-block"><code>> LOOK AROUND</code></p>
+<p class="new-block">ほんで、目が虹色の煙に慣れてくると、手前の木目の床に錬金術の机が見えるんやわ。強烈な明暗のコントラストで視界がチカチカするっしょ。</p>
+<p class="new-block"><code>> OPEN DRAWER</code></p>
+<p class="new-block">引き出し開けたら、黒いラベル帯に牛の顔が描かれとる不気味なTUBEが入っとるんよ。蛍光色の記号が浮かび上がっとるべ。</p>
+<p class="no-indent new-block">（夢ちゃうんや！ マジもんのクエストやき！）</p>
+<p class="new-block">恐る恐る手に取って、<code>> EXAMINE TUBE</code> ってやってん。</p>
+<p class="new-block"><code>--- OBJECT: 「異世界の練乳 (Condensed Milk)」---</code></p>
+<p><code>STATUS: OPENED</code></p>
+<p><code>CONTENTS: 虹色に発光する粘性ペースト</code></p>
+<p><code>VOLUME: 50%</code></p>
+<p class="new-block">とりあえず、インベントリに突っ込んだんよ。</p>
+<p class="new-block"><code>> TAKE CONDENSED MILK</code></p>
+<p><code>--- 持ち物LISTに追加：「Condensed Milk」(残り50%) ---</code></p>
+<p class="new-block">残りの半分を探さんといかんのんじゃけど、あたりは人工的で強烈な甘い匂いと化学薬品の悪臭がチャンポンになっとるさかい。</p>
+<p class="new-block"><code>> SEARCH "残りのCondensed Milk"</code></p>
+<p><code>--- ERROR: OBJECT NOT FOUND ---</code></p>
+<p class="new-block">ほんで、くんくん嗅ぎ回ったら、激しく煙を吹く釜と、赤やピンクに発光する液体の入った割れたGlassを見つけたばい。</p>
+<p class="new-block"><code>> TAKE 悪臭を放つ煮汁の入った釜</code></p>
+<p class="new-block">取ろうとしたんやけど、割れたGlassにザクッと当たってしもたんよ。手から血がDARA-DARA流れよるし、HPゲージがマッハで減りよるっちゃんね。拭こうとしたら、なおさら手を傷つけるべさ。</p>
+<p class="new-block"><code>> USE 薬草</code></p>
+<p><code>--- INVENTORY ERROR: ITEM NOT EQUIPPED ---</code></p>
+<p class="new-block">要るべさ：治療用の薬草だっちゃ！！</p>
+<p class="no-indent">「ちぇっ！ わやだべ！」</p>
+<p class="no-indent new-block">「この極彩色のラボ、絶対友達ちゃうわ」</p>
+<p>と思って、荒い石積みの壁にあるDOORに近づくんやけど。</p>
+<p class="new-block"><code>> OPEN DOOR</code></p>
+<p><code>--- ACCESS DENIED ---</code></p>
+<p class="new-block">つまり「アクセス拒否」だべ。フラグが立っとらんのよ。</p>
+<p>DOORに対して「攻撃」をするんばってん、</p>
+<p class="new-block"><code>> ATTACK DOOR WITH コブシ</code></p>
+<p><code>--- ROLL: 2 ... FAILED. DAMAGE 0. ---</code></p>
+<p><code>--- ACCESS DENIED ---</code></p>
+<p class="new-block">やっぱりあかんか。出口がねーことに気付くんよ。絶望のデバフがかかったばい。</p>
+<p class="no-indent">（このDOOR、ぶち破ったろか！）</p>
+<p>と思うんばい。</p>
+<p class="no-indent new-block">「急がんでいいさ！」</p>
+<p class="new-block">突如、壁の隙間の濃いキャストシャドウが返事をしてるみたいだど。サン値がゴリゴリ削れるっしょ。</p>
+<p>考えるっしょ。短くて永遠みてぇなバグった時間が経つんだけど、悪臭を放つ煮汁の入った釜の「ごー」っつー音が、だんだん</p>
+<p class="no-indent">（こいつぁ、この世界で唯一の友達かもしんねぇ… ）</p>
+<p>って思うばい。釜の丸い窓</p>
+<p class="no-indent">（ポートホール）</p>
+<p>に顔を近づけてみたら、なんか落ち着くさかい。</p>
+<p class="new-block"><code>> CHECK STATUS</code></p>
+<p>`--- 持ち物リスト：「Condensed Milk」</p>
+<p>50% ---`</p>
+<p><code>--- MENTAL STATUS: CRITICAL ---</code></p>
+<p class="new-block">はぁ～…、とため息ついて、床に散乱する白い粉の上に座り込んで待つしかねぇなぁ。極彩色の光の乱反射の中で、気が遠くなるようなロード時間が過ぎていく。</p>
+<p class="new-block"><code>> EVENT TRIGGERED</code></p>
+<p class="new-block">ゆっくりとDOORが開くがね。</p>
+<p>目の前には、もう、なんちゅうか、恐ろしい怪物がポップしたわけさー。</p>
+<p class="new-block">恐ろしい怪物はムチをGETするなり、いきなりわいにATTACKしてきたとたい！</p>
+<p class="new-block"><code>> ENEMY ATTACKS!</code></p>
+<p class="no-indent">「うぎゃー！」</p>
+<p class="new-block"><code>--- ALARM: HEALTH CRITICAL ---</code></p>
+<p class="new-block">健康チェックやばい。怪物に「失せろ！」と言いたいけど、舌が口の中でバグって動かんばい。<code>COMMAND ERROR</code>。ほぼゲームオーバーだっちゃ。</p>
+<p class="new-block">恐ろしい怪物が言うとった。</p>
+<p class="no-indent new-block">「……ユキ、またラリってるの？」</p>
+<p class="new-block">[SYSTEM ALERT: 音響兵器デプロイ完了]</p>
+<p>▼ 本章の絶望を1000%味わうための専用聴覚データ ▼</p>
+<p>■ YouTube：『Pandemonium SKA （パンデモニウム・スカ）』</p>
+<div class="video-container"><iframe src="https://www.youtube.com/embed/Rgfmjh8HBlU" allow="autoplay; encrypted-media" allowfullscreen></iframe></div><div class="video-container"><iframe src="https://www.youtube.com/embed/Q-TFhetTEZQ" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="navigation-buttons navigation-bottom"><a href="chapter_53.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_55.html" class="nav-button">次の章へ</a></div>
     </div>
     
     <div id="lightbox" class="lightbox-overlay" style="display: none;">

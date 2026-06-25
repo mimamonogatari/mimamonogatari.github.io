@@ -272,10 +272,29 @@
 
         /* Chapter Content */
         p {
-            text-indent: 1em; 
+            text-indent: 1em;
             margin-top: 0;
-            margin-bottom: 1em;
+            margin-bottom: 0;
             font-size: 1.1em;
+        }
+        /* セリフ・内心の声の行は字下げなし */
+        p.no-indent {
+            text-indent: 0;
+        }
+        /* 空行（段落の区切り）の後の最初の行に上マージンを追加 */
+        p.new-block {
+            margin-top: 1em;
+        }
+        /* Markdown 記法のスタイル */
+        strong {
+            font-weight: bold;
+        }
+        em {
+            font-style: italic;
+        }
+        del {
+            text-decoration: line-through;
+            opacity: 0.7;
         }
         img.novel-image {
             display: block;

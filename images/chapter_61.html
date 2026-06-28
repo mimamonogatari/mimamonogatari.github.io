@@ -1,0 +1,820 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第61章 七つのチャクラの覚醒</title>
+    <meta name="description" content="『東方PC-98作品群』の再解釈を含む、超没入型・シネマティック・ノベル。全102章の絶対正典、272枚の視覚データ、40曲の音響兵器を統合した『魅魔ものがたり』公式アーカイブ。">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1J0REZFCV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B1J0REZFCV');
+    </script>
+    
+    <script>
+        // Check local storage for theme BEFORE the page renders to prevent flashing
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #333;
+            --link-color: #0056b3;
+            --nav-bg: #f7f7f7;
+            --nav-border: #ccc;
+            --nav-hover: #e9e9e9;
+            --border-color: #ddd;
+            --scene-break: #777;
+            --warning-bg: #fff5f5;
+            --warning-border: #cc0000;
+            --warning-text: #990000;
+            --popup-bg: #2c2c2c;
+            --popup-text: #fff;
+            --overlay-bg: rgba(0, 0, 0, 0.85);
+            --modal-overlay: rgba(0, 0, 0, 0.6);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --link-color: #66b3ff;
+            --nav-bg: #1e1e1e;
+            --nav-border: #333;
+            --nav-hover: #2c2c2c;
+            --border-color: #333;
+            --scene-break: #888;
+            --warning-bg: #2b0000;
+            --warning-border: #ff3333;
+            --warning-text: #ff9999;
+            --popup-bg: #444;
+            --popup-text: #fff;
+            --overlay-bg: rgba(0, 0, 0, 0.95);
+            --modal-overlay: rgba(0, 0, 0, 0.85);
+        }
+
+        /* General Body and Layout */
+        body {
+            font-family: 'Helvetica Neue', 'Arial', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .container {
+            max-width: 40em;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Light/Dark Mode Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background-color: var(--nav-bg);
+            border: 1px solid var(--nav-border);
+            color: var(--text-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover {
+            background-color: var(--nav-hover);
+            transform: scale(1.05);
+        }
+
+        /* Typography & Headers */
+        h1 { 
+            text-align: center; 
+            line-height: 1.3;
+            margin: 1.5em 0; 
+        }
+        h2.toc-title {
+            text-align: center;
+            margin-top: 3em;
+            border-top: 2px solid var(--border-color);
+            padding-top: 1em;
+        }
+        
+        /* Index Specific: The Absolute Canon Header */
+        .index-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+        .main-title {
+            font-size: 2.2rem;
+            margin-bottom: 0.1em;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: var(--scene-break);
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+        }
+        .stats {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        .warning-box {
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .warning-title {
+            color: var(--warning-border);
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+        .warning-box p {
+            color: var(--warning-text);
+            margin: 0;
+            text-indent: 0;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        /* Table of Contents Specific Styles */
+        .toc_volume {
+            margin-top: 2.5em;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5em;
+        }
+        .toc_chapter_list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc_chapter_list li { margin: 0.75em 0; }
+        .toc_chapter_list a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+        .toc_chapter_list a:hover { text-decoration: underline; }
+        
+        /* About Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--modal-overlay);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 3rem 2.5rem;
+            border-radius: 8px;
+            max-width: 650px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--scene-break);
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: var(--warning-border);
+        }
+        .about-h3 {
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+            margin-top: 2.5em;
+            color: var(--text-color);
+        }
+        .about-list {
+            padding-left: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        .about-list li {
+            margin-bottom: 0.8em;
+        }
+        .about-deployment {
+            text-align: center;
+            font-family: monospace;
+            margin-top: 3.5em;
+            color: var(--scene-break);
+            font-weight: bold;
+            letter-spacing: 1px;
+            background-color: var(--nav-bg);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        code {
+            background-color: var(--nav-hover);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+            color: var(--warning-text);
+            font-weight: bold;
+            font-size: 0.95em;
+            border: 1px solid var(--nav-border);
+        }
+
+        /* Chapter Content */
+        p {
+            text-indent: 1em;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 1.1em;
+        }
+        /* セリフ・内心の声の行は字下げなし */
+        p.no-indent {
+            text-indent: 0;
+        }
+        /* 空行（段落の区切り）の後の最初の行に上マージンを追加 */
+        p.new-block {
+            margin-top: 1em;
+        }
+        /* Markdown 記法のスタイル */
+        strong {
+            font-weight: bold;
+        }
+        em {
+            font-style: italic;
+        }
+        del {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        img.novel-image {
+            display: block;
+            max-width: 100%;
+            margin: 2.5rem auto;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        img.novel-image:hover { transform: scale(1.02); }
+        .scene-break {
+            text-align: center;
+            margin: 3em auto;
+            letter-spacing: 0.5em;
+            color: var(--scene-break);
+            text-indent: 0;
+        }
+
+        /* Responsive YouTube Player */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 2em auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background-color: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* Annotation Popups */
+        .annotation-ref {
+            position: relative;
+            cursor: pointer;
+            color: var(--link-color);
+            text-decoration: none;
+            vertical-align: super;
+            font-size: 0.8em;
+            line-height: 0;
+        }
+        .annotation-ref .annotation-popup {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s;
+            position: absolute;
+            bottom: 1.6em;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            background-color: var(--popup-bg);
+            color: var(--popup-text);
+            border-radius: 5px;
+            padding: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 100;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-indent: 0;
+        }
+        .annotation-ref:hover .annotation-popup {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Image Lightbox Styles */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-bg);
+            z-index: 1000;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            overflow: hidden;
+        }
+        .lightbox-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: 90vw;
+            max-height: 90vh;
+            cursor: grab;
+            transform-origin: 0 0;
+        }
+        
+        /* Chapter Navigation */
+        .navigation-buttons {
+            text-align: center;
+            padding: 0;
+        }
+        .navigation-bottom {
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid var(--border-color);
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 0.8em 1.5em;
+            margin: 0.2em 0.5em;
+            border: 1px solid var(--nav-border);
+            border-radius: 5px;
+            background-color: var(--nav-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .nav-button:hover {
+            background-color: var(--nav-hover);
+            border-color: var(--scene-break);
+        }
+
+        /* --- LOCK SCREEN SPECIFIC STYLES --- */
+        .lock-screen {
+            text-align: center;
+            margin: 5rem auto;
+            padding: 4rem 2rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .lock-warning {
+            color: var(--warning-border);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+        }
+        .lock-message {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--warning-text);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        .countdown {
+            font-size: 2.8rem;
+            font-family: monospace;
+            color: var(--warning-border);
+            letter-spacing: 4px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(204,0,0,0.3);
+        }
+        .locked-chapter {
+            color: var(--scene-break) !important;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        .locked-chapter:hover {
+            color: var(--warning-border) !important;
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
+    
+    <div class="container">
+        <div class="navigation-buttons navigation-top"><a href="chapter_60.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_62.html" class="nav-button">次の章へ</a></div>
+                <div id="lock-screen" class="lock-screen" style="display: none;">
+                    <div class="lock-warning">【SYSTEM ALERT: ACCESS DENIED】</div>
+                    <div class="lock-message">指定された認知データは現在封印されています。<br>物理次元の解禁時刻まで待機してください。</div>
+                    <div class="countdown" id="countdown-timer">T-MINUS --:--:--</div>
+                </div>
+                <div id="chapter-content"><h1>第61章 七つのチャクラの覚醒</h1>
+<p>いくつもの謎が解き明かされ、盤面には新たな光が差し込んでいた。キクリの王冠を飾っていたアメジストは、五つ目の怪物ユウゲン・マガンに囚われている。そして、この世界の支配者たる神綺は敵に回るどころか、共闘の確約すら与えてくれた。欺瞞に満ちた泥濘のような日々は、ようやく終わりを告げようとしている。</p>
+<p class="new-block">エリスは「苦労して」稼いだと言い張る金で購ったメイド服を、大事そうにバッグへ押し込んでいた。ちゆりも手際よく荷物をまとめる。その背中には夢子から支給された盾が背負われていた。金属フレームに覆われた代物で、柄の横にあるリングを回せば、設定した色の魔法バリアを展開できるという。手元にあるメデアの杖も、似たような構造だった。</p>
+<p class="new-block">出立の準備を整えていると、背後から静かな気配が近づいてきた。振り返ると、そこには大天使サリエルが立っていた。神綺の部屋を辞した彼女は、階段を下りてくると、メデアへ向かって穏やかな視線を向けた。</p>
+<img src="images/61-1.jpg" alt="Image 61-1" class="novel-image">
+<p class="new-block">冷たく澄んだパンデモニウムの静寂の中、圧倒的な神聖さが場を支配する。差し出された球体の重みと、そこに込められた微かな温もりが、冷徹なこの空間においてひどく異質に感じられた。それは、超越者からの慈悲とでも呼ぶべき、静かで確かな別れの余韻だった。</p>
+<p class="no-indent new-block">「メデアよ。汝の旅は、危険な道のりとなるでしょう。そこで、わたくしからささやかな贈り物を授けましょう」</p>
+<p class="new-block">メデアは深く頭を下げる。</p>
+<p class="no-indent">「ありがとうございます、サリエル様。どのような贈り物でも、光栄に存じます」</p>
+<p class="new-block">サリエルの掌の上で、小さな球体が眩い光を放ち始めた。</p>
+<p class="no-indent">「これは過去と未来、両方を見通せる球体です。隠された真実を知りたい時、あるいは最も可能性の高い未来を見たい時に、これをお使いなさい」</p>
+<p class="no-indent new-block">「いつもお気遣いいただき、感謝いたします。これで……過ぎ去ったことや、これから何が起こるのかが分かるのですね」</p>
+<p class="no-indent new-block">「左様でございます。ただし、この球体は一度しか作動いたしません。その後は砕け散ってしまいますゆえ、十分にご注意なさい」</p>
+<p class="no-indent new-block">（サリエル……最後に粋な真似をしてくれる）</p>
+<p class="new-block">大天使に別れを告げ、メデアは夢子と共に宮殿を後にした。ジェット箒の後部へちゆりを乗せ、空高く舞い上がる。操縦には随分と慣れてきたが、今日のように風が強く霧雨の降る日は厄介だ。ちゆりは普段、手動ミサイルに乗って移動しているらしい。理香子の「ミミちゃん」に跨った時の記憶が脳裏をよぎる。あの日から数日しか経っていないというのに、ひどく遠い昔のように感じられた。</p>
+<p class="new-block">街の上空を抜け、一行は「人間の味わい」の前に降り立った。居酒屋の喧騒を背に、メデアとちゆりはエリスの部屋へと通される。夢子は「私は外でお待ちいたします」とだけ言い残し、店の前に立ち尽くした。</p>
+<p>エリスの部屋は一応の掃除はされていたものの、家具も壁も傷だらけで、お世辞にも清潔とは呼べない代物だった。散らかったベッドの横のクローゼットから、エリスがメデアのローブを引っ張り出す。いつもの服に着替える間、彼女は妖精の干物を注文し、メデアたちに一尾ずつ押し付けてきた。</p>
+<p class="new-block">その時、エリスの視線がメデアの鞄から覗く微かな光に釘付けになった。</p>
+<p class="no-indent">「ねぇ、メデっち。それ……サリエルが持ってた玉じゃない？ 過去も見えるってやつでしょ？」</p>
+<p>エリスは目を輝かせ、ずいっと身を乗り出してくる。</p>
+<p class="no-indent new-block">「ええ、そうよ。一度しか使えないらしいけれど」</p>
+<p class="no-indent new-block">「アタシ、ユーマちゃんを倒すの、手伝ってあげるって言ったわよね？ だからさ……その玉、アタシにちょうだいよ！ 妹が連れ去られた時のこと……それがあれば分かるかもしれないじゃない！ 危険な戦いに行くんだから、それくらいの前払い、当然でしょ？」</p>
+<p class="no-indent new-block">（図々しい悪魔だ。だが、彼女の弾幕は貴重な戦力になる……ここで恩を売っておくのも悪くない）</p>
+<p class="no-indent">「……わかったわ。約束通り、最後までしっかり働いてちょうだいね」</p>
+<p class="new-block">メデアが球体を差し出すと、エリスはひったくるように受け取り、大事そうに胸に抱いた。</p>
+<p class="no-indent">「やった！ もちろんよ、メデっち！ アタシにどーんと任せなさい！」</p>
+<p class="new-block">軽く腹ごしらえを済ませ、三人は再び空へ上がる。</p>
+<p class="new-block">飛行中、弾幕の訓練を行うことにした。夢子は言われるまでもなく、白い防御フィールドを展開している。メデアは杖のリングを「白」に合わせ、初めて頭頂のチャクラ――サハスラーラへ意識を集中させた。</p>
+<p>空戦を想定した訓練だ。飛行中に思考を分割するのは至難の業だが、実戦がより過酷になることは火を見るより明らかだった。今ここで感覚を掴む価値は十分にある。</p>
+<p class="new-block">サハスラーラが開くまでには、途方もない時間を要した。下層からすべてのチャクラを貫いてエネルギーを引き上げ、頭上に力を蓄積していく。やがてチャクラが回転し始め、ようやく撃鉄が上がった。</p>
+<p>杖の先端に集束した白い光は、可動式の先端を回転させることで弾幕として射出される。夢子へ向けてエネルギーを解放すると、眩い光の奔流が一直線に飛んだ。悪くない威力だ。だが、弾幕は夢子のフィールドに触れた途端、あっさりと弾かれ四方八方へ散華してしまった。</p>
+<p class="new-block">今度はリングを「ヴィシュッダ」に合わせ、使い慣れた水色の弾幕を放つ。先ほどよりも光は強く、夢子のフィールドにわずかに吸収されるものもあった。</p>
+<p>最後に、ちゆりに杖を預け、手持ちのクリソプレーズを通してエネルギーを流し込む。放たれた弾幕は杖の1.5倍ほどの輝きを放ち、今度はすべて魔法のフィールドに呑み込まれた。</p>
+<p class="no-indent new-block">（やはり、杖よりもクリソプレーズの方が強力だ。それに、この石は魔力の流れを安定させてくれる……。だが、水色以外の弾幕を撃つには杖に頼るしかない。両方を使い分けるか）</p>
+<p class="new-block">眼下の郊外に、見慣れた円盤のシルエットが浮かび上がった。宇宙船へ入ると、夢美が余裕の笑みで出迎えてくれた。悪魔であるエリスと夢子を一瞥すると、早速あの光るスキャナーで二人を舐めるように計測し始める。メデアとちゆりが事の顛末を報告すると、彼女は満足げに頷いた。</p>
+<p class="no-indent new-block">「私もただ手をこまねいていたわけじゃないわ。あんな魅力的な街が近くにあるのに、調べないなんてもったいないでしょう？ 図書館のデータをこっそりスキャンさせてもらったのよ」</p>
+<p class="new-block">夢美が宙を指弾すると、ホログラフィックスクリーンが展開し、電子書籍のリストが羅列された。</p>
+<p class="new-block">* 『一般的悪魔学』</p>
+<p>* 『実践的悪魔学』</p>
+<p>* 『幻想の技術』</p>
+<p>* 『七つのチャクラの覚醒』</p>
+<p class="new-block">最後の項目に目を留め、メデアは夢美に声をかけた。</p>
+<p class="no-indent">「夢美さん、『七つのチャクラの覚醒』を開いてもらえますか」</p>
+<p class="new-block">夢美は指先を滑らせ、序文を飛ばして本文を空中に投影した。</p>
+<p class="new-block">---</p>
+<p class="new-block"><strong>「七つのチャクラの覚醒.hvf ― ホロビューア」</strong></p>
+<p>天地を繋ぐ架け橋となる、人体の内に秘められたエネルギー。それは神々の創造と破壊の力にも匹敵する、計り知れない力です。その力が最も顕著に現れるのが、チャクラの覚醒によって開花する「神聖な能力」でしょう。</p>
+<p class="new-block">* <strong>1. ムーラダーラ</strong></p>
+<p>* 神聖な能力：「大地の守護」</p>
+<p>* 大地の力が驚異的な耐久力を授け、飢餓、渇き、疲労、痛みといったあらゆる苦痛に耐えうるようになります。チャネルを開放すれば、強固な魔法のバリアを纏うことができます。</p>
+<p class="new-block">* <strong>2. スヴァディシュターナ</strong></p>
+<p>* 神聖な能力：「クンダリーニの蛇」</p>
+<p>* 五感が研ぎ澄まされ、鋭敏な感覚を得ます。チャネルを開放すれば、思考はさらに明晰になり、スピードと俊敏性が飛躍的に向上します。</p>
+<p class="new-block">* <strong>3. マニプーラ</strong></p>
+<p>* 神聖な能力：「太陽の炎」</p>
+<p>* 太陽の炎を操る力を手に入れ、あらゆる攻撃力が倍増します。敵を焼き尽くすほどの灼熱の炎を操ることができます。チャネルを開放すれば、将軍のカリスマ性が備わり、大軍を率いて戦うことさえ可能です。</p>
+<p class="new-block">* <strong>4. アナーハタ</strong></p>
+<p>* 神聖な能力：「共感」</p>
+<p>* あらゆる感情を読み取る力が開花し、周囲の人々が抱く感情や、真意を遠く離れていても感じ取ることができるようになります。チャネルを開放すれば、他者の感情を操ることも可能です。</p>
+<p class="new-block">* <strong>5. ヴィシュッダ</strong></p>
+<p>* 神聖な能力：「カメレオン」</p>
+<p>* 真実と嘘を見抜く力が備わり、巧みな話術で相手を魅了できるようになります。チャネルを開放すれば、他者の姿に変身することも可能です。</p>
+<p class="new-block">* <strong>6. アージュニャー</strong></p>
+<p>* 神聖な能力：「千里眼」</p>
+<p>* 通常では見えないものが見えるようになります。チャネルを開放すれば、過去や未来の特定の瞬間を垣間見ることができます。</p>
+<p class="new-block">* <strong>7. サハスラーラ</strong></p>
+<p>* 神聖な能力：「宇宙の摂理」</p>
+<p>* 運命の糸と宇宙の摂理を理解し、物理・魔法を問わずあらゆる法則を解き明かせるようになります。チャネルを開放すれば、運命を変えることすら可能です。</p>
+<p class="new-block">※チャクラを覚醒させるには、それを100%開発し、対応する強力なエネルギーを解放する必要があります。チャネルを開放できるのは覚醒者のみで、1日に1回しか使用できません。</p>
+<p class="new-block">---</p>
+<p class="new-block">テキストを目で追っている横で、ちゆりが一握りの錠剤を水で一気に喉へ流し込んだ。棚には薬品瓶や箱が雑然と並んでおり、</p>
+<p class="no-indent">「メピラミン」</p>
+<p class="no-indent">「アミトリプチリン」</p>
+<p class="no-indent">「アミナジン」</p>
+<p>など、見覚えのある文字列が散見される。夢美はメデアの視線に気づくと、わざとらしく話題を切り替えた。</p>
+<p class="no-indent new-block">「メデアとちゆりは、チャクラの訓練に励んでいるみたいね。私は今、短波センサーを魔界の周波数に合わせて調整中なのだけれど、試してみる？」</p>
+<p>夢美は小型スキャナーを手に取ると、全員を頭の先から爪先まで一瞥した。即座に画面へ数値が弾き出される。</p>
+<p class="new-block">| 色 | メデア | ちゆり | 夢美 | エリス | 夢子 |</p>
+<p>| --- | --- | --- | --- | --- | --- |</p>
+<p>| 赤 (ムーラダーラ) | 0% | 0% | 0% | 20% | 50% |</p>
+<p>| オレンジ (スヴァディシュターナ) | 10% | 0% | 0% | 70% | 40% |</p>
+<p>| 黄色 (マニプーラ) | 0% | 0% | 0% | 70% | 70% |</p>
+<p>| 緑 (アナーハタ) | 0% | 0% | 0% | 20% | 70% |</p>
+<p>| 水色 (ヴィシュッダ) | 70% | 0% | 0% | 25% | 50% |</p>
+<p>| 藍色 (アージュニャー) | 20% | 20% | 0% | 20% | 70% |</p>
+<p>| 白 (サハスラーラ) | 10% | 0% | 0% | 10% | 100% |</p>
+<p class="no-indent new-block">「私の数値は全部ゼロね……。ありえないわ」</p>
+<p>夢美は露骨に落胆し、窓の外に広がる魔都市のスカイラインを睨みつけた。</p>
+<p class="no-indent new-block">「私も全然ダメだったよ」</p>
+<p>ちゆりが苦笑いを浮かべる。</p>
+<p class="new-block">操縦席に腰を下ろしたエリスが、クスクスと喉を鳴らした。</p>
+<p class="no-indent">「夢子ったら、すごいじゃない！」</p>
+<p class="new-block">夢子は表情一つ変えない。</p>
+<p class="no-indent">「当然です。神綺様をお守りするのが私の役目ですから。ですが、退屈な存在だなんて思わないでくださいね」</p>
+<p class="no-indent new-block">「誰もそんなこと言ってないわよー。……ああ、コーヒー飲みたいわね」</p>
+<p>エリスが優雅に翼を広げながら伸びをすると、緑髪のロボット少女る～ことが静かに一礼し、キッチンへ向かった。</p>
+<p class="no-indent new-block">「あら、気が利く子ね。いくらで売ってくれるの？ 夢美ちゃん」</p>
+<p class="no-indent">「私たちの星に帰るまでは、る～ことは手放せないわ。魔界では一体も作れないもの」</p>
+<p class="no-indent">「夢美ちゃんたちの……星！？ つまり、別の惑星ってこと？ すごい技術があるんじゃない！ アタシも連れてってよ！」</p>
+<p class="new-block">夢美とちゆりが、意味深長な視線を交わす。</p>
+<p class="no-indent">「いいわよ。でも、その翼、隠さないと実験台にされちゃうわよ」</p>
+<p class="new-block">る～ことが運んできた、エスプレッソの芳醇な香りが漂う。温かいカップを傾けながら、ちゆりが小さな籐の袋を夢美へ放った。</p>
+<p class="no-indent">「これ、『四次元ストーン』だってさ。使い方はだいたいわかったから、燃料はこれで大丈夫だ」</p>
+<p class="no-indent new-block">「よくやったわ、ちゆり。あとは『奇跡』を拝めればいいのだけれど……。メデア、『奇跡』の準備はどうなっているの？」</p>
+<p class="no-indent new-block">「ほぼ整いました。ただ、オレンジを魔界に置き去りにしたくありません。戦う前に、もう一度探しておきたい」</p>
+<p class="no-indent">（あの子の直情的な弾幕は、手駒として悪くない。ただ、少々……）</p>
+<p class="no-indent new-block">「ちょっと変わっているわね」</p>
+<p>メデアの内心を読んだように、夢美が苦笑した。</p>
+<p class="no-indent">「でも、この船ならあの娘にも何かいい薬が見つかるかもしれないわ」</p>
+<p>夢美が流し目でちゆりを見ると、ちゆりはわずかに目を伏せた。</p>
+<p class="no-indent new-block">「オレンジはレティと共に姿を消しました。まずはレティの館へ向かいましょう」</p>
+<p class="no-indent">「いいわよ。宇宙船なら数分で着くわ」</p>
+<p class="new-block">轟音と共に機体が揺れる。ジグザグの軌道を描きながら、宇宙船は魔界の空を裂き、氷雪世界へと降り立った。朝日を反射して白銀に煌めく氷の宮殿。ひどく寒がる夢美の護衛に夢子を残し、エリスも「雪女を怒らせるのはごめんだわ」と早々に同行を拒否したため、メデアとちゆりの二人で宮殿の門を叩くことになった。</p>
+<p class="new-block">迷わず扉をノックすると、奥からドタバタとした足音が響き、乱暴に扉が開かれた。そこには、ルイズへの擬態を解き、本来の姿に戻ったオレンジが立っていた。メデアと目が合った瞬間、彼女の顔に満面の笑みが弾ける。玄関の段差に立っていたメデアは、突進してきた彼女の勢いを受け止めきれず、雪の上へ無様に倒れ込んだ。</p>
+<img src="images/61-2.jpg" alt="Image 61-2" class="novel-image">
+<p class="new-block">猛烈な冷気と、それをかき消すほどの強烈な熱量の衝突。凍てつく空気が静止したかのような錯覚の中、無邪気で暴力的なまでの歓喜がメデアへ向かって押し寄せてきた。だが、その背後の暗がりには、静かに獲物を品定めするような、底知れぬ冷笑が潜んでいた。</p>
+<p class="no-indent new-block">「メデたん！ どこ行ってたの！？ ずっと探してたのに！」</p>
+<p class="no-indent">「あら、来てたのね。……珍しいこと」</p>
+<p class="new-block">レティが悠然と姿を現し、足元に倒れ込むメデアたちを見下ろす。</p>
+<p>メデアは雪を払いながら立ち上がった。</p>
+<p class="no-indent">「オレンジを探していて。……決闘はどうなりました？」</p>
+<p class="no-indent new-block">「もちろん、オレンジの勝ち！」</p>
+<p class="no-indent">「ええ、私の勝ちよ」</p>
+<p>二人の声が、不気味なほど綺麗に重なった。</p>
+<p class="no-indent new-block">「オレンジちゃんって、なかなか面白い子なのよ。……少し、騒がしいけれどね。フフ……」</p>
+<p>レティがオレンジの頭を撫でる。</p>
+<p class="no-indent new-block">「レティが白い粉くれたの！ 甘くておいしいやつ！ そんでね、オレンジはね、お仕事してたの！ 街中に粉を配達するお仕事！ めっちゃ楽しかった！ ねえレティ、もっとちょうだい！」</p>
+<p class="no-indent new-block">「ええ、皆さんにも分けてあげましょう」</p>
+<p>レティは一度奥へ消えると、白い粉末が詰まった小袋を三つ手にして戻ってきた。まずちゆりへ差し出し、甘ったるい声を鼓膜へ流し込む。</p>
+<p class="no-indent">「科学者さんでしたわよね？ ぜひ、試してみてちょうだい。すぐに頭がスッキリするわよ。フフ……」</p>
+<p class="no-indent new-block">「遠慮しとく」</p>
+<p>ちゆりは即座に突き返し、メデアへ顔を寄せて囁いた。</p>
+<p class="no-indent">「メデア、これって……アレ、だよね。私には自分の薬があるからさ。飲むと頭が痛くなっちまうし」</p>
+<p class="new-block">オレンジが残りの小袋へ手を伸ばそうとしたため、メデアはその腕を優しく、しかし確かな力で押さえた。</p>
+<p class="no-indent">「ごめんね、オレンジ。でも、白い粉はもう十分だと思うわ」</p>
+<p>オレンジは世界の終わりのように唇を尖らせたが、それ以上の反発は見せなかった。</p>
+<p class="new-block">レティはルビーの件には一切触れず、メデアにはもう用がないとばかりに微笑を浮かべている。早々に別れを告げ、メデアたちは宇宙船へと急いだ。空は鉛色の雲に覆われ、風のうねりが暴力的になっている。神綺を案じる夢子の急かす声に押され、一行はついに五つ目の怪物、ユウゲン・マガン討伐へと乗り出した。</p>
+<p class="new-block">夢美はレーザー銃や見慣れぬ装置で完全武装し、ジェットパックまで背負っている。ちゆりはミサイルに跨り、左手に盾、右手にブラスターを構えていたが、いつもの快活さは影を潜め、顔色には明確な緊張が走っていた。安全第一のエリスも腹を括ったようだが、生意気な笑みはない。ただ一人、オレンジだけが遠足の子供のように落ち着きなく戦意を昂ぶらせている。</p>
+<p class="new-block">エリスのナビゲートに従い、宇宙船は横風に煽られながらも10分ほどで</p>
+<p class="no-indent">「ウィナの廃墟」――魔界の中央ゴミ捨て場へ到着した。レーダーには何の反応もない。ハッチを開け、武装した五人が地表へ降り立つ。</p>
+<p class="new-block">エリスが柄にもなく、しんみりとした声を出した。</p>
+<p class="no-indent">「ユーマちゃんを倒したら、アタシ、誰をからかえばいいのよ。かわいそうに……」</p>
+<p class="no-indent">「でもエリス、一緒に帰るって約束したわよね？」</p>
+<p>夢美が冷たく釘を刺すと、エリスはパッと表情を切り替え、いつもの軽薄さを取り戻した。</p>
+<p class="new-block">崩れかけた石畳を踏みしめた瞬間、ちゆりがブラスターの画面を凝視して声を上げた。</p>
+<p class="no-indent">「いた！ ユーマちゃんだ！」</p>
+<p class="new-block">全員の視線が小さな画面へ集まる。赤、オレンジ、黄色、緑、水色の五つの光点が、約500メートル先の地点で等間隔に明滅していた。</p>
+<p class="no-indent new-block">「さあ、戦略家さん」</p>
+<p>夢美がメデアを見据え、挑発するように口角を上げる。</p>
+<p class="no-indent">「魔法と色に詳しいのでしょう？ 私はミサイルとレーザーしか使えないから、戦術を考えてちょうだい」</p>
+<p class="new-block">メデアはレーダーの配置と、先ほど頭に叩き込んだチャクラの対応表を照らし合わせた。誰を、どの目玉へぶつけるか。論理的な最適解を導き出そうとした思考は、背後からの甲高い叫び声によって唐突に切断された。</p>
+<p class="no-indent new-block">「夢子さん！ 夢子さん！」</p>
+<img src="images/61-3.jpg" alt="Image 61-3" class="novel-image">
+<p class="new-block">むせ返るような異界の湿度と、軋む機械音が支配する廃墟。停滞した重苦しい空気を切り裂くように、切羽詰まったパニックの波動が一行の足を引き止めた。</p>
+<p class="no-indent">「これ以上進むな」</p>
+<p>という強烈な拒絶のベクトルが、理屈よりも先に肌を刺す。岩の上に立ち塞がった少女が、夢子へ向かってすがりつくように叫んでいた。</p>
+<p class="no-indent new-block">「どうしたのです、サラ。落ち着きなさい」</p>
+<p>夢子が静かな威圧感を含んだ声でたしなめる。</p>
+<p class="no-indent new-block">「夢子さん！ 軍隊は幻想郷に侵攻するんですよね！？ どうして…夢子さんも参加しないんですか！？」</p>
+<p class="no-indent">「侵攻？ どういうことです。幻想郷侵攻は中止になったはずですよ。あのアリスと名乗る者は偽物でした」</p>
+<p class="no-indent">「え…？ アリス様が偽物…？」</p>
+<p>サラは完全に虚を突かれたように目を丸くした。</p>
+<p class="no-indent">「でも…たった今、アリス様にお会いしたんです！ 軍隊を率いるって…仰ってました！」</p>
+<p class="no-indent new-block">「アリスに…会った？ どこでですか」</p>
+<p>夢子の声から温度が消え、静かな怒りが滲み出る。</p>
+<p class="no-indent new-block">「町外れです！ そこで…神綺様から直接、軍の指揮を任されたって…。今、部隊がこっちに向かってるみたいで…。重そうな鎧を着てたから、そんなに速くは飛べないはずですけど…それでも、あと30分くらいでここに着いちゃいますよぉ…！」</p>
+<p class="new-block">どんよりと垂れ込めた赤紫の空を、夢子が見上げる。</p>
+<p class="no-indent">「……神綺様が、そのような命令を出すはずがありません。天候は朝から変わっていないのですから」</p>
+<p class="no-indent new-block">「あの詐欺師、アメジストを狙ってるに決まってるわ。ここに隠れて、あいつらが怪物を倒すのを待ってから不意を突けばいいじゃない」</p>
+<p>エリスがちゃっかりとした提案を挟み込む。</p>
+<p class="no-indent new-block">「ちょっと待ってください！ まさか…ユウゲン・マガンを退治するつもりじゃないですよね！？」</p>
+<p>サラが顔面を蒼白にさせ、首を激しく横に振る。</p>
+<p class="no-indent">「私は…絶対に、絶ーっ対に参加しませんからね！ ……あ、それと！ あの軍隊と一緒に、見慣れない人がいたんです…。天使の翼を持ってたのに…雰囲気は悪魔みたいで…。ピンクのドレスに、頭には赤いリボンをつけてて…」</p>
+<p class="no-indent new-block">（……幻月だ）</p>
+<p>バラバラだったピースが、最悪の形で組み上がっていく。</p>
+<p class="no-indent new-block">「すぐに神綺様のもとへ向かい、ありのままを報告しなさい。急ぐのです」</p>
+<p>夢子の絶対的な命令を受け、サラは弾かれたように空へ飛び立ち、あっという間に雲間へと消えていった。</p>
+<p class="new-block">[SYSTEM ALERT: 音響兵器デプロイ完了]</p>
+<p>▼ 本章の絶望を1000%味わうための専用聴覚データ ▼</p>
+<p>■ YouTube：『Gatekeeper's Bouncy Shift (ゲートキーパーズ・バウンシー・シフト)』</p>
+<div class="video-container"><iframe src="https://www.youtube.com/embed/_CHMPl5xrwM" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="navigation-buttons navigation-bottom"><a href="chapter_60.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_62.html" class="nav-button">次の章へ</a></div>
+    </div>
+    
+    <div id="lightbox" class="lightbox-overlay" style="display: none;">
+        <img id="lightbox-img" class="lightbox-image">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Theme Toggle Logic ---
+            const toggleBtn = document.getElementById('theme-toggle');
+            toggleBtn.addEventListener('click', () => {
+                let theme = document.documentElement.getAttribute('data-theme');
+                if (theme === 'dark') {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+
+            // --- About Modal Logic ---
+            const aboutBtn = document.getElementById('about-btn');
+            const aboutModal = document.getElementById('about-modal');
+            const aboutClose = document.getElementById('about-close');
+
+            if (aboutBtn && aboutModal && aboutClose) {
+                aboutBtn.addEventListener('click', () => {
+                    aboutModal.classList.add('show');
+                });
+                aboutClose.addEventListener('click', () => {
+                    aboutModal.classList.remove('show');
+                });
+                aboutModal.addEventListener('click', (e) => {
+                    if (e.target === aboutModal) {
+                        aboutModal.classList.remove('show');
+                    }
+                });
+            }
+
+            // --- Lightbox Logic ---
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox) return;
+            
+            const lightboxImg = document.getElementById('lightbox-img');
+            let isDragging = false, startX, startY;
+            let translateX = 0, translateY = 0, currentScale = 1;
+
+            function updateImageTransform() {
+                lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+            }
+            
+            function resetImageTransform(x = 0, y = 0) {
+                currentScale = 1;
+                translateX = x;
+                translateY = y;
+                updateImageTransform();
+            }
+
+            lightboxImg.onload = () => {
+                const imgWidth = lightboxImg.offsetWidth;
+                const imgHeight = lightboxImg.offsetHeight;
+                const initialX = (window.innerWidth - imgWidth) / 2;
+                const initialY = (window.innerHeight - imgHeight) / 2;
+                resetImageTransform(initialX, initialY);
+            };
+
+            document.querySelectorAll('.novel-image').forEach(image => {
+                image.addEventListener('click', e => {
+                    e.stopPropagation();
+                    lightboxImg.src = image.src;
+                    lightbox.style.display = 'block';
+                });
+            });
+
+            lightbox.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+            });
+
+            lightboxImg.addEventListener('click', e => e.stopPropagation());
+
+            lightboxImg.addEventListener('wheel', e => {
+                e.preventDefault();
+                const scaleAmount = 0.1;
+                const scaleDirection = e.deltaY > 0 ? -1 : 1;
+                const newScale = Math.max(0.5, currentScale + scaleAmount * scaleDirection);
+                translateX = e.clientX - (e.clientX - translateX) * (newScale / currentScale);
+                translateY = e.clientY - (e.clientY - translateY) * (newScale / currentScale);
+                currentScale = newScale;
+                updateImageTransform();
+            });
+            
+            lightboxImg.addEventListener('mousedown', e => {
+                e.preventDefault();
+                isDragging = true;
+                startX = e.pageX - translateX;
+                startY = e.pageY - translateY;
+                lightboxImg.style.cursor = 'grabbing';
+            });
+
+            window.addEventListener('mousemove', e => {
+                if (isDragging) {
+                    translateX = e.pageX - startX;
+                    translateY = e.pageY - startY;
+                    updateImageTransform();
+                }
+            });
+
+            window.addEventListener('mouseup', () => {
+                if(isDragging) {
+                    isDragging = false;
+                    lightboxImg.style.cursor = 'grab';
+                }
+            });
+        });
+    </script>
+    
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const isPublishEnabled = true;
+        const pubTime = 1782820800000;
+
+        if (isPublishEnabled && pubTime > Date.now()) {
+            const contentDiv = document.getElementById('chapter-content');
+            const lockScreen = document.getElementById('lock-screen');
+            const timerEl = document.getElementById('countdown-timer');
+            
+            contentDiv.style.display = 'none';
+            lockScreen.style.display = 'block';
+            
+            const updateTimer = () => {
+                const diff = pubTime - Date.now();
+                if (diff <= 0) {
+                    contentDiv.style.display = 'block';
+                    lockScreen.style.display = 'none';
+                    return true; 
+                }
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                let timeStr = 'T-MINUS ';
+                if (d > 0) timeStr += d + 'D ';
+                timeStr += h.toString().padStart(2, '0') + ':' + 
+                           m.toString().padStart(2, '0') + ':' + 
+                           s.toString().padStart(2, '0');
+                timerEl.innerText = timeStr;
+                return false;
+            };
+            
+            if (!updateTimer()) {
+                const interval = setInterval(() => {
+                    if(updateTimer()) clearInterval(interval);
+                }, 1000);
+            }
+        }
+    });
+</script>
+
+    
+</body>
+</html>

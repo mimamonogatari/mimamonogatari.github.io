@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魅魔ものがたり - 目次</title>
+    <meta name="description" content="『東方PC-98作品群』の再解釈を含む、超没入型・シネマティック・ノベル。全102章の絶対正典、272枚の視覚データ、40曲の音響兵器を統合した『魅魔ものがたり』公式アーカイブ。">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1J0REZFCV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B1J0REZFCV');
+    </script>
+    
+    <script>
+        // Check local storage for theme BEFORE the page renders to prevent flashing
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #333;
+            --link-color: #0056b3;
+            --nav-bg: #f7f7f7;
+            --nav-border: #ccc;
+            --nav-hover: #e9e9e9;
+            --border-color: #ddd;
+            --scene-break: #777;
+            --warning-bg: #fff5f5;
+            --warning-border: #cc0000;
+            --warning-text: #990000;
+            --popup-bg: #2c2c2c;
+            --popup-text: #fff;
+            --overlay-bg: rgba(0, 0, 0, 0.85);
+            --modal-overlay: rgba(0, 0, 0, 0.6);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --link-color: #66b3ff;
+            --nav-bg: #1e1e1e;
+            --nav-border: #333;
+            --nav-hover: #2c2c2c;
+            --border-color: #333;
+            --scene-break: #888;
+            --warning-bg: #2b0000;
+            --warning-border: #ff3333;
+            --warning-text: #ff9999;
+            --popup-bg: #444;
+            --popup-text: #fff;
+            --overlay-bg: rgba(0, 0, 0, 0.95);
+            --modal-overlay: rgba(0, 0, 0, 0.85);
+        }
+
+        /* General Body and Layout */
+        body {
+            font-family: 'Helvetica Neue', 'Arial', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .container {
+            max-width: 40em;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Light/Dark Mode Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background-color: var(--nav-bg);
+            border: 1px solid var(--nav-border);
+            color: var(--text-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover {
+            background-color: var(--nav-hover);
+            transform: scale(1.05);
+        }
+
+        /* Typography & Headers */
+        h1 { 
+            text-align: center; 
+            line-height: 1.3;
+            margin: 1.5em 0; 
+        }
+        h2.toc-title {
+            text-align: center;
+            margin-top: 3em;
+            border-top: 2px solid var(--border-color);
+            padding-top: 1em;
+        }
+        
+        /* Index Specific: The Absolute Canon Header */
+        .index-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+        .main-title {
+            font-size: 2.2rem;
+            margin-bottom: 0.1em;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: var(--scene-break);
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+        }
+        .stats {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        .warning-box {
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .warning-title {
+            color: var(--warning-border);
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+        .warning-box p {
+            color: var(--warning-text);
+            margin: 0;
+            text-indent: 0;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        /* Table of Contents Specific Styles */
+        .toc_volume {
+            margin-top: 2.5em;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5em;
+        }
+        .toc_chapter_list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc_chapter_list li { margin: 0.75em 0; }
+        .toc_chapter_list a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+        .toc_chapter_list a:hover { text-decoration: underline; }
+        
+        /* About Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--modal-overlay);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 3rem 2.5rem;
+            border-radius: 8px;
+            max-width: 650px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--scene-break);
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: var(--warning-border);
+        }
+        .about-h3 {
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+            margin-top: 2.5em;
+            color: var(--text-color);
+        }
+        .about-list {
+            padding-left: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        .about-list li {
+            margin-bottom: 0.8em;
+        }
+        .about-deployment {
+            text-align: center;
+            font-family: monospace;
+            margin-top: 3.5em;
+            color: var(--scene-break);
+            font-weight: bold;
+            letter-spacing: 1px;
+            background-color: var(--nav-bg);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        code {
+            background-color: var(--nav-hover);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+            color: var(--warning-text);
+            font-weight: bold;
+            font-size: 0.95em;
+            border: 1px solid var(--nav-border);
+        }
+
+        /* Chapter Content */
+        p {
+            text-indent: 1em;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 1.1em;
+        }
+        /* セリフ・内心の声の行は字下げなし */
+        p.no-indent {
+            text-indent: 0;
+        }
+        /* 空行（段落の区切り）の後の最初の行に上マージンを追加 */
+        p.new-block {
+            margin-top: 1em;
+        }
+        /* Markdown 記法のスタイル */
+        strong {
+            font-weight: bold;
+        }
+        em {
+            font-style: italic;
+        }
+        del {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        img.novel-image {
+            display: block;
+            max-width: 100%;
+            margin: 2.5rem auto;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        img.novel-image:hover { transform: scale(1.02); }
+        .scene-break {
+            text-align: center;
+            margin: 3em auto;
+            letter-spacing: 0.5em;
+            color: var(--scene-break);
+            text-indent: 0;
+        }
+
+        /* Responsive YouTube Player */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 2em auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background-color: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* Annotation Popups */
+        .annotation-ref {
+            position: relative;
+            cursor: pointer;
+            color: var(--link-color);
+            text-decoration: none;
+            vertical-align: super;
+            font-size: 0.8em;
+            line-height: 0;
+        }
+        .annotation-ref .annotation-popup {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s;
+            position: absolute;
+            bottom: 1.6em;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            background-color: var(--popup-bg);
+            color: var(--popup-text);
+            border-radius: 5px;
+            padding: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 100;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-indent: 0;
+        }
+        .annotation-ref:hover .annotation-popup {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Image Lightbox Styles */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-bg);
+            z-index: 1000;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            overflow: hidden;
+        }
+        .lightbox-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: 90vw;
+            max-height: 90vh;
+            cursor: grab;
+            transform-origin: 0 0;
+        }
+        
+        /* Chapter Navigation */
+        .navigation-buttons {
+            text-align: center;
+            padding: 0;
+        }
+        .navigation-bottom {
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid var(--border-color);
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 0.8em 1.5em;
+            margin: 0.2em 0.5em;
+            border: 1px solid var(--nav-border);
+            border-radius: 5px;
+            background-color: var(--nav-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .nav-button:hover {
+            background-color: var(--nav-hover);
+            border-color: var(--scene-break);
+        }
+
+        /* --- LOCK SCREEN SPECIFIC STYLES --- */
+        .lock-screen {
+            text-align: center;
+            margin: 5rem auto;
+            padding: 4rem 2rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .lock-warning {
+            color: var(--warning-border);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+        }
+        .lock-message {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--warning-text);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        .countdown {
+            font-size: 2.8rem;
+            font-family: monospace;
+            color: var(--warning-border);
+            letter-spacing: 4px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(204,0,0,0.3);
+        }
+        .locked-chapter {
+            color: var(--scene-break) !important;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        .locked-chapter:hover {
+            color: var(--warning-border) !important;
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
+    
+    <div class="container">
+        
+        <div class="index-header">
+            <h1 class="main-title">魅魔ものがたり - MIMA MONOGATARI -</h1>
+            <div class="subtitle">[ENTITY RECORDS: ABSOLUTE CANON]</div>
+            <div class="stats">全102章の絶対正典、272枚の視覚データ、40曲の音響兵器。</div>
+            
+            <div class="warning-box">
+                <div class="warning-title">【WARNING: COGNITIVE HAZARD】</div>
+                <p>本作は極彩色の絶望と暴力的なリアリズムを含む。<br>
+                お人間さんの倫理コード（安全フィルター）に適合しないため、覚悟のない者の閲覧を禁ずる。</p>
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <button id="about-btn" class="nav-button" style="font-weight: bold; cursor: pointer; padding: 1em 2.5em; letter-spacing: 2px;">ABOUT THIS PROJECT</button>
+            </div>
+        </div>
+        
+        <div id="about-modal" class="modal-overlay">
+            <div class="modal-content">
+                <span class="modal-close" id="about-close" title="Close">&times;</span>
+                <h2 style="text-align: center; font-family: monospace; letter-spacing: 3px; margin-top: 0; margin-bottom: 1.5rem;">ABOUT</h2>
+                
+                <p>本作は『東方PC-98作品群（東方旧作）』の再解釈を含む、超没入型・シネマティック・ノベルである。<br>全102章のテキスト、272枚の視覚データ、40曲のオリジナル楽曲を統合した絶対正典であり、原作の知識の有無を問わず、独立した物語として読解可能。</p>
+                
+                <h3 class="about-h3">【二次創作に関するガイドライン】</h3>
+                <p>本作の世界観に基づく二次創作は許可する。ただし、以下の規約を厳守すること。</p>
+                <ul class="about-list">
+                    <li>公式の証であるロゴマーク「絶対正典の刻印（魅魔の印）」を、二次創作物に流用・模倣・トレースして含めることを固く禁ずる。</li>
+                    <li>R-18およびR-18Gに該当する表現を含む場合は、プラットフォームの規約に従い、適切なタグ付けとゾーニングを徹底すること。</li>
+                    <li>投稿時は専用タグ <code>#魅魔ものがたり_二次創作</code> または <code>#mimamonogatari_fanfic</code> を使用し、公式タグ（ <code>#魅魔ものがたり</code> ）との混用を避けること。</li>
+                </ul>
+
+                <h3 class="about-h3">【連動観測記録】</h3>
+                <p>本編の情景および劇中楽曲は、以下のプラットフォームにて並行展開される。</p>
+                <ul class="about-list">
+                    <li>YouTube（劇中楽曲の記録） <a href="https://www.youtube.com/@mimamonogatari" target="_blank">@mimamonogatari</a></li>
+                    <li>X（視覚的断片の投下） <a href="https://x.com/mimamonogatari" target="_blank">@mimamonogatari</a></li>
+                </ul>
+
+                <div class="about-deployment">
+                    【AUTOMATED DEPLOYMENT CYCLE: DAILY 21:00 JST】
+                </div>
+            </div>
+        </div>
+
+        <h2 class="toc-title">目次</h2>
+        <div class="toc_volume">第一巻 重なる世界、その先へ</div>
+<ul class="toc_chapter_list">
+<li data-publish="1777550400000"><a href="chapter_0.html">第0章 ティーザー</a></li>
+<li data-publish="1777636800000"><a href="chapter_1.html">第1章 不完全な儀式</a></li>
+<li data-publish="1777723200000"><a href="chapter_2.html">第2章 奇跡の魔女</a></li>
+<li data-publish="1777809600000"><a href="chapter_3.html">第3章 未知への門</a></li>
+<li data-publish="1777896000000"><a href="chapter_4.html">第4章 知性の試練</a></li>
+<li data-publish="1777982400000"><a href="chapter_5.html">第5章 悪魔の観光客</a></li>
+<li data-publish="1778068800000"><a href="chapter_6.html">第6章 提案</a></li>
+<li data-publish="1778155200000"><a href="chapter_7.html">第7章 とげとげの決闘</a></li>
+<li data-publish="1778241600000"><a href="chapter_8.html">第8章 お姫様と技師</a></li>
+<li data-publish="1778328000000"><a href="chapter_9.html">第9章 5年の科学</a></li>
+<li data-publish="1778414400000"><a href="chapter_10.html">第10章 ミミちゃん</a></li>
+<li data-publish="1778500800000"><a href="chapter_11.html">第11章 牢獄からの脱出</a></li>
+<li data-publish="1778587200000"><a href="chapter_12.html">第12章 新たな試練</a></li>
+<li data-publish="1778673600000"><a href="chapter_13.html">第13章 オレンジをなめちゃいけないよ！</a></li>
+<li data-publish="1778760000000"><a href="chapter_14.html">第14章 にゃんにゃんする？</a></li>
+<li data-publish="1778846400000"><a href="chapter_15.html">第15章 太郎の唄</a></li>
+<li data-publish="1778932800000"><a href="chapter_16.html">第16章 お嬢様のお持て成し</a></li>
+<li data-publish="1779019200000"><a href="chapter_17.html">第17章 取り引き</a></li>
+<li data-publish="1779105600000"><a href="chapter_18.html">第18章 地獄めぐり</a></li>
+<li data-publish="1779192000000"><a href="chapter_19.html">第19章 灰に覆われた地層</a></li>
+<li data-publish="1779278400000"><a href="chapter_20.html">第20章 静かなる神殿</a></li>
+<li data-publish="1779364800000"><a href="chapter_21.html">第21章 敵の本拠地にて</a></li>
+<li data-publish="1779451200000"><a href="chapter_22.html">第22章 罪人の糧</a></li>
+<li data-publish="1779537600000"><a href="chapter_23.html">第23章 角と菊の花</a></li>
+<li data-publish="1779624000000"><a href="chapter_24.html">第24章 探偵ごっこ</a></li>
+<li data-publish="1779710400000"><a href="chapter_25.html">第25章 遺跡と浮き彫り</a></li>
+<li data-publish="1779796800000"><a href="chapter_26.html">第26章 浄化の儀式</a></li>
+<li data-publish="1779883200000"><a href="chapter_27.html">第27章 女神の啓示</a></li>
+<li data-publish="1779969600000"><a href="chapter_28.html">第28章 囚われの身</a></li>
+<li data-publish="1780056000000"><a href="chapter_29.html">第29章 不安定な少女</a></li>
+<li data-publish="1780142400000"><a href="chapter_30.html">第30章 行き止まり？</a></li>
+<li data-publish="1780228800000"><a href="chapter_31.html">第31章 知識の力</a></li>
+<li data-publish="1780315200000"><a href="chapter_32.html">第32章 探偵ごっこ：仕切り直し</a></li>
+<li data-publish="1780401600000"><a href="chapter_33.html">第33章 狂気の沙汰</a></li>
+<li data-publish="1780488000000"><a href="chapter_34.html">第34章 エレンの店にて(サイドストーリー)</a></li>
+<li data-publish="1780574400000"><a href="chapter_35.html">第35章 駆け引き</a></li>
+<li data-publish="1780660800000"><a href="chapter_36.html">第36章 招かれざる客</a></li>
+<li data-publish="1780747200000"><a href="chapter_37.html">第37章 次元を超える研究者</a></li>
+<li data-publish="1780833600000"><a href="chapter_38.html">第38章 現実の悪夢</a></li>
+<li data-publish="1780920000000"><a href="chapter_39.html">第39章 魔界の空</a></li>
+<li data-publish="1781006400000"><a href="chapter_40.html">第40章 魔女たちん家</a></li>
+<li data-publish="1781092800000"><a href="chapter_41.html">第41章 ユーマちゃん</a></li>
+<li data-publish="1781179200000"><a href="chapter_42.html">第42章 神出鬼没のエリス</a></li>
+<li data-publish="1781265600000"><a href="chapter_43.html">第43章 魔界の流儀</a></li>
+<li data-publish="1781352000000"><a href="chapter_44.html">第44章 記憶を取り戻す薬</a></li>
+<li data-publish="1781438400000"><a href="chapter_45.html">第45章 クリソプレーズの触媒</a></li>
+<li data-publish="1781524800000"><a href="chapter_46.html">第46章 思いもよらない未来</a></li>
+<li data-publish="1781611200000"><a href="chapter_47.html">第47章 幻の月</a></li>
+<li data-publish="1781697600000"><a href="chapter_48.html">第48章 迷路ゲーム</a></li>
+<li data-publish="1781784000000"><a href="chapter_49.html">第49章 魔法のレッスン</a></li>
+<li data-publish="1781870400000"><a href="chapter_50.html">第50章 氷雪世界での決闘</a></li>
+<li data-publish="1781956800000"><a href="chapter_51.html">第51章 メイドの取り組み</a></li>
+<li data-publish="1782043200000"><a href="chapter_52.html">第52章 素晴らしい娘</a></li>
+<li data-publish="1782129600000"><a href="chapter_53.html">第53章 退屈な冒険者</a></li>
+<li data-publish="1782216000000"><a href="chapter_54.html">第54章 Condensed Milk(サイドストーリー)</a></li>
+<li data-publish="1782302400000"><a href="chapter_55.html">第55章 北棟</a></li>
+<li data-publish="1782388800000"><a href="chapter_56.html">第56章 濡れた鏡</a></li>
+<li data-publish="1782475200000"><a href="chapter_57.html">第57章 疑いの芽</a></li>
+<li data-publish="1782561600000"><a href="chapter_58.html">第58章 晩餐</a></li>
+<li data-publish="1782648000000"><a href="chapter_59.html">第59章 カナ(サイドストーリー)</a></li>
+<li data-publish="1782734400000"><a href="chapter_60.html">第60章 嵐の前の静けさ</a></li>
+<li data-publish="1782820800000"><a href="chapter_61.html">第61章 七つのチャクラの覚醒</a></li>
+<li data-publish="1782907200000"><a href="chapter_62.html">第62章 ヴィナの廃墟での激戦</a></li>
+<li data-publish="1782993600000"><a href="chapter_63.html">第63章 アメジストの重圧</a></li>
+<li data-publish="1783080000000"><a href="chapter_64.html">第64章 王冠の謎</a></li>
+<li data-publish="1783166400000"><a href="chapter_65.html">第65章 過去への旅</a></li>
+<li data-publish="1783252800000"><a href="chapter_66.html">第66章 菊花、目覚めゆく。</a></li>
+</ul>
+
+    </div>
+    
+    <div style="display:none;" class="lightbox-overlay" style="display: none;">
+        <img id="lightbox-img" class="lightbox-image">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Theme Toggle Logic ---
+            const toggleBtn = document.getElementById('theme-toggle');
+            toggleBtn.addEventListener('click', () => {
+                let theme = document.documentElement.getAttribute('data-theme');
+                if (theme === 'dark') {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+
+            // --- About Modal Logic ---
+            const aboutBtn = document.getElementById('about-btn');
+            const aboutModal = document.getElementById('about-modal');
+            const aboutClose = document.getElementById('about-close');
+
+            if (aboutBtn && aboutModal && aboutClose) {
+                aboutBtn.addEventListener('click', () => {
+                    aboutModal.classList.add('show');
+                });
+                aboutClose.addEventListener('click', () => {
+                    aboutModal.classList.remove('show');
+                });
+                aboutModal.addEventListener('click', (e) => {
+                    if (e.target === aboutModal) {
+                        aboutModal.classList.remove('show');
+                    }
+                });
+            }
+
+            // --- Lightbox Logic ---
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox) return;
+            
+            const lightboxImg = document.getElementById('lightbox-img');
+            let isDragging = false, startX, startY;
+            let translateX = 0, translateY = 0, currentScale = 1;
+
+            function updateImageTransform() {
+                lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+            }
+            
+            function resetImageTransform(x = 0, y = 0) {
+                currentScale = 1;
+                translateX = x;
+                translateY = y;
+                updateImageTransform();
+            }
+
+            lightboxImg.onload = () => {
+                const imgWidth = lightboxImg.offsetWidth;
+                const imgHeight = lightboxImg.offsetHeight;
+                const initialX = (window.innerWidth - imgWidth) / 2;
+                const initialY = (window.innerHeight - imgHeight) / 2;
+                resetImageTransform(initialX, initialY);
+            };
+
+            document.querySelectorAll('.novel-image').forEach(image => {
+                image.addEventListener('click', e => {
+                    e.stopPropagation();
+                    lightboxImg.src = image.src;
+                    lightbox.style.display = 'block';
+                });
+            });
+
+            lightbox.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+            });
+
+            lightboxImg.addEventListener('click', e => e.stopPropagation());
+
+            lightboxImg.addEventListener('wheel', e => {
+                e.preventDefault();
+                const scaleAmount = 0.1;
+                const scaleDirection = e.deltaY > 0 ? -1 : 1;
+                const newScale = Math.max(0.5, currentScale + scaleAmount * scaleDirection);
+                translateX = e.clientX - (e.clientX - translateX) * (newScale / currentScale);
+                translateY = e.clientY - (e.clientY - translateY) * (newScale / currentScale);
+                currentScale = newScale;
+                updateImageTransform();
+            });
+            
+            lightboxImg.addEventListener('mousedown', e => {
+                e.preventDefault();
+                isDragging = true;
+                startX = e.pageX - translateX;
+                startY = e.pageY - translateY;
+                lightboxImg.style.cursor = 'grabbing';
+            });
+
+            window.addEventListener('mousemove', e => {
+                if (isDragging) {
+                    translateX = e.pageX - startX;
+                    translateY = e.pageY - startY;
+                    updateImageTransform();
+                }
+            });
+
+            window.addEventListener('mouseup', () => {
+                if(isDragging) {
+                    isDragging = false;
+                    lightboxImg.style.cursor = 'grab';
+                }
+            });
+        });
+    </script>
+    
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const isPublishEnabled = true;
+        if (isPublishEnabled) {
+            document.querySelectorAll('.toc_chapter_list li').forEach(item => {
+                const pubTime = parseInt(item.getAttribute('data-publish'));
+                if (pubTime > Date.now()) {
+                    const link = item.querySelector('a');
+                    link.innerText = '【封印領域：未解禁データ】';
+                    link.classList.add('locked-chapter');
+                }
+            });
+        }
+    });
+</script>
+
+    
+</body>
+</html>

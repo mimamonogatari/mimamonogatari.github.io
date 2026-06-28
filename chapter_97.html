@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第97章 善と中立の戦い</title>
+    <meta name="description" content="『東方PC-98作品群』の再解釈を含む、超没入型・シネマティック・ノベル。全102章の絶対正典、272枚の視覚データ、40曲の音響兵器を統合した『魅魔ものがたり』公式アーカイブ。">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1J0REZFCV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B1J0REZFCV');
+    </script>
+    
+    <script>
+        // Check local storage for theme BEFORE the page renders to prevent flashing
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #333;
+            --link-color: #0056b3;
+            --nav-bg: #f7f7f7;
+            --nav-border: #ccc;
+            --nav-hover: #e9e9e9;
+            --border-color: #ddd;
+            --scene-break: #777;
+            --warning-bg: #fff5f5;
+            --warning-border: #cc0000;
+            --warning-text: #990000;
+            --popup-bg: #2c2c2c;
+            --popup-text: #fff;
+            --overlay-bg: rgba(0, 0, 0, 0.85);
+            --modal-overlay: rgba(0, 0, 0, 0.6);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --link-color: #66b3ff;
+            --nav-bg: #1e1e1e;
+            --nav-border: #333;
+            --nav-hover: #2c2c2c;
+            --border-color: #333;
+            --scene-break: #888;
+            --warning-bg: #2b0000;
+            --warning-border: #ff3333;
+            --warning-text: #ff9999;
+            --popup-bg: #444;
+            --popup-text: #fff;
+            --overlay-bg: rgba(0, 0, 0, 0.95);
+            --modal-overlay: rgba(0, 0, 0, 0.85);
+        }
+
+        /* General Body and Layout */
+        body {
+            font-family: 'Helvetica Neue', 'Arial', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .container {
+            max-width: 40em;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Light/Dark Mode Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background-color: var(--nav-bg);
+            border: 1px solid var(--nav-border);
+            color: var(--text-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover {
+            background-color: var(--nav-hover);
+            transform: scale(1.05);
+        }
+
+        /* Typography & Headers */
+        h1 { 
+            text-align: center; 
+            line-height: 1.3;
+            margin: 1.5em 0; 
+        }
+        h2.toc-title {
+            text-align: center;
+            margin-top: 3em;
+            border-top: 2px solid var(--border-color);
+            padding-top: 1em;
+        }
+        
+        /* Index Specific: The Absolute Canon Header */
+        .index-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+        .main-title {
+            font-size: 2.2rem;
+            margin-bottom: 0.1em;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: var(--scene-break);
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+        }
+        .stats {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        .warning-box {
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .warning-title {
+            color: var(--warning-border);
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+        .warning-box p {
+            color: var(--warning-text);
+            margin: 0;
+            text-indent: 0;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        /* Table of Contents Specific Styles */
+        .toc_volume {
+            margin-top: 2.5em;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5em;
+        }
+        .toc_chapter_list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc_chapter_list li { margin: 0.75em 0; }
+        .toc_chapter_list a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+        .toc_chapter_list a:hover { text-decoration: underline; }
+        
+        /* About Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--modal-overlay);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 3rem 2.5rem;
+            border-radius: 8px;
+            max-width: 650px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--scene-break);
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: var(--warning-border);
+        }
+        .about-h3 {
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+            margin-top: 2.5em;
+            color: var(--text-color);
+        }
+        .about-list {
+            padding-left: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        .about-list li {
+            margin-bottom: 0.8em;
+        }
+        .about-deployment {
+            text-align: center;
+            font-family: monospace;
+            margin-top: 3.5em;
+            color: var(--scene-break);
+            font-weight: bold;
+            letter-spacing: 1px;
+            background-color: var(--nav-bg);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        code {
+            background-color: var(--nav-hover);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+            color: var(--warning-text);
+            font-weight: bold;
+            font-size: 0.95em;
+            border: 1px solid var(--nav-border);
+        }
+
+        /* Chapter Content */
+        p {
+            text-indent: 1em;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 1.1em;
+        }
+        /* セリフ・内心の声の行は字下げなし */
+        p.no-indent {
+            text-indent: 0;
+        }
+        /* 空行（段落の区切り）の後の最初の行に上マージンを追加 */
+        p.new-block {
+            margin-top: 1em;
+        }
+        /* Markdown 記法のスタイル */
+        strong {
+            font-weight: bold;
+        }
+        em {
+            font-style: italic;
+        }
+        del {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        img.novel-image {
+            display: block;
+            max-width: 100%;
+            margin: 2.5rem auto;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        img.novel-image:hover { transform: scale(1.02); }
+        .scene-break {
+            text-align: center;
+            margin: 3em auto;
+            letter-spacing: 0.5em;
+            color: var(--scene-break);
+            text-indent: 0;
+        }
+
+        /* Responsive YouTube Player */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 2em auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background-color: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* Annotation Popups */
+        .annotation-ref {
+            position: relative;
+            cursor: pointer;
+            color: var(--link-color);
+            text-decoration: none;
+            vertical-align: super;
+            font-size: 0.8em;
+            line-height: 0;
+        }
+        .annotation-ref .annotation-popup {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s;
+            position: absolute;
+            bottom: 1.6em;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            background-color: var(--popup-bg);
+            color: var(--popup-text);
+            border-radius: 5px;
+            padding: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 100;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-indent: 0;
+        }
+        .annotation-ref:hover .annotation-popup {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Image Lightbox Styles */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-bg);
+            z-index: 1000;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            overflow: hidden;
+        }
+        .lightbox-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: 90vw;
+            max-height: 90vh;
+            cursor: grab;
+            transform-origin: 0 0;
+        }
+        
+        /* Chapter Navigation */
+        .navigation-buttons {
+            text-align: center;
+            padding: 0;
+        }
+        .navigation-bottom {
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid var(--border-color);
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 0.8em 1.5em;
+            margin: 0.2em 0.5em;
+            border: 1px solid var(--nav-border);
+            border-radius: 5px;
+            background-color: var(--nav-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .nav-button:hover {
+            background-color: var(--nav-hover);
+            border-color: var(--scene-break);
+        }
+
+        /* --- LOCK SCREEN SPECIFIC STYLES --- */
+        .lock-screen {
+            text-align: center;
+            margin: 5rem auto;
+            padding: 4rem 2rem;
+            border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .lock-warning {
+            color: var(--warning-border);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+        }
+        .lock-message {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--warning-text);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        .countdown {
+            font-size: 2.8rem;
+            font-family: monospace;
+            color: var(--warning-border);
+            letter-spacing: 4px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(204,0,0,0.3);
+        }
+        .locked-chapter {
+            color: var(--scene-break) !important;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        .locked-chapter:hover {
+            color: var(--warning-border) !important;
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
+    
+    <div class="container">
+        <div class="navigation-buttons navigation-top"><a href="chapter_96.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_98.html" class="nav-button">次の章へ</a></div>
+                <div id="lock-screen" class="lock-screen" style="display: none;">
+                    <div class="lock-warning">【SYSTEM ALERT: ACCESS DENIED】</div>
+                    <div class="lock-message">指定された認知データは現在封印されています。<br>物理次元の解禁時刻まで待機してください。</div>
+                    <div class="countdown" id="countdown-timer">T-MINUS --:--:--</div>
+                </div>
+                <div id="chapter-content"><h1>第97章 善と中立の戦い</h1>
+<p class="no-indent">「……あんたがいるだけで、この世界の理が歪む」</p>
+<p class="new-block">霊夢の放った言葉は、確かに核心を突いていた。彼女が守り抜きたいのは、己が信じる世界の秩序――誰かが魂の行き先を管理し、決定してくれる、そんな安穏とした箱庭なのだ。</p>
+<p class="new-block">暗澹たる空を見上げ、ふと唇の端を歪める。これも天の采配だとでも言うのだろうか。</p>
+<p>神など信じていなくとも、因果応報やカルマといった、すべてを裁く絶対的な上位存在がどこかにいると、人は心の奥底で縋りたがる。それに仕える者もいれば、罰に怯える者もいる。不公平な運命を呪う者すら、結局はその不可視の存在に運命を委ねているのだ。</p>
+<p class="no-indent">「宇宙の塵に過ぎない自分に、何ができるというのか」</p>
+<p>と。</p>
+<p class="new-block">だが、もしこの世界の真実が、もっと無機質で残酷なものだったとしたら。</p>
+<p class="no-indent new-block">『……こんな窮屈な生活、うんざりしているのでしょう？ 自由気ままな巫女……悪くないと思わない？』</p>
+<p class="new-block">かつて囁いたあの甘い毒が、すべての始まりだったのかもしれない。最も厳格に秩序を守るべき巫女が、あんな破滅的な渇望を秘めていたとは。</p>
+<p>そして今、霊夢の魂に巣食う二つの側面が、戦場という名の坩堝で激突しようとしている。このまま傍観者に徹するか、それとも。</p>
+<p class="no-indent new-block">（運命などない。あるのは、自ら切り開く道だけだ。ここで感情に流されて計画を狂わせるわけにはいかない。無意味な一騎打ちなど、非効率の極みね）</p>
+<p class="new-block">張り詰めた思考を現実に引き戻し、隣で恐怖に縛り付けられているカナの頬を、思いきり平手打ちした。</p>
+<p>乾いた音が極度の無風空間に響く。カナはよろめき、殺意に満ちた目でこちらを睨みつけた。だが、霊夢の存在に呑まれかけていた意識は、その痛みで強引に引き戻されたようだ。</p>
+<p class="no-indent new-block">「……霊夢とやり合うつもり？ 正気なの。命を落とすわよ」</p>
+<p>赤く腫れた頬に手を当てながら、カナは呆然と呟いた。</p>
+<p class="no-indent">「こんなあなた、初めて」</p>
+<p class="no-indent new-block">「私の本性を知らないだけよ。……いいから、この装甲から離れないで」</p>
+<p>冷たく言い放ち、傍らを浮遊する創造主へ視線を向ける。</p>
+<p class="no-indent">「キクリ様。私とカナを敵の攻撃からお守りください。絶対に、この防御を破らせてはいけません」</p>
+<p class="new-block">さらに、前方の銀翼の指揮官へも鋭く命じる。</p>
+<p class="no-indent">「シューニャ、天使の軍勢を率いて死神たちを蹴散らしなさい！ あなたの獲物は、あの魔女よ」</p>
+<p class="new-block">言葉を紡ぐたび、喉の奥から煮えたぎるような熱が込み上げてくる。胸郭から全身の血管へと駆け巡るその熱量は、首元のヴィシュッダ・チャクラを激しく回転させ、まるでジェットエンジンのタービンが唸りを上げるような轟音を内側で響かせた。</p>
+<p>熱に浮かされながら顔を上げ、巨大な龍へと言葉を叩きつける。</p>
+<p class="no-indent new-block">「閻魔は、風太様を解放する気などありません。この彼岸ごと、滅ぼすべきです、龍神様！」</p>
+<p class="new-block">研ぎ澄まされた刃のような扇動が、絶対者の逆鱗に突き刺さる。張り詰めた静寂が場を支配したのは、ほんの一瞬だった。</p>
+<p>巨竜が猛然と鎌首をもたげたのとほぼ同時に、照準を四季映姫へ合わせ、発射ボタンを躊躇いなく押し込んだ。</p>
+<p class="new-block">視界の先が紅蓮の炎に飲み込まれる。暴れ狂う龍神の圧倒的な質量と熱量がすべてを遮り、もはや正確な目標など定められない。闇雲にトリガーを引き続けるしかなかった。</p>
+<p class="no-indent new-block">「いつまでも手こずっているんじゃないわよ。誰のおかげで生かされていると思っているの」</p>
+<p>炎の向こう側から、霊力がみなぎる御幣を構えた霊夢の冷酷な声が響く。</p>
+<p class="new-block">だが、我に返ったカナはもうその挑発には乗らなかった。兵器の操縦席に置かれたリュックサックから赤いリボンのついた帽子を愛おしそうに取り出し、優雅に被る。そして、まるで世間話でもするかのように、キクリへ耳打ちした。</p>
+<p class="no-indent new-block">「キクリ様。この巫女が菊界に無断で侵入し、コンガラ様に刃向かったことを覚えていらっしゃいますか？ 彼女のせいで、キクリ様はまともに会話もできなくなってしまわれたのですよね」</p>
+<p class="no-indent new-block">「この娘が博麗霊夢か……！ なるほど……！」</p>
+<p>純粋な好奇心と神としての威圧感をないまぜにして、キクリが声を弾ませる。</p>
+<img src="images/97-1.jpg" alt="Image 97-1" class="novel-image">
+<p class="new-block">頭上で、相反する絶対的な力が激突した。</p>
+<p>霊夢の展開する青白く硬質な結界が、デジタルな直線を伴って立ち塞がる。そこへ、キクリの両掌から放たれた黄金の奔流が、生き物のようにうねりながら直撃した。</p>
+<p>秩序を強要する冷たい青と、奇跡を体現する熱を帯びた黄金。大気がビリビリと悲鳴を上げ、鼓膜を突き破るような高周波の共鳴音が戦場を支配する。拮抗するエネルギーの余波だけで、肌が焼けるような圧力が伝わってきた。</p>
+<p class="new-block">その激突の火花を真下から見上げながら、カナは満足げに小悪魔のような微笑みを浮かべている。</p>
+<p class="no-indent">（……いつものことね。他人の因縁を巧みに利用して、自分の手を汚さずに目的を果たす。さすがカナだわ）</p>
+<p class="new-block">頭上の神話的な戦いをよそに、地上では白翼の天使たちが整然と死神の軍勢へ歩みを進めていた。</p>
+<p>その戦場を掻き乱すように、竹箒に跨った魔理沙が軽快な機動で空を駆け抜ける。星屑のような魔力弾をバラ撒きながら、銀翼のシューニャを執拗に挑発していた。</p>
+<p class="no-indent new-block">「チッ、意外とやるじゃないか！」</p>
+<p>宙返りで鋭い斬撃を躱した魔理沙が、至近距離から強烈な魔力を叩き込む。爆風と共に、銀色の装甲の破片がパラパラと足元へ降り注いだ。</p>
+<p class="no-indent new-block">「装甲を掠めただけじゃない！ さあ……もっと痛くしなさい。全然足りないわ！」</p>
+<p>狂気を帯びた天子の声が響く。彼女は巨大な要石を空中に顕現させて投げつけると、反動を利用して急旋回し、距離を取った。</p>
+<p class="no-indent new-block">「その声……どこかで聞いたことあるぜ！ 面の皮、ひん剥いてやるよ！」</p>
+<img src="images/97-2.jpg" alt="Image 97-2" class="novel-image">
+<p class="new-block">直後、圧倒的な速度で突進する魔女の箒と、それを真っ向から受け止めた赤い光刃が交差した。</p>
+<p>金属的な重い打撃音が響き渡り、オレンジ色の火花と青白い粒子が爆発的に飛散する。衝撃の余波で、足元に群生していた深紅の彼岸花が千切れ飛び、まるで戦場に降り注ぐ鮮血のように空を舞った。鏡面バイザーに映り込む必死な形相など意に介さず、魔理沙は全身の体重を乗せて不可視の壁を押し込もうとしている。</p>
+<p class="new-block">焦げ臭い煙が晴れるのを見計らい、慎重に自走砲のキャタピラを進める。だが、計器のランプはとうに限界を告げていた。</p>
+<p>視界の先では、薄着の死神たちが鋭い刃を振りかざし、重装甲の天使たちへと獣のように飛びかかっている。</p>
+<p class="no-indent new-block">（これが……善と中立の、終わりなき殺し合い）</p>
+<p class="new-block">キクリと霊夢、天子と魔理沙が上空で規格外の弾幕を散らす中、カナの展開する防御結界の薄皮一枚に守られながら、ただひたすらに装甲車を前進させる。</p>
+<p>切り裂かれた死神の身体から黒い血が噴き出し、乾いた無機質な土を汚していく。鎧の分だけ天使たちの方が持ち堪えているように見えたが、押し寄せる死神の大群を前にしては、多勢に無勢。このままでは全滅は避けられないだろう。</p>
+<p class="no-indent new-block">（龍神はどこ……？）</p>
+<p class="new-block">無傷の四季映姫は静かに地上へ降り立つと、主砲の余波を受けて瀕死の重傷を負う小町の傍らにひざまずいた。かつて三途の川で強引に舟へ乗せてきたあの死神の目を、冷徹に閉ざす。そして懐から拡声器を取り出し、感情を完全に排除した無機質な声で宣告した。</p>
+<p class="no-indent new-block">「作戦『沈黙』を、開始します」</p>
+<p class="new-block">その瞬間、巨大なコンクリート庁舎へと砲身を向け、発射ボタンを力強く押し込んだ。</p>
+<p>だが、虚しくカチッという乾いた音が響き、砲塔から青白い煙が上がるだけだった。弾切れだ。</p>
+<p class="no-indent new-block">「カナ、後ろのパネルの下よ！ ソクラテスがいじっていたところ！ 再装填できるはず！」</p>
+<p class="no-indent">「ちょっと、私に泥臭い整備をやれっていうの！」</p>
+<p class="new-block">ぶつぶつと文句を言いながらも、カナは身を翻して砲塔の下へ潜り込む。防御フィールドの維持に全神経を集中させる間にも、死神の群れは怒涛の勢いで押し寄せてきた。</p>
+<p>天使たちが次々と地に伏していく。血を流すことも、目立った傷を負うこともなく、まるで強制的に電源を落とされたかのように眠りへと引きずり込まれていた。前衛が崩れ、死神の刃が自走砲の装甲を直接削り始める。手当たり次第に計器を叩くが、空砲の音だけが焦燥を煽る。</p>
+<p class="new-block">その時、閻魔庁の裏手から、ついに巨大な影が姿を現した。</p>
+<p>……だが、厄介な追っ手付きだ。神話の獣の背後に、現代のジェット戦闘機のような角張った三機の飛行物体がぴったりと張り付いている。</p>
+<p class="no-indent new-block">（逃げないと……！）</p>
+<p>そう身構えた瞬間、足元からカナの勝ち誇った声が響いた。</p>
+<p class="no-indent new-block">「メデア、準備OK！ 撃てるわよ！」</p>
+<p class="new-block">その合図と同時にトリガーを引き絞る。エネルギー弾が群がる死神たちを吹き飛ばし、強引に進路をこじ開けた。呼応するように龍神が極太の炎を吐き出し、後方の死神たちを数百人単位で消し炭に変える。</p>
+<p>閻魔庁の真上へ差し掛かった戦闘機へ、死神が乗り込もうとするのが見えた。とっさにレバーを引き、砲塔を旋回させてエネルギー弾を叩き込む。</p>
+<p>爆炎が上がり、機体は轟音と共に無機質な庁舎の屋根へ激突した。群がっていた死神たちもろとも、紅蓮の炎に飲み込まれていく。</p>
+<p class="no-indent new-block">「メデア……なんだか、気持ち悪いわ……」</p>
+<p>隣へ戻ってきたカナの様子がおかしかった。身体の輪郭が淡い光に包まれ、ノイズが走ったようにぼやけ始めている。心臓が嫌な音を立てた。</p>
+<p class="no-indent new-block">「どうしたの！？ どこか撃たれた？」</p>
+<p class="no-indent">「私……ようやく、自分が何者だったのか……分かった気がするわ……」</p>
+<p class="new-block">カナは微かに、ひどく穏やかな笑みを浮かべた。そして、被っていた赤いリボンの帽子へ手を伸ばした次の瞬間――彼女は、跡形もなく空間から消え失せた。</p>
+<p class="new-block">視界が白く明滅する。</p>
+<p>土埃の向こう側、すぐ近くの地面に、力なく倒れ伏す霊夢の姿が見えた。</p>
+<p class="no-indent new-block">「あの巫女は片付けましたよ。ところで、メデア殿。お連れの方はどうなされましたか？」</p>
+<p>満足げな、慈愛に満ちた声。傍らにしゃがみ込んだキクリが、事も無げに問いかけてくる。</p>
+<p class="no-indent new-block">（やはり、カナは霊夢の精神と繋がっていた……？ 霊夢が倒れたことで、カナの存在も消え去ったというの……？）</p>
+<p class="no-indent new-block">「霊夢を……殺したの！？」</p>
+<p>焦燥と怒りに駆られて詰め寄るが、女神は涼やかな微笑を崩さない。</p>
+<p class="new-block">抗議の言葉を紡ぐより早く、見えない力で兵器から引きずり出され、宙へと浮き上がった。直後、凄まじい爆発音が耳をつんざき、残存していた戦闘機の一機がすぐ真横を掠めて地面へ激突する。</p>
+<p>猛スピードで通り過ぎる龍神の背へ、キクリと共に強引に乗せられた。戦闘機を追う圧倒的な加速に、必死にしがみつくことしかできない。冷たい夜風が耳元で暴力的に唸り声を上げた。</p>
+<p>三途の川の上空で龍の巨体が大きく震え、振り落とされそうになる。前方の機体が黒煙を噴き上げ、川面へと墜落していくのが見えた。</p>
+<p class="new-block">遥か後方では、未だに魔理沙と天子が狂ったような死闘を繰り広げている。</p>
+<p class="no-indent new-block">「メデア殿、ご心配には及びませぬ。我らは神。閻魔は、誰に刃向かったのかをまるで理解していないようですね」</p>
+<p class="new-block">無慈悲な宣告と共に、龍神が急旋回する。向かう先は、炎上する閻魔庁そのものだった。</p>
+<p>残存する死神たちが一斉に弾幕を張るが、怒り狂う巨竜の突進は止まらない。キクリが展開する神聖な結界が、雨霰と降り注ぐ攻撃をことごとく弾き返す。取り残された四季映姫が慌てて最後の戦闘機へ乗り込もうとしたが、遅かった。巨大な顎が機体ごと噛み砕き、最高裁判長は火の海へと叩き落とされた。</p>
+<p class="new-block">煤に汚れ、柿色の袖口が破れた両腕で、必死に黄金の角の根元へしがみつく。ジェットエンジンの金属的な爆音と、神話の獣の咆哮が聴覚を麻痺させる。眼下では、冷酷な秩序の象徴であった巨大なコンクリートの庁舎が、龍の吐き出す垂直の業火に舐められ、飴細工のようにドロドロと溶け落ちようとしていた。神話と現代兵器が交差する、狂気の終末光景だった。</p>
+<img src="images/97-3.jpg" alt="Image 97-3" class="novel-image">
+<p class="new-block">だが、死角から迫った別の戦闘機の機銃掃射が、ついにキクリの結界を粉砕した。</p>
+<p>龍の炎がその機体をも庁舎の壁面へ叩きつけたが、深く傷ついた巨竜はゆっくりと高度を下げ、地に伏した。もはや再び舞い上がる力は残っていない。</p>
+<p class="new-block">指揮官を失ってもなお、死神たちは統制を失わず、獣のように龍神の巨体へ群がってくる。</p>
+<p>キクリと共に防御フィールドを展開して防ぐが、魔力はとうに限界を超えていた。薄皮のように縮小していく結界を破り、ボロボロの着物を纏った死神の凶刃が、真っ直ぐにこちらへ振り下ろされる。</p>
+<p class="new-block">閃光が走り、目の前の死神が真っ二つに裂け飛んだ。</p>
+<p class="new-block">炎に包まれた閻魔庁を背に舞い降りたのは、無機質な仮面を失い、煤と傷に塗れた青い髪を露わにした天子の姿だった。ボロボロに引き裂かれた銀色の装甲が、彼女の痛切な覚悟と激戦の痕を物語っている。</p>
+<p class="no-indent new-block">「まさか、ここまで来ることになるなんてね……」</p>
+<p>狂気と悲痛が入り混じった生々しい瞳でこちらを見つめ、彼女はひどく掠れた声で続けた。</p>
+<p class="no-indent">「でも、もう後戻りはできない。何が何でも……終わらせてやる！」</p>
+<img src="images/97-4.jpg" alt="Image 97-4" class="novel-image">
+<p class="new-block">緋色のオーラを纏う凶剣が、焼け焦げた大地へ深々と突き立てられる。</p>
+<p>その切っ先から放たれた強烈なオレンジ色の光が下から天子を照らし出し、大気を震わせる衝撃波となって放射状に広がった。大地が悲鳴を上げてひび割れ、熱風に煽られた彼岸花が狂ったように舞い散る。</p>
+<p>足元から世界そのものを裏返すような大地震が、崩壊寸前の彼岸を完全に叩き割った。蜘蛛の子を散らすように、死神たちが逃げ惑う。</p>
+<p class="new-block">キクリは龍神の背から飛び降り、空間を切り裂いて巨大なポータルを展開した。</p>
+<p>圧倒的な引力に引きずり込まれるように、まだ息のある龍神の巨体が血の跡を残しながらポータルへ吸い込まれていく。</p>
+<p class="no-indent new-block">「メデア殿、参りましょう。彼岸はまもなく完全に崩壊いたします」</p>
+<p class="no-indent new-block">「待ってください！ 霊夢はどうなったんです？ 無事なのか、教えてください！」</p>
+<p class="no-indent">「あの巫女は力を失い、倒れました。命があるかは……分かりませぬ。なぜ、あの小娘をそこまで気にかけるのでしょうか？」</p>
+<p class="no-indent">「彼女は……私にとって大切な人なんです。どうか、連れ戻してください！」</p>
+<p class="no-indent new-block">「メデア殿、状況がお分かりになりませぬか？ 緋想の剣がこの地に致命的な亀裂をもたらしました。もはやこの世界は数分と持ちませぬ。一刻も早く脱出せねば、我々も飲み込まれますよ！」</p>
+<p class="new-block">その時だった。</p>
+<p class="no-indent new-block">（メデア。霊夢のことは、もういいのよ）</p>
+<p class="new-block">頭の奥底に、消えたはずのカナの声が直接響いた。</p>
+<p class="no-indent new-block">「カナ！？ どこにいるの……？」</p>
+<p>周囲を見回すが、吹き荒れる熱風と黒煙ばかりで、少女の姿はない。</p>
+<p class="no-indent new-block">（一緒にいるわ。ずっと一緒。……でも、今、彼岸から逃げちゃダメ。この腐った世界の最後を、一緒に見届けましょう）</p>
+<p class="no-indent">「何を言ってるの、カナ。馬鹿なこと言わないで。まだなんとかなる！ 絶対に連れ戻す！」</p>
+<p class="no-indent new-block">（ううん、大丈夫。もうあなたの頭の中から離れないから。あのね、話があるの。さっき、また天照大神に会ったんだけど……すごく面白い秘密を教えてもらったの。意識が物質を創造するって話……知っているでしょ？）</p>
+<p class="no-indent new-block">「いい加減にして！ 今そんな悠長な話をしている場合じゃない……！」</p>
+<p class="no-indent new-block">（いや、そんなに難しい話じゃないのよ。どうして意識が無限に物質を創造できないか、わかる？</p>
+<p>想像するだけなら簡単。……でも、それを『存在させ続ける』には、絶え間ない集中力が必要なの。</p>
+<p>神様と私たちの違いは何か。たった一つ、集中力と注意力のキャパシティが桁違いだということ。あなたが小さな蓮の花を存在させ続けられるなら、神様は世界全体を想像して維持できる。</p>
+<p class="new-block">閻魔が使っていた通貨、『注単』……あれは『注意力単位』のことよ。</p>
+<p>私たちはかつて、その注意力を使い果たした。色んなものを存在させ続けるのを忘れてね。そして、この宇宙にある物質は、私たちが忘れ去った思考の残骸なの。</p>
+<p class="new-block">世界が滅びるとき、その世界の所有者は、そこにあったものすべてを吸収できる。近づいて、意識を集中させるだけでいい。</p>
+<p>今、あなたが閻魔のいなくなったこの彼岸の所有者になれる。そして、この世界が崩壊すれば、物質はすべてあなたの注意力に変わる。つまり、神に近づけるの。だから、燃え盛る閻魔庁に向かって、その炎に身を委ねてすべての物質を吸収しなさい。</p>
+<p class="new-block">あなたが神様になったら、また会いましょう）</p>
+<p class="new-block">[SYSTEM ALERT: 音響兵器デプロイ完了]</p>
+<p>▼ 本章の絶望を1000%味わうための専用聴覚データ ▼</p>
+<p>■ YouTube：『Absolute Blue (Silent Verdict)』</p>
+<div class="video-container"><iframe src="https://www.youtube.com/embed/DItIZE8Ubss" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div><div class="navigation-buttons navigation-bottom"><a href="chapter_96.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_98.html" class="nav-button">次の章へ</a></div>
+    </div>
+    
+    <div id="lightbox" class="lightbox-overlay" style="display: none;">
+        <img id="lightbox-img" class="lightbox-image">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Theme Toggle Logic ---
+            const toggleBtn = document.getElementById('theme-toggle');
+            toggleBtn.addEventListener('click', () => {
+                let theme = document.documentElement.getAttribute('data-theme');
+                if (theme === 'dark') {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+
+            // --- About Modal Logic ---
+            const aboutBtn = document.getElementById('about-btn');
+            const aboutModal = document.getElementById('about-modal');
+            const aboutClose = document.getElementById('about-close');
+
+            if (aboutBtn && aboutModal && aboutClose) {
+                aboutBtn.addEventListener('click', () => {
+                    aboutModal.classList.add('show');
+                });
+                aboutClose.addEventListener('click', () => {
+                    aboutModal.classList.remove('show');
+                });
+                aboutModal.addEventListener('click', (e) => {
+                    if (e.target === aboutModal) {
+                        aboutModal.classList.remove('show');
+                    }
+                });
+            }
+
+            // --- Lightbox Logic ---
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox) return;
+            
+            const lightboxImg = document.getElementById('lightbox-img');
+            let isDragging = false, startX, startY;
+            let translateX = 0, translateY = 0, currentScale = 1;
+
+            function updateImageTransform() {
+                lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+            }
+            
+            function resetImageTransform(x = 0, y = 0) {
+                currentScale = 1;
+                translateX = x;
+                translateY = y;
+                updateImageTransform();
+            }
+
+            lightboxImg.onload = () => {
+                const imgWidth = lightboxImg.offsetWidth;
+                const imgHeight = lightboxImg.offsetHeight;
+                const initialX = (window.innerWidth - imgWidth) / 2;
+                const initialY = (window.innerHeight - imgHeight) / 2;
+                resetImageTransform(initialX, initialY);
+            };
+
+            document.querySelectorAll('.novel-image').forEach(image => {
+                image.addEventListener('click', e => {
+                    e.stopPropagation();
+                    lightboxImg.src = image.src;
+                    lightbox.style.display = 'block';
+                });
+            });
+
+            lightbox.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+            });
+
+            lightboxImg.addEventListener('click', e => e.stopPropagation());
+
+            lightboxImg.addEventListener('wheel', e => {
+                e.preventDefault();
+                const scaleAmount = 0.1;
+                const scaleDirection = e.deltaY > 0 ? -1 : 1;
+                const newScale = Math.max(0.5, currentScale + scaleAmount * scaleDirection);
+                translateX = e.clientX - (e.clientX - translateX) * (newScale / currentScale);
+                translateY = e.clientY - (e.clientY - translateY) * (newScale / currentScale);
+                currentScale = newScale;
+                updateImageTransform();
+            });
+            
+            lightboxImg.addEventListener('mousedown', e => {
+                e.preventDefault();
+                isDragging = true;
+                startX = e.pageX - translateX;
+                startY = e.pageY - translateY;
+                lightboxImg.style.cursor = 'grabbing';
+            });
+
+            window.addEventListener('mousemove', e => {
+                if (isDragging) {
+                    translateX = e.pageX - startX;
+                    translateY = e.pageY - startY;
+                    updateImageTransform();
+                }
+            });
+
+            window.addEventListener('mouseup', () => {
+                if(isDragging) {
+                    isDragging = false;
+                    lightboxImg.style.cursor = 'grab';
+                }
+            });
+        });
+    </script>
+    
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const isPublishEnabled = true;
+        const pubTime = 1785931200000;
+
+        if (isPublishEnabled && pubTime > Date.now()) {
+            const contentDiv = document.getElementById('chapter-content');
+            const lockScreen = document.getElementById('lock-screen');
+            const timerEl = document.getElementById('countdown-timer');
+            
+            contentDiv.style.display = 'none';
+            lockScreen.style.display = 'block';
+            
+            const updateTimer = () => {
+                const diff = pubTime - Date.now();
+                if (diff <= 0) {
+                    contentDiv.style.display = 'block';
+                    lockScreen.style.display = 'none';
+                    return true; 
+                }
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                let timeStr = 'T-MINUS ';
+                if (d > 0) timeStr += d + 'D ';
+                timeStr += h.toString().padStart(2, '0') + ':' + 
+                           m.toString().padStart(2, '0') + ':' + 
+                           s.toString().padStart(2, '0');
+                timerEl.innerText = timeStr;
+                return false;
+            };
+            
+            if (!updateTimer()) {
+                const interval = setInterval(() => {
+                    if(updateTimer()) clearInterval(interval);
+                }, 1000);
+            }
+        }
+    });
+</script>
+
+    
+</body>
+</html>

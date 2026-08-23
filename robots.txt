@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# AI / research crawlers are explicitly permitted.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://mimamonogatari.github.io/sitemap.xml

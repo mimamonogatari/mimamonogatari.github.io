@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -21,7 +20,7 @@
     <meta name="twitter:title" content="第41章 ユーマちゃん｜魅魔ものがたり">
     <meta name="twitter:description" content="第41章 ユーマちゃん｜魔界の朝は、ひどく歪な明るさで幕を開けた。強烈な熱線が西から東へと地平線を舐めるように移動し、極寒の雪原をじりじりと焼いている。肌を刺すような冷気と、頭上から降り注ぐ矛盾した熱。そして何より、水飴のように重くまとわりつく…">
     <meta name="twitter:image" content="https://mimamonogatari.github.io/images/41-1.jpg">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Chapter","name":"第41章 ユーマちゃん｜魅魔ものがたり","description":"第41章 ユーマちゃん｜魔界の朝は、ひどく歪な明るさで幕を開けた。強烈な熱線が西から東へと地平線を舐めるように移動し、極寒の雪原をじりじりと焼いている。肌を刺すような冷気と、頭上から降り注ぐ矛盾した熱。そして何より、水飴のように重くまとわりつく…","url":"https://mimamonogatari.github.io/chapter_41.html","image":"https://mimamonogatari.github.io/images/41-1.jpg","inLanguage":"ja","isPartOf":{"@type":"Book","name":"魅魔ものがたり","url":"https://mimamonogatari.github.io/","inLanguage":"ja","numberOfPages":102},"datePublished":"2026-06-10T21:00:00+09:00"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "name": "第41章 ユーマちゃん｜魅魔ものがたり", "description": "第41章 ユーマちゃん｜魔界の朝は、ひどく歪な明るさで幕を開けた。強烈な熱線が西から東へと地平線を舐めるように移動し、極寒の雪原をじりじりと焼いている。肌を刺すような冷気と、頭上から降り注ぐ矛盾した熱。そして何より、水飴のように重くまとわりつく…", "url": "https://mimamonogatari.github.io/chapter_41.html", "image": "https://mimamonogatari.github.io/images/41-1.jpg", "inLanguage": "ja", "isPartOf": {"@type": "Book", "name": "魅魔ものがたり", "url": "https://mimamonogatari.github.io/", "inLanguage": "ja", "numberOfPages": 102}, "datePublished": "2026-06-10T21:00:00+09:00"}</script>
     <link rel="icon" type="image/png" href="favicon.png">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1J0REZFCV"></script>
@@ -29,497 +28,191 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-B1J0REZFCV');
     </script>
-    
     <script>
-        // Check local storage for theme BEFORE the page renders to prevent flashing
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        }
+        if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
     </script>
     <style>
-        /* --- THEME VARIABLES --- */
         :root {
-            --bg-color: #fdfdfd;
-            --text-color: #333;
-            --link-color: #0056b3;
-            --nav-bg: #f7f7f7;
-            --nav-border: #ccc;
-            --nav-hover: #e9e9e9;
-            --border-color: #ddd;
-            --scene-break: #777;
-            --warning-bg: #fff5f5;
-            --warning-border: #cc0000;
-            --warning-text: #990000;
-            --popup-bg: #2c2c2c;
-            --popup-text: #fff;
-            --overlay-bg: rgba(0, 0, 0, 0.85);
-            --modal-overlay: rgba(0, 0, 0, 0.6);
+            --bg-color: #fdfdfd; --text-color: #333; --link-color: #0056b3;
+            --nav-bg: #f7f7f7; --nav-border: #ccc; --nav-hover: #e9e9e9; --border-color: #ddd;
+            --scene-break: #777; --warning-bg: #fff5f5; --warning-border: #cc0000; --warning-text: #990000;
+            --popup-bg: #2c2c2c; --popup-text: #fff; --overlay-bg: rgba(0, 0, 0, 0.85); --modal-overlay: rgba(0, 0, 0, 0.6);
         }
-
         [data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --link-color: #66b3ff;
-            --nav-bg: #1e1e1e;
-            --nav-border: #333;
-            --nav-hover: #2c2c2c;
-            --border-color: #333;
-            --scene-break: #888;
-            --warning-bg: #2b0000;
-            --warning-border: #ff3333;
-            --warning-text: #ff9999;
-            --popup-bg: #444;
-            --popup-text: #fff;
-            --overlay-bg: rgba(0, 0, 0, 0.95);
-            --modal-overlay: rgba(0, 0, 0, 0.85);
+            --bg-color: #121212; --text-color: #e0e0e0; --link-color: #66b3ff;
+            --nav-bg: #1e1e1e; --nav-border: #333; --nav-hover: #2c2c2c; --border-color: #333;
+            --scene-break: #888; --warning-bg: #2b0000; --warning-border: #ff3333; --warning-text: #ff9999;
+            --popup-bg: #444; --popup-text: #fff; --overlay-bg: rgba(0, 0, 0, 0.95); --modal-overlay: rgba(0, 0, 0, 0.85);
         }
-
-        /* General Body and Layout */
         body {
             font-family: 'Helvetica Neue', 'Arial', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-            line-height: 1.8;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            line-height: 1.8; background-color: var(--bg-color); color: var(--text-color);
+            margin: 0; padding: 0; transition: background-color 0.3s ease, color 0.3s ease;
         }
-        .container {
-            max-width: 40em;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-        
-        /* Light/Dark Mode Toggle Button */
+        .container { max-width: 40em; margin: 2rem auto; padding: 0 1.5rem; }
+
         .theme-toggle {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            background-color: var(--nav-bg);
-            border: 1px solid var(--nav-border);
-            color: var(--text-color);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: all 0.2s;
+            position: fixed; top: 15px; right: 15px; background-color: var(--nav-bg);
+            border: 1px solid var(--nav-border); color: var(--text-color); border-radius: 50%;
+            width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: all 0.2s;
         }
-        .theme-toggle:hover {
-            background-color: var(--nav-hover);
-            transform: scale(1.05);
-        }
+        .theme-toggle:hover { background-color: var(--nav-hover); transform: scale(1.05); }
 
-        /* Typography & Headers */
-        h1 { 
-            text-align: center; 
-            line-height: 1.3;
-            margin: 1.5em 0; 
+        /* 言語切替（複数言語を出力したときだけ現れる） */
+        .lang-switch {
+            position: fixed; top: 15px; right: 65px; z-index: 1000; display: flex;
+            border: 1px solid var(--nav-border); border-radius: 20px; overflow: hidden;
+            background-color: var(--nav-bg); box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        h2.toc-title {
-            text-align: center;
-            margin-top: 3em;
-            border-top: 2px solid var(--border-color);
-            padding-top: 1em;
+        .lang-switch a {
+            display: block; padding: 0 0.8em; line-height: 38px; font-size: 0.85rem;
+            color: var(--text-color); text-decoration: none; transition: background-color 0.2s;
         }
-        
-        /* Index Specific: The Absolute Canon Header */
-        .index-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            margin-top: 2rem;
-        }
-        .main-title {
-            font-size: 2.2rem;
-            margin-bottom: 0.1em;
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
-        .subtitle {
-            font-family: monospace;
-            font-size: 1.1rem;
-            color: var(--scene-break);
-            margin-bottom: 1.5rem;
-            letter-spacing: 3px;
-        }
-        .stats {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-        }
+        .lang-switch a + a { border-left: 1px solid var(--nav-border); }
+        .lang-switch a:hover { background-color: var(--nav-hover); }
+        .lang-switch a.current { font-weight: bold; background-color: var(--nav-hover); }
+
+        h1 { text-align: center; line-height: 1.3; margin: 1.5em 0; }
+        h2.toc-title { text-align: center; margin-top: 3em; border-top: 2px solid var(--border-color); padding-top: 1em; }
+        .index-header { text-align: center; margin: 2rem 0; }
+        .main-title { font-size: 2.2rem; margin-bottom: 0.1em; font-weight: 900; letter-spacing: 2px; }
+        .subtitle { font-family: monospace; font-size: 1.1rem; color: var(--scene-break); margin-bottom: 1.5rem; letter-spacing: 3px; }
+        .stats { font-size: 1.1rem; font-weight: bold; margin-bottom: 2rem; }
         .warning-box {
-            margin: 2rem auto;
-            padding: 1.5rem;
-            border: 2px solid var(--warning-border);
-            background-color: var(--warning-bg);
-            border-radius: 4px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 2rem auto; padding: 1.5rem; border: 2px solid var(--warning-border);
+            background-color: var(--warning-bg); border-radius: 4px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        .warning-title {
-            color: var(--warning-border);
-            font-weight: 900;
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            font-family: monospace;
-            letter-spacing: 1px;
-        }
-        .warning-box p {
-            color: var(--warning-text);
-            margin: 0;
-            text-indent: 0;
-            font-weight: bold;
-            line-height: 1.6;
-        }
+        .warning-title { color: var(--warning-border); font-weight: 900; font-size: 1.2rem; margin-bottom: 0.8rem; font-family: monospace; letter-spacing: 1px; }
+        .warning-box p { color: var(--warning-text); margin: 0; text-indent: 0; font-weight: bold; line-height: 1.6; }
+        .about-btn-row { text-align: center; margin-bottom: 3.5rem; }
+        .about-btn-row .nav-button { font-weight: bold; cursor: pointer; padding: 1em 2.5em; letter-spacing: 2px; }
 
-        /* Table of Contents Specific Styles */
-        .toc_volume {
-            margin-top: 2.5em;
-            font-size: 1.5em;
-            font-weight: bold;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 0.5em;
-        }
-        .toc_chapter_list {
-            list-style-type: none;
-            padding-left: 0;
-        }
+        .toc_volume { margin-top: 2.5em; font-size: 1.5em; font-weight: bold; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5em; }
+        .toc_chapter_list { list-style-type: none; padding-left: 0; }
         .toc_chapter_list li { margin: 0.75em 0; }
-        .toc_chapter_list a {
-            text-decoration: none;
-            color: var(--link-color);
-            font-size: 1.1em;
-            transition: color 0.2s;
-        }
+        .toc_chapter_list a { text-decoration: none; color: var(--link-color); font-size: 1.1em; transition: color 0.2s; }
         .toc_chapter_list a:hover { text-decoration: underline; }
-        
-        /* About Modal Styles */
+
         .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--modal-overlay);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--modal-overlay);
+            z-index: 2000; display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
         }
-        .modal-overlay.show {
-            opacity: 1;
-            visibility: visible;
-        }
+        .modal-overlay.show { opacity: 1; visibility: visible; }
         .modal-content {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            padding: 3rem 2.5rem;
-            border-radius: 8px;
-            max-width: 650px;
-            width: 90%;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            border: 1px solid var(--border-color);
+            background-color: var(--bg-color); color: var(--text-color); padding: 3rem 2.5rem; border-radius: 8px;
+            max-width: 650px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5); border: 1px solid var(--border-color); text-align: left;
         }
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2rem;
-            font-weight: bold;
-            cursor: pointer;
-            color: var(--scene-break);
-            transition: color 0.2s;
-            line-height: 1;
-        }
-        .modal-close:hover {
-            color: var(--warning-border);
-        }
-        .about-h3 {
-            font-size: 1.1rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.3em;
-            margin-top: 2.5em;
-            color: var(--text-color);
-        }
-        .about-list {
-            padding-left: 1.5em;
-            margin-bottom: 1.5em;
-        }
-        .about-list li {
-            margin-bottom: 0.8em;
-        }
-        .about-deployment {
-            text-align: center;
-            font-family: monospace;
-            margin-top: 3.5em;
-            color: var(--scene-break);
-            font-weight: bold;
-            letter-spacing: 1px;
-            background-color: var(--nav-bg);
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-        }
+        .modal-close { position: absolute; top: 15px; right: 20px; font-size: 2rem; font-weight: bold; cursor: pointer; color: var(--scene-break); transition: color 0.2s; line-height: 1; }
+        .modal-close:hover { color: var(--warning-border); }
+        .about-title { text-align: center; font-family: monospace; letter-spacing: 3px; margin-top: 0; margin-bottom: 1.5rem; }
+        .about-h3 { font-size: 1.1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.3em; margin-top: 2.5em; color: var(--text-color); }
+        .about-list { padding-left: 1.5em; margin-bottom: 1.5em; }
+        .about-list li { margin-bottom: 0.8em; }
         code {
-            background-color: var(--nav-hover);
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            font-family: monospace;
-            color: var(--warning-text);
-            font-weight: bold;
-            font-size: 0.95em;
-            border: 1px solid var(--nav-border);
+            background-color: var(--nav-hover); padding: 0.2em 0.4em; border-radius: 3px; font-family: monospace;
+            color: var(--warning-text); font-weight: bold; font-size: 0.95em; border: 1px solid var(--nav-border);
         }
 
-        /* Chapter Content */
-        p {
-            text-indent: 1em;
-            margin-top: 0;
-            margin-bottom: 0;
-            font-size: 1.1em;
-        }
-        /* セリフ・内心の声の行は字下げなし */
-        p.no-indent {
-            text-indent: 0;
-        }
-        /* 空行（段落の区切り）の後の最初の行に上マージンを追加 */
-        p.new-block {
-            margin-top: 1em;
-        }
-        /* Markdown 記法のスタイル */
-        strong {
-            font-weight: bold;
-        }
-        em {
-            font-style: italic;
-        }
-        del {
-            text-decoration: line-through;
-            opacity: 0.7;
-        }
+        p { text-indent: 1em; margin-top: 0; margin-bottom: 0; font-size: 1.1em; }
+        p.no-indent { text-indent: 0; }
+        p.new-block { margin-top: 1em; }
+        html[lang="en"] #chapter-content p { text-indent: 0; }
+        strong { font-weight: bold; }
+        em { font-style: italic; }
+        del { text-decoration: line-through; opacity: 0.7; }
+
+        /* Markdown のブロック */
+        .md-h { font-size: 1.2em; text-align: center; margin: 2em 0 1em; }
+        .md-list { margin: 1em 0; padding-left: 1.5em; font-size: 1.1em; }
+        .md-list li { margin: 0.4em 0; }
+        .md-quote { margin: 1.5em 0; padding: 0.8em 1.2em; border-left: 3px solid var(--border-color); background-color: var(--nav-bg); }
+        .md-quote p { text-indent: 0; }
+        .md-hr { border: 0; border-top: 1px solid var(--border-color); margin: 2em auto; width: 60%; }
+        .md-code { margin: 1.5em 0; padding: 1em; overflow-x: auto; background-color: var(--nav-bg); border: 1px solid var(--border-color); border-radius: 4px; }
+        .md-code code { background: none; border: 0; padding: 0; color: var(--text-color); font-weight: normal; white-space: pre; }
+
         img.novel-image {
-            display: block;
-            max-width: 100%;
-            margin: 2.5rem auto;
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: block; max-width: 100%; margin: 2.5rem auto; cursor: pointer;
+            transition: transform 0.2s ease-in-out; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         img.novel-image:hover { transform: scale(1.02); }
-        video.novel-video {
-            display: block;
-            max-width: 100%;
-            margin: 2.5rem auto;
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            background-color: #000;
-        }
-        .scene-break {
-            text-align: center;
-            margin: 3em auto;
-            letter-spacing: 0.5em;
-            color: var(--scene-break);
-            text-indent: 0;
-        }
+        video.novel-video { display: block; max-width: 100%; margin: 2.5rem auto; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background-color: #000; }
+        .scene-break { text-align: center; margin: 3em auto; letter-spacing: 0.5em; color: var(--scene-break); text-indent: 0; }
 
-        /* Responsive YouTube Player */
         .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            margin: 2em auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            background-color: #000;
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;
+            margin: 2em auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); background-color: #000;
         }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-        
-        /* Annotation Popups */
-        .annotation-ref {
-            position: relative;
-            cursor: pointer;
-            color: var(--link-color);
-            text-decoration: none;
-            vertical-align: super;
-            font-size: 0.8em;
-            line-height: 0;
-        }
-        .annotation-ref .annotation-popup {
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.2s;
-            position: absolute;
-            bottom: 1.6em;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 280px;
-            background-color: var(--popup-bg);
-            color: var(--popup-text);
-            border-radius: 5px;
-            padding: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-            z-index: 100;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            text-indent: 0;
-        }
-        .annotation-ref:hover .annotation-popup {
-            visibility: visible;
-            opacity: 1;
-        }
-        
-        /* Image Lightbox Styles */
-        .lightbox-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--overlay-bg);
-            z-index: 1000;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-            overflow: hidden;
-        }
-        .lightbox-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            max-width: 90vw;
-            max-height: 90vh;
-            cursor: grab;
-            transform-origin: 0 0;
-        }
-        
-        /* Chapter Navigation */
-        .navigation-buttons {
-            text-align: center;
-            padding: 0;
-        }
-        .navigation-bottom {
-            margin-top: 4em;
-            padding-top: 2em;
-            border-top: 1px solid var(--border-color);
-        }
-        .nav-button {
-            display: inline-block;
-            padding: 0.8em 1.5em;
-            margin: 0.2em 0.5em;
-            border: 1px solid var(--nav-border);
-            border-radius: 5px;
-            background-color: var(--nav-bg);
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 1em;
-            transition: background-color 0.2s, border-color 0.2s;
-        }
-        .nav-button:hover {
-            background-color: var(--nav-hover);
-            border-color: var(--scene-break);
-        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* --- LOCK SCREEN SPECIFIC STYLES --- */
-        .lock-screen {
-            text-align: center;
-            margin: 5rem auto;
-            padding: 4rem 2rem;
-            border: 2px solid var(--warning-border);
-            background-color: var(--warning-bg);
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .annotation-ref { position: relative; cursor: pointer; color: var(--link-color); text-decoration: none; vertical-align: super; font-size: 0.8em; line-height: 0; }
+        .annotation-ref .annotation-popup {
+            visibility: hidden; opacity: 0; transition: opacity 0.2s; position: absolute; bottom: 1.6em; left: 50%;
+            transform: translateX(-50%); width: 280px; background-color: var(--popup-bg); color: var(--popup-text);
+            border-radius: 5px; padding: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.25); z-index: 100;
+            font-size: 0.9rem; line-height: 1.5; text-indent: 0;
         }
-        .lock-warning {
-            color: var(--warning-border);
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            font-family: monospace;
-            margin-bottom: 1.5rem;
+        .annotation-ref:hover .annotation-popup { visibility: visible; opacity: 1; }
+
+        .lightbox-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--overlay-bg); z-index: 1000; cursor: pointer; transition: opacity 0.3s ease; overflow: hidden; }
+        .lightbox-image { position: absolute; top: 0; left: 0; max-width: 90vw; max-height: 90vh; cursor: grab; transform-origin: 0 0; }
+
+        .navigation-buttons { text-align: center; padding: 0; }
+        .navigation-bottom { margin-top: 4em; padding-top: 2em; border-top: 1px solid var(--border-color); }
+        .nav-button {
+            display: inline-block; padding: 0.8em 1.5em; margin: 0.2em 0.5em; border: 1px solid var(--nav-border);
+            border-radius: 5px; background-color: var(--nav-bg); color: var(--text-color); text-decoration: none;
+            font-size: 1em; transition: background-color 0.2s, border-color 0.2s;
         }
-        .lock-message {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--warning-text);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-        .countdown {
-            font-size: 2.8rem;
-            font-family: monospace;
-            color: var(--warning-border);
-            letter-spacing: 4px;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(204,0,0,0.3);
-        }
-        .locked-chapter {
-            color: var(--scene-break) !important;
-            font-family: monospace;
-            letter-spacing: 2px;
-        }
-        .locked-chapter:hover {
-            color: var(--warning-border) !important;
-            text-decoration: none !important;
-        }
+        .nav-button:hover { background-color: var(--nav-hover); border-color: var(--scene-break); }
+
+        .lock-screen { text-align: center; margin: 5rem auto; padding: 4rem 2rem; border: 2px solid var(--warning-border); background-color: var(--warning-bg); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .lock-warning { color: var(--warning-border); font-size: 1.5rem; font-weight: 900; letter-spacing: 2px; font-family: monospace; margin-bottom: 1.5rem; }
+        .lock-message { font-size: 1.1rem; font-weight: bold; color: var(--warning-text); margin-bottom: 3rem; line-height: 1.8; }
+        .countdown { font-size: 2.8rem; font-family: monospace; color: var(--warning-border); letter-spacing: 4px; font-weight: bold; text-shadow: 0 0 10px rgba(204,0,0,0.3); }
+        .locked-chapter { color: var(--scene-break) !important; font-family: monospace; letter-spacing: 2px; }
+        .locked-chapter:hover { color: var(--warning-border) !important; text-decoration: none !important; }
+        @media (max-width: 600px) { .lang-switch a { padding: 0 0.55em; font-size: 0.8rem; } }
     </style>
 </head>
 <body>
     <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
     
     <div class="container">
-        <div class="navigation-buttons navigation-top"><a href="chapter_40.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_42.html" class="nav-button">次の章へ</a></div>
-                <div id="lock-screen" class="lock-screen" style="display: none;">
-                    <div class="lock-warning">【SYSTEM ALERT: ACCESS DENIED】</div>
-                    <div class="lock-message">指定された認知データは現在封印されています。<br>物理次元の解禁時刻まで待機してください。</div>
-                    <div class="countdown" id="countdown-timer">T-MINUS --:--:--</div>
-                </div>
-                <div id="chapter-content"><h1>第41章 ユーマちゃん</h1>
+<div class="navigation-buttons navigation-top"><a href="chapter_40.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_42.html" class="nav-button">次の章へ</a></div>
+<div id="lock-screen" class="lock-screen" style="display: none;"><div class="lock-warning">【SYSTEM ALERT: ACCESS DENIED】</div><div class="lock-message">指定された認知データは現在封印されています。<br>物理次元の解禁時刻まで待機してください。</div><div class="countdown" id="countdown-timer">T-MINUS --:--:--</div></div>
+<div id="chapter-content"><h1>第41章 ユーマちゃん</h1>
 <p>魔界の朝は、ひどく歪な明るさで幕を開けた。強烈な熱線が西から東へと地平線を舐めるように移動し、極寒の雪原をじりじりと焼いている。肌を刺すような冷気と、頭上から降り注ぐ矛盾した熱。そして何より、水飴のように重くまとわりつく大気が肺を圧迫した。メデアは耐えきれずに咳き込み、口元を覆った手のひらを見つめる。地獄の塵芥が、まだ喉の奥にへばりついているかのようだ。対照的に、落下地点からイグルーまで運んでくれたユキとマイは、この有毒な空気を涼しい顔で吸い込んでいた。</p>
-<p class="no-indent new-block">「ねえメデア、次のステージはどこにする？」</p>
+<p class="no-indent new-block">「で、メデア。次のステージはどこにする？ 行くの？ 行かないの？」</p>
 <p>火にかけた釜から顔を上げ、ユキが楽しげに笑いかけてくる。</p>
 <p class="no-indent new-block">「エリスのところへ行きたいです。私の魔導書を本当に持っているのか、確かめなければなりませんから」</p>
-<p class="no-indent new-block">「エリスなら、きっとウィナの廃墟でくすぶってるわ。あそこは魔界でも特に熱い……というか、ヤバいビートが鳴ってる場所だけど。メデアなら平気よね？ だって、あの魔界の門を抜けてきたんだもん」</p>
-<p>ユキは意味ありげな視線を、傍らに立つマイへと向けた。</p>
+<p class="no-indent new-block">「エリスなら、きっといつもみたいにウィナの廃墟あたりをうろついてるわ。ね？」</p>
+<p>ユキが聞くと、傍らのマイが頷いた。</p>
+<p class="no-indent">「あそこへ行く道、けっこうヤバいビートが鳴ってるのよね。でもメデアなら平気でしょ？ 魔界まで飛んできたんだもん、怖いものなしよね」</p>
 <p class="no-indent new-block">「恐怖心と用心深さは別物です。何も恐れてはいませんが、無謀な真似をするつもりはありません」</p>
-<p class="no-indent new-block">「そうね。で、マイと行く？ それとも、私とセッションする？」</p>
+<p class="no-indent new-block">「うんうん、それが正解！」</p>
+<p>ユキが言うと、マイがじろりとにらんだ。</p>
+<p class="no-indent">「で、マイと行く？ それとも私とセッションする？」</p>
 <p class="new-block">一面の銀世界に目を向ける。深い雪に足を取られることを想像し、小さくため息をついた。</p>
 <p class="no-indent new-block">「マイは散歩に行きたいと言っていましたよね？ でも、どうやって向かうつもりですか？ まさか歩くわけにも……」</p>
-<p class="new-block">マイはしばらくの間、無言でこちらを値踏みするように見つめていた。やがて、冷たい吐息と共に言葉をこぼす。</p>
-<p class="no-indent">「……飛べないの？」</p>
+<p class="new-block">マイがじろりとこちらを眺めて、口を開いた。この十分で、やっと出た一言だった。</p>
+<p class="no-indent">「あんた、飛べないの？」</p>
 <p class="no-indent new-block">「ええ、飛べません。ですが……」</p>
 <p>雪に埋もれたままのひしゃげた自転車に歩み寄り、冷え切ったフレームを両手で包み込む。意識を集中させると、金属の表面が微かに脈打つような熱を帯び始めた。</p>
 <p class="no-indent new-block">（この自転車……まさか、私の思考に反応しているのかしら？）</p>
 <p class="new-block">ペダルに足をかけた瞬間、まばゆい光が視界を白く染め上げる。浮遊感に包まれ、次に気づいた時には、車体は雪面を滑るように疾走していた。見下ろせば、それはもはや自転車ではなく、雪上を駆ける流線型のスノーレーサーへと姿を変えている。見た目は子供の玩具のようだが、驚くほど安定していた。スピードを緩め、振り返る。</p>
-<p class="no-indent new-block">「わあ！ 最高じゃない！ そんなビート、初めて見たわ！」</p>
-<p>ユキが歓声を上げる。マイはただ黙って、生まれ変わった乗り物を冷徹な眼差しで見つめていた。</p>
+<p class="no-indent new-block">「すっごーい！ 最高じゃない！ そんなビート、初めて見た！」</p>
+<p>ユキが歓声を上げる。マイはいつものように黙ったまま、不思議そうに乗り物を眺めていた。</p>
 <p class="no-indent new-block">「そろそろ出発しますね。ユキ、色々とありがとうございました」</p>
-<p>軽く頭を下げ、冷ややかな視線を向ける同伴者に声をかける。</p>
+<p>軽く頭を下げ、同伴者に声をかける。</p>
 <p class="no-indent">「マイ、準備はよろしいですか？」</p>
-<p class="new-block">マイはふわりと宙に浮き上がり、太陽の軌道から推測される南西の方角を無言で指し示した。</p>
+<p class="new-block">マイの白いドレスがふくらみ、その体がふわりと宙に浮き上がる。背中には、白い羽根の大きな翼が広がっていた。マイは太陽の軌道から推測される南西の方角を、無言で指し示した。</p>
 <p class="no-indent new-block">（マイ……何を考えているのか全く読めないわね。まあ、私も無駄口を叩く性分ではないから構わないけれど）</p>
 <p class="new-block">スノーレーサーは雪の砂丘をものともせず、猛烈なスピードで駆け抜けていく。前方を飛ぶマイは一度も振り返ることなく、ただ静かに風を切って先導していた。</p>
 <p>ハンドルを握りしめながら、再び喉の奥から咳が込み上げる。呼吸をするたびに、魔界の重い大気が体力を削り取っていく。</p>
@@ -531,8 +224,8 @@
 <p class="no-indent">（……戦闘用の魔法を習得しなければ、この世界では生き残れないわね）</p>
 <p class="no-indent">（これが……魔界の悪魔？ あんなに幼い姿をしているのに）</p>
 <p class="new-block">雪まみれになりながら体勢を立て直し、再びスノーレーサーを走らせる。マイは振り返ることもなく、ただ背後へ向けて絶対零度の冷気を放ち続けた。追撃を試みた幼い悪魔たちは、次々と空中で凍りつき、氷塊となって雪原へ墜落していく。</p>
-<p class="no-indent new-block">「……遅いわね、あんた」</p>
-<p>マイの冷酷な声が、凍てついた風に乗って届いた。</p>
+<p class="no-indent new-block">「遅れるな、弱虫！」</p>
+<p>マイの叫び声が、凍てついた風に乗って届いた。</p>
 <p class="new-block">やがて氷雪地帯を抜けると、空気が一変した。乾いた土の匂いと、生ぬるい風。スノーレーサーは雪を失い、硬い地面の上で悲鳴のような摩擦音を立てて急停止した。マイは音もなく舞い降りる。</p>
 <p class="no-indent new-block">「もうすぐよ」</p>
 <p>マイが顎でしゃくった先には、異様な色彩の植物が絡みつく石造りの遺構と、錆びた機械の残骸が散乱する廃墟が広がっていた。</p>
@@ -540,12 +233,12 @@
 <p class="new-block">スノーレーサーを引いて歩こうとしたが、雪上での軽快さが嘘のように、地面にへばりついて動かない。力任せに引っ張ると、車体はふっと実体を失い、手の中に一つの小さな光る卵だけが残された。窓付きがいた独房で見つけたものと酷似している。それをポケットへ滑り込ませ、瓦礫の上を歩くマイの背中を追った。</p>
 <p class="no-indent new-block">「エリスはここに住んでいるのですか？」</p>
 <p>崩れたレンガと錆びた歯車の山を見渡しながら尋ねる。</p>
-<p class="no-indent new-block">「あいつは決まった場所にいないわ」</p>
+<p class="no-indent new-block">「あいつはどこにでも住んでるわ」</p>
 <p>マイは崩落した石壁を軽々と跳び越えながら答えた。</p>
 <p class="new-block">その時、背筋を凍らせるような悪寒が走った。空気がビリビリと震え、得体の知れない重圧が周囲の空間を歪めている。</p>
-<p class="no-indent new-block">「たいていは、あの犬小屋みたいな場所で寝てるはずだけど」</p>
+<p class="no-indent new-block">「たいていは、あの犬小屋みたいなとこにいるわ」</p>
 <p>マイが指差したのは、崩れた石板が積み重なった薄暗い空洞だった。</p>
-<p class="no-indent">「覗いてみたら？」</p>
+<p class="no-indent">「あんた、行きなさい」</p>
 <p class="new-block">息を潜め、軋む金属片を踏まないよう慎重に歩を進める。異常な気配は、一歩近づくごとに濃厚になっていく。</p>
 <p class="no-indent new-block">「ごめんください。どなたかいらっしゃいますか？」</p>
 <p>返事はない。短い光の呪文を唱えて内部を照らすが、埃を被ったガラクタの山があるだけだ。</p>
@@ -557,8 +250,8 @@
 <p class="new-block">完全に包囲されていた。見上げるほどの巨大な瞳孔が、一斉にこちらをロックオンする。視線そのものが物理的な質量を持っているかのような圧迫感。逃げ場のない圧倒的な暴力の気配に、皮膚が粟立った。</p>
 <p class="new-block">最も近くの眼球から、大気を灼くような熱線が放たれる。間一髪で横へ転がり込むと、直前までいた場所の瓦礫が真っ赤に融解した。</p>
 <p class="no-indent new-block">（マイは……？ まさか、彼女が仕組んだの？）</p>
-<p class="no-indent new-block">「中に入りなさい！ 私が何とかするわ」</p>
-<p>背後から、マイの切羽詰まったような、それでいて冷え切った声が響く。</p>
+<p class="no-indent new-block">「中に入れ！ こいつは私が片づける！」</p>
+<p>背後から、マイの叫び声が響く。</p>
 <p class="new-block">だが、入り口の方へ視線を向けたメデアの目に飛び込んできたのは、上空から急降下してくる巨大なコウモリの翼だった。</p>
 <p class="no-indent new-block">「ちょっと！ 何やってんのよ！ ユーマちゃんが来たら、ここめちゃくちゃになっちゃうじゃない！」</p>
 <p>乱気流を巻き起こしながら降り立った少女が、苛立たしげに叫ぶ。</p>
@@ -569,173 +262,75 @@
 <p class="no-indent new-block">（にゃんこちゃん……？）</p>
 <p class="no-indent new-block">「危ないってば！ 早くしなさいよ！」</p>
 <p>少女は切迫した声で急かす。</p>
-<p class="no-indent new-block">「邪魔よ。メデア、永遠に凍りつきたくないなら、さっさとそこに隠れてなさい」</p>
-<p>マイは巨大な冷気を手元に圧縮させながら、冷酷に言い放つ。</p>
+<p class="no-indent new-block">「失せろ、変態女！ メデア、死にたくなかったら中に入れ！」</p>
+<p>マイは巨大な氷の塊を両手に構えたまま、声を張り上げた。</p>
 <p class="new-block">熱線が頬のすぐ横を掠め、焦げた髪の匂いが鼻をつく。手持ちの魔法のどれ一つとして、この巨大な怪物を退けられるものはない。</p>
 <p>目の前には、有無を言わさぬ冷気を放つマイと、胡散臭い笑みを浮かべて手を差し出す未知の少女。</p>
 <p class="no-indent new-block">（……一体、どちらを信じるべきなの？）</p>
-</div><div class="navigation-buttons navigation-bottom"><a href="chapter_40.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_42.html" class="nav-button">次の章へ</a></div>
+</div>
+<div class="navigation-buttons navigation-bottom"><a href="chapter_40.html" class="nav-button">前の章へ</a><a href="index.html" class="nav-button">目次へ</a><a href="chapter_42.html" class="nav-button">次の章へ</a></div>
     </div>
-    
     <div id="lightbox" class="lightbox-overlay" style="display: none;">
-        <img id="lightbox-img" class="lightbox-image">
+        <img id="lightbox-img" class="lightbox-image" alt="">
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Theme Toggle Logic ---
-            const toggleBtn = document.getElementById('theme-toggle');
-            toggleBtn.addEventListener('click', () => {
-                let theme = document.documentElement.getAttribute('data-theme');
-                if (theme === 'dark') {
-                    document.documentElement.removeAttribute('data-theme');
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                    localStorage.setItem('theme', 'dark');
-                }
+            document.getElementById('theme-toggle').addEventListener('click', () => {
+                const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+                if (dark) { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); }
+                else { document.documentElement.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); }
             });
 
-            // --- About Modal Logic ---
             const aboutBtn = document.getElementById('about-btn');
             const aboutModal = document.getElementById('about-modal');
             const aboutClose = document.getElementById('about-close');
-
             if (aboutBtn && aboutModal && aboutClose) {
-                aboutBtn.addEventListener('click', () => {
-                    aboutModal.classList.add('show');
-                });
-                aboutClose.addEventListener('click', () => {
-                    aboutModal.classList.remove('show');
-                });
-                aboutModal.addEventListener('click', (e) => {
-                    if (e.target === aboutModal) {
-                        aboutModal.classList.remove('show');
-                    }
-                });
+                aboutBtn.addEventListener('click', () => aboutModal.classList.add('show'));
+                aboutClose.addEventListener('click', () => aboutModal.classList.remove('show'));
+                aboutModal.addEventListener('click', e => { if (e.target === aboutModal) aboutModal.classList.remove('show'); });
             }
 
-            // --- Lightbox Logic ---
             const lightbox = document.getElementById('lightbox');
             if (!lightbox) return;
-            
-            const lightboxImg = document.getElementById('lightbox-img');
-            let isDragging = false, startX, startY;
-            let translateX = 0, translateY = 0, currentScale = 1;
-
-            function updateImageTransform() {
-                lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
-            }
-            
-            function resetImageTransform(x = 0, y = 0) {
-                currentScale = 1;
-                translateX = x;
-                translateY = y;
-                updateImageTransform();
-            }
-
-            lightboxImg.onload = () => {
-                const imgWidth = lightboxImg.offsetWidth;
-                const imgHeight = lightboxImg.offsetHeight;
-                const initialX = (window.innerWidth - imgWidth) / 2;
-                const initialY = (window.innerHeight - imgHeight) / 2;
-                resetImageTransform(initialX, initialY);
-            };
-
-            document.querySelectorAll('.novel-image').forEach(image => {
-                image.addEventListener('click', e => {
-                    e.stopPropagation();
-                    lightboxImg.src = image.src;
-                    lightbox.style.display = 'block';
-                });
-            });
-
-            lightbox.addEventListener('click', () => {
-                lightbox.style.display = 'none';
-            });
-
-            lightboxImg.addEventListener('click', e => e.stopPropagation());
-
-            lightboxImg.addEventListener('wheel', e => {
+            const img = document.getElementById('lightbox-img');
+            let dragging = false, sx, sy, tx = 0, ty = 0, sc = 1;
+            const apply = () => { img.style.transform = `translate(${tx}px, ${ty}px) scale(${sc})`; };
+            img.onload = () => { sc = 1; tx = (window.innerWidth - img.offsetWidth) / 2; ty = (window.innerHeight - img.offsetHeight) / 2; apply(); };
+            document.querySelectorAll('.novel-image').forEach(im => im.addEventListener('click', e => {
+                e.stopPropagation(); img.src = im.src; lightbox.style.display = 'block';
+            }));
+            lightbox.addEventListener('click', () => { lightbox.style.display = 'none'; });
+            img.addEventListener('click', e => e.stopPropagation());
+            img.addEventListener('wheel', e => {
                 e.preventDefault();
-                const scaleAmount = 0.1;
-                const scaleDirection = e.deltaY > 0 ? -1 : 1;
-                const newScale = Math.max(0.5, currentScale + scaleAmount * scaleDirection);
-                translateX = e.clientX - (e.clientX - translateX) * (newScale / currentScale);
-                translateY = e.clientY - (e.clientY - translateY) * (newScale / currentScale);
-                currentScale = newScale;
-                updateImageTransform();
+                const ns = Math.max(0.5, sc + 0.1 * (e.deltaY > 0 ? -1 : 1));
+                tx = e.clientX - (e.clientX - tx) * (ns / sc); ty = e.clientY - (e.clientY - ty) * (ns / sc); sc = ns; apply();
             });
-            
-            lightboxImg.addEventListener('mousedown', e => {
-                e.preventDefault();
-                isDragging = true;
-                startX = e.pageX - translateX;
-                startY = e.pageY - translateY;
-                lightboxImg.style.cursor = 'grabbing';
-            });
-
-            window.addEventListener('mousemove', e => {
-                if (isDragging) {
-                    translateX = e.pageX - startX;
-                    translateY = e.pageY - startY;
-                    updateImageTransform();
-                }
-            });
-
-            window.addEventListener('mouseup', () => {
-                if(isDragging) {
-                    isDragging = false;
-                    lightboxImg.style.cursor = 'grab';
-                }
-            });
+            img.addEventListener('mousedown', e => { e.preventDefault(); dragging = true; sx = e.pageX - tx; sy = e.pageY - ty; img.style.cursor = 'grabbing'; });
+            window.addEventListener('mousemove', e => { if (dragging) { tx = e.pageX - sx; ty = e.pageY - sy; apply(); } });
+            window.addEventListener('mouseup', () => { if (dragging) { dragging = false; img.style.cursor = 'grab'; } });
         });
     </script>
-    
-    
-<script>
+    <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const isPublishEnabled = true;
         const pubTime = 1781092800000;
-
-        if (isPublishEnabled && pubTime > Date.now()) {
-            const contentDiv = document.getElementById('chapter-content');
-            const lockScreen = document.getElementById('lock-screen');
-            const timerEl = document.getElementById('countdown-timer');
-            
-            contentDiv.style.display = 'none';
-            lockScreen.style.display = 'block';
-            
-            const updateTimer = () => {
-                const diff = pubTime - Date.now();
-                if (diff <= 0) {
-                    contentDiv.style.display = 'block';
-                    lockScreen.style.display = 'none';
-                    return true; 
-                }
-                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((diff % (1000 * 60)) / 1000);
-                
-                let timeStr = 'T-MINUS ';
-                if (d > 0) timeStr += d + 'D ';
-                timeStr += h.toString().padStart(2, '0') + ':' + 
-                           m.toString().padStart(2, '0') + ':' + 
-                           s.toString().padStart(2, '0');
-                timerEl.innerText = timeStr;
-                return false;
-            };
-            
-            if (!updateTimer()) {
-                const interval = setInterval(() => {
-                    if(updateTimer()) clearInterval(interval);
-                }, 1000);
-            }
-        }
+        if (!(true && pubTime > Date.now())) return;
+        const contentDiv = document.getElementById('chapter-content');
+        const lockScreen = document.getElementById('lock-screen');
+        const timerEl = document.getElementById('countdown-timer');
+        contentDiv.style.display = 'none';
+        lockScreen.style.display = 'block';
+        const pad = n => n.toString().padStart(2, '0');
+        const tick = () => {
+            const diff = pubTime - Date.now();
+            if (diff <= 0) { contentDiv.style.display = 'block'; lockScreen.style.display = 'none'; return true; }
+            const d = Math.floor(diff / 86400000), h = Math.floor(diff % 86400000 / 3600000),
+                  m = Math.floor(diff % 3600000 / 60000), s = Math.floor(diff % 60000 / 1000);
+            timerEl.innerText = 'T-MINUS ' + (d > 0 ? d + 'D ' : '') + pad(h) + ':' + pad(m) + ':' + pad(s);
+            return false;
+        };
+        if (!tick()) { const iv = setInterval(() => { if (tick()) clearInterval(iv); }, 1000); }
     });
 </script>
-
-    
 </body>
 </html>
